@@ -10,6 +10,7 @@ from sqlalchemy.ext.asyncio import async_engine_from_config
 from delivery.database.models import BaseServiceModel
 from delivery.settings import settings
 
+
 target_metadata: typing.Final = BaseServiceModel.metadata
 main_alembic_config: typing.Final = context.config
 
