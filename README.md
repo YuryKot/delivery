@@ -1,4 +1,5 @@
 # Демо проект к курсу "Domain Driven Design и Clean Architecture на языке Java"
+
 📚 Подробнее о курсе: [microarch.ru/courses/ddd/languages/java](https://microarch.ru/courses/ddd/languages/java?utm_source=gitlab&utm_medium=repository)
 
 ---
@@ -10,6 +11,7 @@
 ---
 
 # Запросы к БД
+
 ```
 SELECT * FROM public.couriers;
 SELECT * public.storage_places;
@@ -18,24 +20,11 @@ SELECT * public.outbox;
 ```
 
 # Очистка БД (все кроме справочников)
+
 ```
 DELETE FROM public.orders;
 DELETE FROM public.items;
 DELETE FROM public.outbox;
-```
-
-# Генерация HTTP сервера
-```
-mvn clean compile
-```
-
-# Генерация gRPC клиента из Protobuf
-```
-mvn clean compile
-```
-# Генерация интеграционных событий Kafka из Protobuf
-```
-mvn clean compile
 ```
 
 ## Лицензия

@@ -1,0 +1,107 @@
+[project]
+name = "delivery"
+version = "1.0.0"
+description = "delivery microservice"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "advanced-alchemy",
+    "alembic",
+    "joserfc",
+    "microbootstrap[fastapi,granian]",
+    "psycopg[binary]",
+    "raif-db-utils",
+    "stamina",
+    "that-depends",
+    "ujson>=5.11.0",
+    "uvloop",
+]
+
+[[tool.uv.index]]
+name = "raif"
+url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple"
+default = true
+
+[[tool.uv.index]]
+name = "community"
+url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/python-community-pypi/simple"
+
+
+
+[dependency-groups]
+dev = [
+    "hypothesis",
+    "mypy",
+    "pytest",
+    "pytest-cov",
+    "pytest-xdist",
+    "ruff",
+    "auto-typing-final",
+]
+
+
+[tool.ruff]
+target-version = "py313"
+fix = true
+unsafe-fixes = true
+line-length = 120
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "EM",
+    "FBT",
+    "TRY003",
+    "D1",
+    "D203",
+    "D213",
+    "G004",
+    "FA",
+    "ANN101",
+    "ANN102",
+    "COM812",
+    "ISC001",
+]
+
+[tool.ruff.lint.isort]
+no-lines-before = ["standard-library", "local-folder"]
+known-third-party = []
+known-local-folder = []
+lines-after-imports = 2
+
+[tool.ruff.lint.extend-per-file-ignores]
+"tests/*.py" = ["S101", "S311"]
+
+[tool.pytest.ini_options]
+addopts = '--cov=. -p no:warnings --cov-report term-missing'
+
+[tool.coverage.report]
+exclude_also = ["if typing.TYPE_CHECKING:"]
+
+[tool.coverage.run]
+concurrency = ["thread", "greenlet"]
+# core = "sysmon"  # remove line above and uncomment this line if you won't use SQLAlchemy — this will significantly improve performance
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+plugins = ["pydantic.mypy"]
+
+[tool.flake8]
+select = ["WPS"]
+exclude = [
+  ".cache",
+  ".cache/*",
+  ".cache/uv/archive-*",
+  ".venv",
+  "./.venv",
+  ".uv",
+  "__pypackages__",
+  "build",
+  "dist",
+  ".cache/*",
+   "**/.cache/*"
+]
