@@ -8,13 +8,13 @@ from delivery.libs.errs.general_errors import GeneralErrors
 
 
 class Comparable(Protocol):
-    def __lt__(self, other: typing.Any) -> bool: ...
+    def __lt__(self, other: typing.Any) -> bool: ...  # noqa: ANN401
 
-    def __le__(self, other: typing.Any) -> bool: ...
+    def __le__(self, other: typing.Any) -> bool: ...  # noqa: ANN401
 
-    def __gt__(self, other: typing.Any) -> bool: ...
+    def __gt__(self, other: typing.Any) -> bool: ...  # noqa: ANN401
 
-    def __ge__(self, other: typing.Any) -> bool: ...
+    def __ge__(self, other: typing.Any) -> bool: ...  # noqa: ANN401
 
 
 class Guard:
