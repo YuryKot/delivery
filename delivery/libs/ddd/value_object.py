@@ -5,13 +5,13 @@ from typing import Protocol
 
 
 class Comparable(Protocol):
-    def __lt__(self, other: typing.Any) -> bool: ...
+    def __lt__(self, other: typing.Any) -> bool: ...  # noqa: ANN401
 
-    def __le__(self, other: typing.Any) -> bool: ...
+    def __le__(self, other: typing.Any) -> bool: ...  # noqa: ANN401
 
-    def __gt__(self, other: typing.Any) -> bool: ...
+    def __gt__(self, other: typing.Any) -> bool: ...  # noqa: ANN401
 
-    def __ge__(self, other: typing.Any) -> bool: ...
+    def __ge__(self, other: typing.Any) -> bool: ...  # noqa: ANN401
 
 
 class ValueObject[T](ABC):
@@ -19,7 +19,7 @@ class ValueObject[T](ABC):
     def equality_components(self) -> typing.Iterable[object]: ...
 
     @staticmethod
-    def _safe_compare(a: object, b: object) -> int:
+    def _safe_compare(a: object, b: object) -> int:  # noqa: PLR0911
         if a is b:
             return 0
         if a is None:

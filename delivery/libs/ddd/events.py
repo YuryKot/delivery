@@ -8,7 +8,7 @@ if typing.TYPE_CHECKING:
     from delivery.libs.ddd.aggregate import Aggregate
 
 
-class DomainEvent(ABC):
+class DomainEvent(ABC):  # noqa: B024
     def __init__(self, source: object | None = None) -> None:
         self.event_id: uuid.UUID = uuid.uuid4()
         self.occurred_on_utc: datetime = datetime.now(UTC)

@@ -9,9 +9,7 @@ build:
     docker compose build
 
 test *args:
-    @just down
-    docker compose run --rm application pytest {{ args }}
-    @just down
+    uv run pytest {{ args }}
 
 run:
     @just down
