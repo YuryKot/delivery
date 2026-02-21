@@ -4,19 +4,19 @@ from typing import Protocol
 
 
 class Comparable(Protocol):
-    def __lt__(self, other: typing.Any) -> bool: ...
+    def __lt__(self, other: typing.Any) -> bool: ...  # noqa: ANN401
 
-    def __le__(self, other: typing.Any) -> bool: ...
+    def __le__(self, other: typing.Any) -> bool: ...  # noqa: ANN401
 
-    def __gt__(self, other: typing.Any) -> bool: ...
+    def __gt__(self, other: typing.Any) -> bool: ...  # noqa: ANN401
 
-    def __ge__(self, other: typing.Any) -> bool: ...
+    def __ge__(self, other: typing.Any) -> bool: ...  # noqa: ANN401
 
 
 TId = typing.TypeVar("TId", bound=Comparable)
 
 
-class BaseEntity[TId: Comparable](ABC):
+class BaseEntity[TId: Comparable](ABC):  # noqa: B024
     def __init__(self, id_: TId | None = None) -> None:
         self.id: TId | None = id_
 

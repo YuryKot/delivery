@@ -1,7 +1,7 @@
 import typing
 from collections.abc import Callable
 
-from delivery.libs.errs.error import DomainInvariantException, Error
+from delivery.libs.errs.error import DomainInvariantError, Error
 
 
 T = typing.TypeVar("T")
@@ -87,7 +87,7 @@ class Result[T, E: Error]:
     def get_value_or_throw(self) -> T:
         if self._is_success:
             return typing.cast("T", self._value)
-        raise DomainInvariantException(typing.cast("E", self._error))
+        raise DomainInvariantError(typing.cast("E", self._error))
 
     def __str__(self) -> str:
         if self._is_success:
@@ -165,7 +165,7 @@ class UnitResult[E: Error]:
         if exception_mapper is not None:
             raise exception_mapper(typing.cast("E", self._error))
 
-        raise DomainInvariantException(typing.cast("E", self._error))
+        raise DomainInvariantError(typing.cast("E", self._error))
 
     def __str__(self) -> str:
         if self._is_success:
