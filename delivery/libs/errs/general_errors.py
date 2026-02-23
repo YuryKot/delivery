@@ -5,7 +5,7 @@ from delivery.libs.errs.error import Error
 
 class GeneralErrors:
     @staticmethod
-    def not_found(name: str, id_: typing.Any) -> Error:
+    def not_found(name: str, id_: typing.Any) -> Error:  # noqa: ANN401
         if not name or not name.strip():
             msg: typing.Final = "Name must not be null or empty"
             raise ValueError(msg)
@@ -13,7 +13,7 @@ class GeneralErrors:
         return Error.of("record.not.found", f"Record not found. Name: {name}, id: {id_}")
 
     @staticmethod
-    def value_is_invalid(name: str, value: typing.Any) -> Error:
+    def value_is_invalid(name: str, value: typing.Any) -> Error:  # noqa: ANN401
         if not name or not name.strip():
             msg: typing.Final = "Name must not be null or empty"
             raise ValueError(msg)
@@ -51,7 +51,7 @@ class GeneralErrors:
         )
 
     @staticmethod
-    def value_is_out_of_range(name: str, value: typing.Any, min_value: typing.Any, max_value: typing.Any) -> Error:
+    def value_is_out_of_range(name: str, value: typing.Any, min_value: typing.Any, max_value: typing.Any) -> Error:  # noqa: ANN401
         if not name or not name.strip():
             msg: typing.Final = "Name must not be null or empty"
             raise ValueError(msg)
@@ -63,7 +63,7 @@ class GeneralErrors:
         return Error.of("value.is.out.of.range", message)
 
     @staticmethod
-    def value_must_be_greater_than(name: str, value: typing.Any, min_value: typing.Any) -> Error:
+    def value_must_be_greater_than(name: str, value: typing.Any, min_value: typing.Any) -> Error:  # noqa: ANN401
         if not name or not name.strip():
             msg: typing.Final = "Name must not be null or empty"
             raise ValueError(msg)
@@ -74,7 +74,7 @@ class GeneralErrors:
         )
 
     @staticmethod
-    def value_must_be_greater_or_equal(name: str, value: typing.Any, min_value: typing.Any) -> Error:
+    def value_must_be_greater_or_equal(name: str, value: typing.Any, min_value: typing.Any) -> Error:  # noqa: ANN401
         if not name or not name.strip():
             msg: typing.Final = "Name must not be null or empty"
             raise ValueError(msg)
@@ -85,7 +85,7 @@ class GeneralErrors:
         )
 
     @staticmethod
-    def value_must_be_less_than(name: str, value: typing.Any, max_value: typing.Any) -> Error:
+    def value_must_be_less_than(name: str, value: typing.Any, max_value: typing.Any) -> Error:  # noqa: ANN401
         if not name or not name.strip():
             msg: typing.Final = "Name must not be null or empty"
             raise ValueError(msg)
@@ -96,7 +96,7 @@ class GeneralErrors:
         )
 
     @staticmethod
-    def value_must_be_less_or_equal(name: str, value: typing.Any, max_value: typing.Any) -> Error:
+    def value_must_be_less_or_equal(name: str, value: typing.Any, max_value: typing.Any) -> Error:  # noqa: ANN401
         if not name or not name.strip():
             msg: typing.Final = "Name must not be null or empty"
             raise ValueError(msg)

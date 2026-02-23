@@ -5,10 +5,10 @@ from delivery.libs.ddd.value_object import ValueObject
 
 
 __all__ = [
-    "ValueObject",
-    "BaseEntity",
     "Aggregate",
     "AggregateRoot",
+    "BaseEntity",
     "DomainEvent",
     "DomainEventPublisher",
+    "ValueObject",
 ]

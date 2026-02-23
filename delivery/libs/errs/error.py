@@ -33,7 +33,7 @@ class Error:
     @staticmethod
     def deserialize(serialized: str) -> "Error":
         if serialized == "A non-empty request body is required.":
-            from delivery.libs.errs.general_errors import GeneralErrors
+            from delivery.libs.errs.general_errors import GeneralErrors  # noqa: PLC0415
 
             return GeneralErrors.value_is_required("serialized")
 
@@ -48,7 +48,7 @@ class Error:
     @staticmethod
     def throw_if(error: "Error | None") -> None:
         if error is not None:
-            raise DomainInvariantException(error)
+            raise DomainInvariantError(error)
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, Error):
@@ -62,7 +62,7 @@ class Error:
         return f"Error{{code='{self._code}', message='{self._message}'}}"
 
 
-class DomainInvariantException(Exception):
+class DomainInvariantError(Exception):
     def __init__(self, error: Error) -> None:
         super().__init__(f"Domain invariant violated: {error.message}")
         self.error = error

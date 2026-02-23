@@ -1,8 +1,8 @@
 import typing
 
 import pytest
-from fastapi.testclient import TestClient
 import sqlalchemy.ext.asyncio as sa_async
+from fastapi.testclient import TestClient
 
 from delivery.application import build_app
 from delivery.ioc import IOCContainer
@@ -20,7 +20,7 @@ async def _clear_ioc_container() -> typing.AsyncIterator[None]:
     await IOCContainer.tear_down()
 
 
-@pytest.fixture(scope="session", autouse=True)
+@pytest.fixture(scope="session")
 async def db_connection() -> typing.AsyncIterator[sa_async.AsyncConnection]:
     engine: typing.Final = await IOCContainer.main_database_engine()
     connection: typing.Final = await engine.connect()
@@ -28,7 +28,7 @@ async def db_connection() -> typing.AsyncIterator[sa_async.AsyncConnection]:
     await connection.close()
 
 
-@pytest.fixture(autouse=True)
+@pytest.fixture
 async def _rollback_database(db_connection: sa_async.AsyncConnection) -> typing.AsyncIterator[None]:
     transaction: typing.Final = await db_connection.begin()
     await db_connection.begin_nested()
@@ -42,7 +42,7 @@ async def _rollback_database(db_connection: sa_async.AsyncConnection) -> typing.
     await db_connection.close()
 
 
-@pytest.fixture()
+@pytest.fixture
 def test_client() -> typing.Iterator[TestClient]:
     with TestClient(app=build_app()) as app_client:
         yield app_client
