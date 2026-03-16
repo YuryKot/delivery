@@ -28,6 +28,13 @@ class Guard:
         return None
 
     @staticmethod
+    def against_null(value: typing.Any | None, param_name: str) -> Error | None:  # noqa: ANN401
+        """Проверяет, что значение не None."""
+        if value is None:
+            return GeneralErrors.value_is_required(param_name)
+        return None
+
+    @staticmethod
     def against_null_or_empty(value: str | None, param_name: str) -> Error | None:
         if value is None or not value.strip():
             return GeneralErrors.value_is_required(param_name)

@@ -6,6 +6,7 @@ import that_depends
 from db_utils.retries import make_async_retry_session_class
 from that_depends import ContextScopes, providers
 
+from delivery.core.domain.service.order_dispatch_service import OrderDispatchDomainService
 from delivery.settings import settings
 
 
@@ -32,3 +33,5 @@ class IOCContainer(that_depends.BaseContainer):
     main_database_session = providers.ContextResource(create_database_session, main_database_engine.cast)
     replica_database_engine = providers.Resource(create_database_engine)
     replica_database_session = providers.ContextResource(create_database_session, replica_database_engine.cast)
+
+    order_dispatch_service = providers.Factory(OrderDispatchDomainService)
