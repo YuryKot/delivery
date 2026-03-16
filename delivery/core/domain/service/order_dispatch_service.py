@@ -3,6 +3,7 @@ import typing
 from delivery.core.domain.model.courier.courier import Courier
 from delivery.core.domain.model.order.order import Order
 from delivery.libs.errs.error import Error
+from delivery.libs.errs.guard import Guard
 from delivery.libs.errs.result import Result
 
 
@@ -12,6 +13,13 @@ class OrderDispatchDomainService:
         order: Order,
         couriers: list[Courier],
     ) -> Result[Courier, Error]:
+        error: typing.Final = Guard.combine(
+            Guard.against_null(order, "order"),
+            Guard.against_null_or_empty_collection(couriers, "couriers"),
+        )
+        if error is not None:
+            return Result.failure(error)
+
         suitable_couriers: typing.Final = [courier for courier in couriers if courier.can_take_order(order.volume)]
 
         if not suitable_couriers:

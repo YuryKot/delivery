@@ -35,6 +35,49 @@ class TestOrderDispatchDomainService:
             volume=volume,
         )
 
+    def test_dispatch_with_null_order_raises_error(
+        self,
+        dispatch_service: OrderDispatchDomainService,
+    ) -> None:
+        result: typing.Final = dispatch_service.dispatch_order(
+            None,  # type: ignore[arg-type]
+            [],
+        )
+
+        assert result.is_failure
+        assert result.get_error().code == "value.is.required"
+
+    def test_dispatch_with_null_couriers_raises_error(
+        self,
+        dispatch_service: OrderDispatchDomainService,
+    ) -> None:
+        order: typing.Final = self._create_order(
+            location=Location.must_create(5, 5),
+            volume=5,
+        )
+
+        result: typing.Final = dispatch_service.dispatch_order(
+            order,
+            None,  # type: ignore[arg-type]
+        )
+
+        assert result.is_failure
+        assert result.get_error().code == "value.is.required"
+
+    def test_dispatch_with_empty_couriers_list_raises_error(
+        self,
+        dispatch_service: OrderDispatchDomainService,
+    ) -> None:
+        order: typing.Final = self._create_order(
+            location=Location.must_create(5, 5),
+            volume=5,
+        )
+
+        result: typing.Final = dispatch_service.dispatch_order(order, [])
+
+        assert result.is_failure
+        assert result.get_error().code == "value.is.required"
+
     def test_dispatch_with_single_courier(
         self,
         dispatch_service: OrderDispatchDomainService,
@@ -164,7 +207,7 @@ class TestOrderDispatchDomainService:
         result: typing.Final = dispatch_service.dispatch_order(order, [])
 
         assert result.is_failure
-        assert result.get_error().code == "order.dispatch.no.suitable.courier"
+        assert result.get_error().code == "value.is.required"
 
     def test_dispatch_ignores_courier_without_storage(
         self,

@@ -1,6 +1,10 @@
 version = 1
 revision = 3
 requires-python = ">=3.13"
+resolution-markers = [
+    "python_full_version >= '3.14'",
+    "python_full_version < '3.14'",
+]
 
 [[package]]
 name = "advanced-alchemy"
@@ -113,15 +117,6 @@ wheels = [
 ]
 
 [[package]]
-name = "backoff"
-version = "2.2.1"
-source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/47/d7/5bbeb12c44d7c4f2fb5b56abce497eb5ed9f34d85701de869acedd602619/backoff-2.2.1.tar.gz", hash = "sha256:03f829f5bb1923180821643f8753b0502c3b682293992485b0eef2807afa5cba" }
-wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/df/73/b6e24bd22e6720ca8ee9a85a0c4a2971af8497d8f3193fa05390cbd46e09/backoff-2.2.1-py3-none-any.whl", hash = "sha256:63579f9a0628e06278f7e47b7d7d5b6ce20dc65c5e96a6f3ca99a6adca0396e8" },
-]
-
-[[package]]
 name = "cattrs"
 version = "26.1.0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
@@ -136,11 +131,11 @@ wheels = [
 
 [[package]]
 name = "certifi"
-version = "2026.1.4"
+version = "2026.2.25"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e0/2d/a891ca51311197f6ad14a7ef42e2399f36cf2f9bd44752b3dc4eab60fdc5/certifi-2026.1.4.tar.gz", hash = "sha256:ac726dd470482006e014ad384921ed6438c457018f4b3d204aea4281258b2120" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/af/2d/7bf41579a8986e348fa033a31cdd0e4121114f6bce2457e8876010b092dd/certifi-2026.2.25.tar.gz", hash = "sha256:e887ab5cee78ea814d3472169153c2d12cd43b14bd03329a39a9c6e2e80bfba7" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e6/ad/3cc14f097111b4de0040c83a525973216457bbeeb63739ef1ed275c1c021/certifi-2026.1.4-py3-none-any.whl", hash = "sha256:9943707519e4add1115f44c2bc244f782c0249876bf51b6599fee1ffbedd685c" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/9a/3c/c17fb3ca2d9c3acff52e30b309f538586f9f5b9c9cf454f3845fc9af4881/certifi-2026.2.25-py3-none-any.whl", hash = "sha256:027692e4402ad994f1c42e52a4997a9763c646b73e4096e4d5d6db8af1d6f0fa" },
 ]
 
 [[package]]
@@ -190,43 +185,59 @@ wheels = [
 
 [[package]]
 name = "charset-normalizer"
-version = "3.4.4"
+version = "3.4.6"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz", hash = "sha256:94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz", hash = "sha256:1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/97/45/4b3a1239bbacd321068ea6e7ac28875b03ab8bc0aa0966452db17cd36714/charset_normalizer-3.4.4-cp313-cp313-macosx_10_13_universal2.whl", hash = "sha256:e1f185f86a6f3403aa2420e815904c67b2f9ebc443f045edd0de921108345794" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/7d/62/73a6d7450829655a35bb88a88fca7d736f9882a27eacdca2c6d505b57e2e/charset_normalizer-3.4.4-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:6b39f987ae8ccdf0d2642338faf2abb1862340facc796048b604ef14919e55ed" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/89/c5/adb8c8b3d6625bef6d88b251bbb0d95f8205831b987631ab0c8bb5d937c2/charset_normalizer-3.4.4-cp313-cp313-manylinux2014_armv7l.manylinux_2_17_armv7l.manylinux_2_31_armv7l.whl", hash = "sha256:3162d5d8ce1bb98dd51af660f2121c55d0fa541b46dff7bb9b9f86ea1d87de72" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/91/ed/9706e4070682d1cc219050b6048bfd293ccf67b3d4f5a4f39207453d4b99/charset_normalizer-3.4.4-cp313-cp313-manylinux2014_ppc64le.manylinux_2_17_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:81d5eb2a312700f4ecaa977a8235b634ce853200e828fbadf3a9c50bab278328" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/d5/0d/031f0d95e4972901a2f6f09ef055751805ff541511dc1252ba3ca1f80cf5/charset_normalizer-3.4.4-cp313-cp313-manylinux2014_s390x.manylinux_2_17_s390x.manylinux_2_28_s390x.whl", hash = "sha256:5bd2293095d766545ec1a8f612559f6b40abc0eb18bb2f5d1171872d34036ede" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/f5/83/6ab5883f57c9c801ce5e5677242328aa45592be8a00644310a008d04f922/charset_normalizer-3.4.4-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:a8a8b89589086a25749f471e6a900d3f662d1d3b6e2e59dcecf787b1cc3a1894" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/75/1e/5ff781ddf5260e387d6419959ee89ef13878229732732ee73cdae01800f2/charset_normalizer-3.4.4-cp313-cp313-manylinux_2_31_riscv64.manylinux_2_39_riscv64.whl", hash = "sha256:bc7637e2f80d8530ee4a78e878bce464f70087ce73cf7c1caf142416923b98f1" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/d7/57/71be810965493d3510a6ca79b90c19e48696fb1ff964da319334b12677f0/charset_normalizer-3.4.4-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:f8bf04158c6b607d747e93949aa60618b61312fe647a6369f88ce2ff16043490" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e5/d5/c3d057a78c181d007014feb7e9f2e65905a6c4ef182c0ddf0de2924edd65/charset_normalizer-3.4.4-cp313-cp313-musllinux_1_2_armv7l.whl", hash = "sha256:554af85e960429cf30784dd47447d5125aaa3b99a6f0683589dbd27e2f45da44" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e6/8c/d0406294828d4976f275ffbe66f00266c4b3136b7506941d87c00cab5272/charset_normalizer-3.4.4-cp313-cp313-musllinux_1_2_ppc64le.whl", hash = "sha256:74018750915ee7ad843a774364e13a3db91682f26142baddf775342c3f5b1133" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/d7/24/e2aa1f18c8f15c4c0e932d9287b8609dd30ad56dbe41d926bd846e22fb8d/charset_normalizer-3.4.4-cp313-cp313-musllinux_1_2_riscv64.whl", hash = "sha256:c0463276121fdee9c49b98908b3a89c39be45d86d1dbaa22957e38f6321d4ce3" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e4/5b/1e6160c7739aad1e2df054300cc618b06bf784a7a164b0f238360721ab86/charset_normalizer-3.4.4-cp313-cp313-musllinux_1_2_s390x.whl", hash = "sha256:362d61fd13843997c1c446760ef36f240cf81d3ebf74ac62652aebaf7838561e" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/7a/10/f882167cd207fbdd743e55534d5d9620e095089d176d55cb22d5322f2afd/charset_normalizer-3.4.4-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:9a26f18905b8dd5d685d6d07b0cdf98a79f3c7a918906af7cc143ea2e164c8bc" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/89/66/c7a9e1b7429be72123441bfdbaf2bc13faab3f90b933f664db506dea5915/charset_normalizer-3.4.4-cp313-cp313-win32.whl", hash = "sha256:9b35f4c90079ff2e2edc5b26c0c77925e5d2d255c42c74fdb70fb49b172726ac" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/c4/26/b9924fa27db384bdcd97ab83b4f0a8058d96ad9626ead570674d5e737d90/charset_normalizer-3.4.4-cp313-cp313-win_amd64.whl", hash = "sha256:b435cba5f4f750aa6c0a0d92c541fb79f69a387c91e61f1795227e4ed9cece14" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/af/8f/3ed4bfa0c0c72a7ca17f0380cd9e4dd842b09f664e780c13cff1dcf2ef1b/charset_normalizer-3.4.4-cp313-cp313-win_arm64.whl", hash = "sha256:542d2cee80be6f80247095cc36c418f7bddd14f4a6de45af91dfad36d817bba2" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/2a/35/7051599bd493e62411d6ede36fd5af83a38f37c4767b92884df7301db25d/charset_normalizer-3.4.4-cp314-cp314-macosx_10_13_universal2.whl", hash = "sha256:da3326d9e65ef63a817ecbcc0df6e94463713b754fe293eaa03da99befb9a5bd" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/10/9a/97c8d48ef10d6cd4fcead2415523221624bf58bcf68a802721a6bc807c8f/charset_normalizer-3.4.4-cp314-cp314-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:8af65f14dc14a79b924524b1e7fffe304517b2bff5a58bf64f30b98bbc5079eb" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/10/bf/979224a919a1b606c82bd2c5fa49b5c6d5727aa47b4312bb27b1734f53cd/charset_normalizer-3.4.4-cp314-cp314-manylinux2014_armv7l.manylinux_2_17_armv7l.manylinux_2_31_armv7l.whl", hash = "sha256:74664978bb272435107de04e36db5a9735e78232b85b77d45cfb38f758efd33e" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/ba/33/0ad65587441fc730dc7bd90e9716b30b4702dc7b617e6ba4997dc8651495/charset_normalizer-3.4.4-cp314-cp314-manylinux2014_ppc64le.manylinux_2_17_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:752944c7ffbfdd10c074dc58ec2d5a8a4cd9493b314d367c14d24c17684ddd14" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/67/ed/331d6b249259ee71ddea93f6f2f0a56cfebd46938bde6fcc6f7b9a3d0e09/charset_normalizer-3.4.4-cp314-cp314-manylinux2014_s390x.manylinux_2_17_s390x.manylinux_2_28_s390x.whl", hash = "sha256:d1f13550535ad8cff21b8d757a3257963e951d96e20ec82ab44bc64aeb62a191" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/67/ff/f6b948ca32e4f2a4576aa129d8bed61f2e0543bf9f5f2b7fc3758ed005c9/charset_normalizer-3.4.4-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:ecaae4149d99b1c9e7b88bb03e3221956f68fd6d50be2ef061b2381b61d20838" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/16/85/276033dcbcc369eb176594de22728541a925b2632f9716428c851b149e83/charset_normalizer-3.4.4-cp314-cp314-manylinux_2_31_riscv64.manylinux_2_39_riscv64.whl", hash = "sha256:cb6254dc36b47a990e59e1068afacdcd02958bdcce30bb50cc1700a8b9d624a6" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/9e/f2/6a2a1f722b6aba37050e626530a46a68f74e63683947a8acff92569f979a/charset_normalizer-3.4.4-cp314-cp314-musllinux_1_2_aarch64.whl", hash = "sha256:c8ae8a0f02f57a6e61203a31428fa1d677cbe50c93622b4149d5c0f319c1d19e" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/60/bb/2186cb2f2bbaea6338cad15ce23a67f9b0672929744381e28b0592676824/charset_normalizer-3.4.4-cp314-cp314-musllinux_1_2_armv7l.whl", hash = "sha256:47cc91b2f4dd2833fddaedd2893006b0106129d4b94fdb6af1f4ce5a9965577c" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/7d/a5/bf6f13b772fbb2a90360eb620d52ed8f796f3c5caee8398c3b2eb7b1c60d/charset_normalizer-3.4.4-cp314-cp314-musllinux_1_2_ppc64le.whl", hash = "sha256:82004af6c302b5d3ab2cfc4cc5f29db16123b1a8417f2e25f9066f91d4411090" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/df/c5/d1be898bf0dc3ef9030c3825e5d3b83f2c528d207d246cbabe245966808d/charset_normalizer-3.4.4-cp314-cp314-musllinux_1_2_riscv64.whl", hash = "sha256:2b7d8f6c26245217bd2ad053761201e9f9680f8ce52f0fcd8d0755aeae5b2152" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/a5/42/90c1f7b9341eef50c8a1cb3f098ac43b0508413f33affd762855f67a410e/charset_normalizer-3.4.4-cp314-cp314-musllinux_1_2_s390x.whl", hash = "sha256:799a7a5e4fb2d5898c60b640fd4981d6a25f1c11790935a44ce38c54e985f828" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/76/be/4d3ee471e8145d12795ab655ece37baed0929462a86e72372fd25859047c/charset_normalizer-3.4.4-cp314-cp314-musllinux_1_2_x86_64.whl", hash = "sha256:99ae2cffebb06e6c22bdc25801d7b30f503cc87dbd283479e7b606f70aff57ec" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/b0/6f/8f7af07237c34a1defe7defc565a9bc1807762f672c0fde711a4b22bf9c0/charset_normalizer-3.4.4-cp314-cp314-win32.whl", hash = "sha256:f9d332f8c2a2fcbffe1378594431458ddbef721c1769d78e2cbc06280d8155f9" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/4b/51/8ade005e5ca5b0d80fb4aff72a3775b325bdc3d27408c8113811a7cbe640/charset_normalizer-3.4.4-cp314-cp314-win_amd64.whl", hash = "sha256:8a6562c3700cce886c5be75ade4a5db4214fda19fede41d9792d100288d8f94c" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/da/5f/6b8f83a55bb8278772c5ae54a577f3099025f9ade59d0136ac24a0df4bde/charset_normalizer-3.4.4-cp314-cp314-win_arm64.whl", hash = "sha256:de00632ca48df9daf77a2c65a484531649261ec9f25489917f09e455cb09ddb2" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/0a/4c/925909008ed5a988ccbb72dcc897407e5d6d3bd72410d69e051fc0c14647/charset_normalizer-3.4.4-py3-none-any.whl", hash = "sha256:7a32c560861a02ff789ad905a2fe94e3f840803362c84fecf1851cb4cf3dc37f" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/1e/1d/4fdabeef4e231153b6ed7567602f3b68265ec4e5b76d6024cf647d43d981/charset_normalizer-3.4.6-cp313-cp313-macosx_10_13_universal2.whl", hash = "sha256:11afb56037cbc4b1555a34dd69151e8e069bee82e613a73bef6e714ce733585f" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/47/7b/20e809b89c69d37be748d98e84dce6820bf663cf19cf6b942c951a3e8f41/charset_normalizer-3.4.6-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:423fb7e748a08f854a08a222b983f4df1912b1daedce51a72bd24fe8f26a1843" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/37/a6/4f8d27527d59c039dce6f7622593cdcd3d70a8504d87d09eb11e9fdc6062/charset_normalizer-3.4.6-cp313-cp313-manylinux2014_ppc64le.manylinux_2_17_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:d73beaac5e90173ac3deb9928a74763a6d230f494e4bfb422c217a0ad8e629bf" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/f6/9b/4770ccb3e491a9bacf1c46cc8b812214fe367c86a96353ccc6daf87b01ec/charset_normalizer-3.4.6-cp313-cp313-manylinux2014_s390x.manylinux_2_17_s390x.manylinux_2_28_s390x.whl", hash = "sha256:d60377dce4511655582e300dc1e5a5f24ba0cb229005a1d5c8d0cb72bb758ab8" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/2b/58/a199d245894b12db0b957d627516c78e055adc3a0d978bc7f65ddaf7c399/charset_normalizer-3.4.6-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:530e8cebeea0d76bdcf93357aa5e41336f48c3dc709ac52da2bb167c5b8271d9" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/7e/70/3def227f1ec56f5c69dfc8392b8bd63b11a18ca8178d9211d7cc5e5e4f27/charset_normalizer-3.4.6-cp313-cp313-manylinux_2_31_armv7l.whl", hash = "sha256:a26611d9987b230566f24a0a125f17fe0de6a6aff9f25c9f564aaa2721a5fb88" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/58/ab/9318352e220c05efd31c2779a23b50969dc94b985a2efa643ed9077bfca5/charset_normalizer-3.4.6-cp313-cp313-manylinux_2_31_riscv64.manylinux_2_39_riscv64.whl", hash = "sha256:34315ff4fc374b285ad7f4a0bf7dcbfe769e1b104230d40f49f700d4ab6bbd84" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/75/13/f3550a3ac25b70f87ac98c40d3199a8503676c2f1620efbf8d42095cfc40/charset_normalizer-3.4.6-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:5f8ddd609f9e1af8c7bd6e2aca279c931aefecd148a14402d4e368f3171769fd" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/1b/db/c5c643b912740b45e8eec21de1bbab8e7fc085944d37e1e709d3dcd9d72f/charset_normalizer-3.4.6-cp313-cp313-musllinux_1_2_armv7l.whl", hash = "sha256:80d0a5615143c0b3225e5e3ef22c8d5d51f3f72ce0ea6fb84c943546c7b25b6c" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/5a/67/3b1c62744f9b2448443e0eb160d8b001c849ec3fef591e012eda6484787c/charset_normalizer-3.4.6-cp313-cp313-musllinux_1_2_ppc64le.whl", hash = "sha256:92734d4d8d187a354a556626c221cd1a892a4e0802ccb2af432a1d85ec012194" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/f6/98/32ffbaf7f0366ffb0445930b87d103f6b406bc2c271563644bde8a2b1093/charset_normalizer-3.4.6-cp313-cp313-musllinux_1_2_riscv64.whl", hash = "sha256:613f19aa6e082cf96e17e3ffd89383343d0d589abda756b7764cf78361fd41dc" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/41/12/5d308c1bbe60cabb0c5ef511574a647067e2a1f631bc8634fcafaccd8293/charset_normalizer-3.4.6-cp313-cp313-musllinux_1_2_s390x.whl", hash = "sha256:2b1a63e8224e401cafe7739f77efd3f9e7f5f2026bda4aead8e59afab537784f" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/53/e9/5f85f6c5e20669dbe56b165c67b0260547dea97dba7e187938833d791687/charset_normalizer-3.4.6-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:6cceb5473417d28edd20c6c984ab6fee6c6267d38d906823ebfe20b03d607dc2" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/f1/11/897052ea6af56df3eef3ca94edafee410ca699ca0c7b87960ad19932c55e/charset_normalizer-3.4.6-cp313-cp313-win32.whl", hash = "sha256:d7de2637729c67d67cf87614b566626057e95c303bc0a55ffe391f5205e7003d" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/a1/5c/724b6b363603e419829f561c854b87ed7c7e31231a7908708ac086cdf3e2/charset_normalizer-3.4.6-cp313-cp313-win_amd64.whl", hash = "sha256:572d7c822caf521f0525ba1bce1a622a0b85cf47ffbdae6c9c19e3b5ac3c4389" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/01/a5/7abf15b4c0968e47020f9ca0935fb3274deb87cb288cd187cad92e8cdffd/charset_normalizer-3.4.6-cp313-cp313-win_arm64.whl", hash = "sha256:a4474d924a47185a06411e0064b803c68be044be2d60e50e8bddcc2649957c1f" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/25/6f/ffe1e1259f384594063ea1869bfb6be5cdb8bc81020fc36c3636bc8302a1/charset_normalizer-3.4.6-cp314-cp314-macosx_10_15_universal2.whl", hash = "sha256:9cc6e6d9e571d2f863fa77700701dae73ed5f78881efc8b3f9a4398772ff53e8" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/56/60/09bb6c13a8c1016c2ed5c6a6488e4ffef506461aa5161662bd7636936fb1/charset_normalizer-3.4.6-cp314-cp314-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:ef5960d965e67165d75b7c7ffc60a83ec5abfc5c11b764ec13ea54fbef8b4421" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/00/50/dcfbb72a5138bbefdc3332e8d81a23494bf67998b4b100703fd15fa52d81/charset_normalizer-3.4.6-cp314-cp314-manylinux2014_ppc64le.manylinux_2_17_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:b3694e3f87f8ac7ce279d4355645b3c878d24d1424581b46282f24b92f5a4ae2" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/03/b3/d79a9a191bb75f5aa81f3aaaa387ef29ce7cb7a9e5074ba8ea095cc073c2/charset_normalizer-3.4.6-cp314-cp314-manylinux2014_s390x.manylinux_2_17_s390x.manylinux_2_28_s390x.whl", hash = "sha256:5d11595abf8dd942a77883a39d81433739b287b6aa71620f15164f8096221b30" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/76/7e/bc8911719f7084f72fd545f647601ea3532363927f807d296a8c88a62c0d/charset_normalizer-3.4.6-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:7bda6eebafd42133efdca535b04ccb338ab29467b3f7bf79569883676fc628db" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e2/40/c430b969d41dda0c465aa36cc7c2c068afb67177bef50905ac371b28ccc7/charset_normalizer-3.4.6-cp314-cp314-manylinux_2_31_armv7l.whl", hash = "sha256:bbc8c8650c6e51041ad1be191742b8b421d05bbd3410f43fa2a00c8db87678e8" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/48/15/e35e0590af254f7df984de1323640ef375df5761f615b6225ba8deb9799a/charset_normalizer-3.4.6-cp314-cp314-manylinux_2_31_riscv64.manylinux_2_39_riscv64.whl", hash = "sha256:22c6f0c2fbc31e76c3b8a86fba1a56eda6166e238c29cdd3d14befdb4a4e4815" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/5e/bd/f736f7b9cc5e93a18b794a50346bb16fbfd6b37f99e8f306f7951d27c17c/charset_normalizer-3.4.6-cp314-cp314-musllinux_1_2_aarch64.whl", hash = "sha256:7edbed096e4a4798710ed6bc75dcaa2a21b68b6c356553ac4823c3658d53743a" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/9d/ba/2cc9e3e7dfdf7760a6ed8da7446d22536f3d0ce114ac63dee2a5a3599e62/charset_normalizer-3.4.6-cp314-cp314-musllinux_1_2_armv7l.whl", hash = "sha256:7f9019c9cb613f084481bd6a100b12e1547cf2efe362d873c2e31e4035a6fa43" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/9e/cb/5be49b5f776e5613be07298c80e1b02a2d900f7a7de807230595c85a8b2e/charset_normalizer-3.4.6-cp314-cp314-musllinux_1_2_ppc64le.whl", hash = "sha256:58c948d0d086229efc484fe2f30c2d382c86720f55cd9bc33591774348ad44e0" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/83/43/99f1b5dad345accb322c80c7821071554f791a95ee50c1c90041c157ae99/charset_normalizer-3.4.6-cp314-cp314-musllinux_1_2_riscv64.whl", hash = "sha256:419a9d91bd238052642a51938af8ac05da5b3343becde08d5cdeab9046df9ee1" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/87/9a/62c2cb6a531483b55dddff1a68b3d891a8b498f3ca555fbcf2978e804d9d/charset_normalizer-3.4.6-cp314-cp314-musllinux_1_2_s390x.whl", hash = "sha256:5273b9f0b5835ff0350c0828faea623c68bfa65b792720c453e22b25cc72930f" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/6e/79/94a010ff81e3aec7c293eb82c28f930918e517bc144c9906a060844462eb/charset_normalizer-3.4.6-cp314-cp314-musllinux_1_2_x86_64.whl", hash = "sha256:0e901eb1049fdb80f5bd11ed5ea1e498ec423102f7a9b9e4645d5b8204ff2815" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/2a/57/4ecff6d4ec8585342f0c71bc03efaa99cb7468f7c91a57b105bcd561cea8/charset_normalizer-3.4.6-cp314-cp314-win32.whl", hash = "sha256:b4ff1d35e8c5bd078be89349b6f3a845128e685e751b6ea1169cf2160b344c4d" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/80/94/8434a02d9d7f168c25767c64671fead8d599744a05d6a6c877144c754246/charset_normalizer-3.4.6-cp314-cp314-win_amd64.whl", hash = "sha256:74119174722c4349af9708993118581686f343adc1c8c9c007d59be90d077f3f" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/46/4c/48f2cdbfd923026503dfd67ccea45c94fd8fe988d9056b468579c66ed62b/charset_normalizer-3.4.6-cp314-cp314-win_arm64.whl", hash = "sha256:e5bcc1a1ae744e0bb59641171ae53743760130600da8db48cbb6e4918e186e4e" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/31/93/8878be7569f87b14f1d52032946131bcb6ebbd8af3e20446bc04053dc3f1/charset_normalizer-3.4.6-cp314-cp314t-macosx_10_15_universal2.whl", hash = "sha256:ad8faf8df23f0378c6d527d8b0b15ea4a2e23c89376877c598c4870d1b2c7866" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/06/b6/fae511ca98aac69ecc35cde828b0a3d146325dd03d99655ad38fc2cc3293/charset_normalizer-3.4.6-cp314-cp314t-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:f5ea69428fa1b49573eef0cc44a1d43bebd45ad0c611eb7d7eac760c7ae771bc" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/54/57/64caf6e1bf07274a1e0b7c160a55ee9e8c9ec32c46846ce59b9c333f7008/charset_normalizer-3.4.6-cp314-cp314t-manylinux2014_ppc64le.manylinux_2_17_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:06a7e86163334edfc5d20fe104db92fcd666e5a5df0977cb5680a506fe26cc8e" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/aa/cb/9ff5a25b9273ef160861b41f6937f86fae18b0792fe0a8e75e06acb08f1d/charset_normalizer-3.4.6-cp314-cp314t-manylinux2014_s390x.manylinux_2_17_s390x.manylinux_2_28_s390x.whl", hash = "sha256:e1f6e2f00a6b8edb562826e4632e26d063ac10307e80f7461f7de3ad8ef3f077" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/fc/97/440635fc093b8d7347502a377031f9605a1039c958f3cd18dcacffb37743/charset_normalizer-3.4.6-cp314-cp314t-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:95b52c68d64c1878818687a473a10547b3292e82b6f6fe483808fb1468e2f52f" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/cd/24/afff630feb571a13f07c8539fbb502d2ab494019492aaffc78ef41f1d1d0/charset_normalizer-3.4.6-cp314-cp314t-manylinux_2_31_armv7l.whl", hash = "sha256:7504e9b7dc05f99a9bbb4525c67a2c155073b44d720470a148b34166a69c054e" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e5/17/d1399ecdaf7e0498c327433e7eefdd862b41236a7e484355b8e0e5ebd64b/charset_normalizer-3.4.6-cp314-cp314t-manylinux_2_31_riscv64.manylinux_2_39_riscv64.whl", hash = "sha256:172985e4ff804a7ad08eebec0a1640ece87ba5041d565fff23c8f99c1f389484" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/b5/38/16baa0affb957b3d880e5ac2144caf3f9d7de7bc4a91842e447fbb5e8b67/charset_normalizer-3.4.6-cp314-cp314t-musllinux_1_2_aarch64.whl", hash = "sha256:4be9f4830ba8741527693848403e2c457c16e499100963ec711b1c6f2049b7c7" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/05/34/c531bc6ac4c21da9ddfddb3107be2287188b3ea4b53b70fc58f2a77ac8d8/charset_normalizer-3.4.6-cp314-cp314t-musllinux_1_2_armv7l.whl", hash = "sha256:79090741d842f564b1b2827c0b82d846405b744d31e84f18d7a7b41c20e473ff" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/fa/73/a5a1e9ca5f234519c1953608a03fe109c306b97fdfb25f09182babad51a7/charset_normalizer-3.4.6-cp314-cp314t-musllinux_1_2_ppc64le.whl", hash = "sha256:87725cfb1a4f1f8c2fc9890ae2f42094120f4b44db9360be5d99a4c6b0e03a9e" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/ba/f6/cd782923d112d296294dea4bcc7af5a7ae0f86ab79f8fefbda5526b6cfc0/charset_normalizer-3.4.6-cp314-cp314t-musllinux_1_2_riscv64.whl", hash = "sha256:fcce033e4021347d80ed9c66dcf1e7b1546319834b74445f561d2e2221de5659" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/0e/c5/0b6898950627af7d6103a449b22320372c24c6feda91aa24e201a478d161/charset_normalizer-3.4.6-cp314-cp314t-musllinux_1_2_s390x.whl", hash = "sha256:ca0276464d148c72defa8bb4390cce01b4a0e425f3b50d1435aa6d7a18107602" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/7d/25/c4bba773bef442cbdc06111d40daa3de5050a676fa26e85090fc54dd12f0/charset_normalizer-3.4.6-cp314-cp314t-musllinux_1_2_x86_64.whl", hash = "sha256:197c1a244a274bb016dd8b79204850144ef77fe81c5b797dc389327adb552407" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/35/1a/05dacadb0978da72ee287b0143097db12f2e7e8d3ffc4647da07a383b0b7/charset_normalizer-3.4.6-cp314-cp314t-win32.whl", hash = "sha256:2a24157fa36980478dd1770b585c0f30d19e18f4fb0c47c13aa568f871718579" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/5d/7a/d269d834cb3a76291651256f3b9a5945e81d0a49ab9f4a498964e83c0416/charset_normalizer-3.4.6-cp314-cp314t-win_amd64.whl", hash = "sha256:cd5e2801c89992ed8c0a3f0293ae83c159a60d9a5d685005383ef4caca77f2c4" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/23/06/28b29fba521a37a8932c6a84192175c34d49f84a6d4773fa63d05f9aff22/charset_normalizer-3.4.6-cp314-cp314t-win_arm64.whl", hash = "sha256:47955475ac79cc504ef2704b192364e51d0d473ad452caedd0002605f780101c" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/2a/68/687187c7e26cb24ccbd88e5069f5ef00eba804d36dde11d99aad0838ab45/charset_normalizer-3.4.6-py3-none-any.whl", hash = "sha256:947cf925bc916d90adba35a64c82aace04fa39b46b52d4630ece166655905a69" },
 ]
 
 [[package]]
@@ -500,7 +511,7 @@ wheels = [
 
 [[package]]
 name = "fastapi"
-version = "0.129.0"
+version = "0.135.1"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "annotated-doc" },
@@ -509,9 +520,9 @@ dependencies = [
     { name = "typing-extensions" },
     { name = "typing-inspection" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/48/47/75f6bea02e797abff1bca968d5997793898032d9923c1935ae2efdece642/fastapi-0.129.0.tar.gz", hash = "sha256:61315cebd2e65df5f97ec298c888f9de30430dd0612d59d6480beafbc10655af" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e7/7b/f8e0211e9380f7195ba3f3d40c292594fd81ba8ec4629e3854c353aaca45/fastapi-0.135.1.tar.gz", hash = "sha256:d04115b508d936d254cea545b7312ecaa58a7b3a0f84952535b4c9afae7668cd" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/9e/dd/d0ee25348ac58245ee9f90b6f3cbb666bf01f69be7e0911f9851bddbda16/fastapi-0.129.0-py3-none-any.whl", hash = "sha256:b4946880e48f462692b31c083be0432275cbfb6e2274566b1be91479cc1a84ec" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e4/72/42e900510195b23a56bde950d26a51f8b723846bfcaa0286e90287f0422b/fastapi-0.135.1-py3-none-any.whl", hash = "sha256:46e2fc5745924b7c840f71ddd277382af29ce1cdb7d5eab5bf697e3fb9999c9e" },
 ]
 
 [[package]]
@@ -528,65 +539,65 @@ wheels = [
 
 [[package]]
 name = "googleapis-common-protos"
-version = "1.72.0"
+version = "1.73.0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "protobuf" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e5/7b/adfd75544c415c487b33061fe7ae526165241c1ea133f9a9125a56b39fd8/googleapis_common_protos-1.72.0.tar.gz", hash = "sha256:e55a601c1b32b52d7a3e65f43563e2aa61bcd737998ee672ac9b951cd49319f5" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/99/96/a0205167fa0154f4a542fd6925bdc63d039d88dab3588b875078107e6f06/googleapis_common_protos-1.73.0.tar.gz", hash = "sha256:778d07cd4fbeff84c6f7c72102f0daf98fa2bfd3fa8bea426edc545588da0b5a" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/c4/ab/09169d5a4612a5f92490806649ac8d41e3ec9129c636754575b3553f4ea4/googleapis_common_protos-1.72.0-py3-none-any.whl", hash = "sha256:4299c5a82d5ae1a9702ada957347726b167f9f8d1fc352477702a1e851ff4038" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/69/28/23eea8acd65972bbfe295ce3666b28ac510dfcb115fac089d3edb0feb00a/googleapis_common_protos-1.73.0-py3-none-any.whl", hash = "sha256:dfdaaa2e860f242046be561e6d6cb5c5f1541ae02cfbcb034371aadb2942b4e8" },
 ]
 
 [[package]]
 name = "granian"
-version = "2.7.1"
+version = "2.7.2"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "click" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e5/e5/c3a745a2c60cba6e67c5607fe6e18883fd2b7800fd7215511c526fab3872/granian-2.7.1.tar.gz", hash = "sha256:cc79292b24895db9441d32c3a9f11a4e19805d566bc77f9deb7ef18daac62e16" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/57/19/d4ea523715ba8dd2ed295932cc3dda6bb197060f78aada6e886ff08587b2/granian-2.7.2.tar.gz", hash = "sha256:cdae2f3a26fa998d41fefad58f1d1c84a0b035a6cc9377addd81b51ba82f927f" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/53/ce/e8ae26e248daaa8e782c0e6bce1350759da262f8aa637b8a0036c5455376/granian-2.7.1-cp313-cp313-macosx_10_12_x86_64.whl", hash = "sha256:b4f0c807fefedfa58d07c2751cc40471765387d331e70ea7ebd2a2ff5d492ca0" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/c2/5f/32f933dac26835ad2f8bc9b4f5762be8f8340318a9bbeca75b32fa6f6195/granian-2.7.1-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:78ce501ec337b7db52ba1773c0acf0abd72b3fac71b6b747fe4ae6f38cca0a6b" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/b4/04/432b73f713ebb102e1585f5abec9cb2284d76f4d16df73c24f2e4dcc9cbd/granian-2.7.1-cp313-cp313-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:2079c9c29b65404283ef61ced11905c8491e4bc68a4e3b56c684fe2dab8cf8c2" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/63/5e/fdd4e42c800804cc277f12a3eba51747d100739b8beb0c1a909837670d86/granian-2.7.1-cp313-cp313-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:9a68bf02c93c2137c68e2acd1dc68e871f49ce2e61b042fec9a145104daf3d5b" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/5d/b6/7a5632e1a206e11ac3470f9ef79b2aadce67d1dfc5cdf75a5fd9795ae0fa/granian-2.7.1-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:de3f44b244600103a3ad6358937a42370b8cc518b7754c740620be681272e0bd" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/1d/ef/379b77fc6f8909ffc4d9397135b122d93446f303f52e428aca1120d79b08/granian-2.7.1-cp313-cp313-manylinux_2_28_aarch64.whl", hash = "sha256:7681e76c61af0dd1e135139f5fa9561ec16fdbac19d0a9fbf4617079b822bf21" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/4e/49/6849f1f784186f41551ceba040e4402d7daa7a9c5c89e0b4c0fb7df5d73e/granian-2.7.1-cp313-cp313-musllinux_1_1_aarch64.whl", hash = "sha256:bc56766803ec0f958f4f2e3be9f4cb2385f9d6970e34ade6ff5c0ba751a3ce9c" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/52/85/dcbc5b860697e1ebf9fa4206d3fba931a2ea2547fb8d2638ad392f4d5a90/granian-2.7.1-cp313-cp313-musllinux_1_1_armv7l.whl", hash = "sha256:a20eaf1b756981caa8c0d6c19c5467e03386aadb07f854b88243218c9db9513b" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/0d/0f/3ddd893a4582943ab21c59853b7a6adae837130445ad64964cd73ea77ce4/granian-2.7.1-cp313-cp313-musllinux_1_1_x86_64.whl", hash = "sha256:af842b07f14d7433774627c16fb0fbcdc9e60587d2d684636d2eba446c343297" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/19/1e/52173568f8da3a2d50f48eabe1cc19d857586e0878009477ed0c196ebebd/granian-2.7.1-cp313-cp313-win_amd64.whl", hash = "sha256:861d69fc3504c891f152585c2109d1eaf791c35392b13ed22c72fb199dc50dfa" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/33/a8/3e0ea25a85a05618363ac9f90eb4e504ccc00e48c64f30cd37ef7046097f/granian-2.7.1-cp313-cp313t-macosx_10_12_x86_64.whl", hash = "sha256:33ed73fe753fcae51a647555614fc67013558a654d323115ab0fbf60aca6c47a" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/46/8d/a8965de519507ba5dfa13af4760b3c1b334e46bf3283eab55f171693de0a/granian-2.7.1-cp313-cp313t-macosx_11_0_arm64.whl", hash = "sha256:de9367e2dca2923bf12b52f004ab975ed0de45c8dedddd87993ed9fffabfb0ce" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/21/f6/ff76aab55b5a7bdbd20f4f73486fcb5a09440f4fd56bd3dc6266e65dee9a/granian-2.7.1-cp313-cp313t-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:38088f6bd4780b280aae8abf15c2205bdf9066def927f8c9690c13a966519286" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/c8/3a/7aaf34391df169d54bcc3bfc32919b58de9b8a9e28e66b4f3276b910ef68/granian-2.7.1-cp313-cp313t-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:8ebbc04483ada6e1a8a89f055de0b4cad2f90b3cbc94a1ae08fc2b140d905f4b" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/bd/d3/540a9f816884abf4da62d2e411455968a1ee8e4685243d3dd7fee1cf375f/granian-2.7.1-cp313-cp313t-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:2acc29a3eb9b1b9708355abd5438c216caff4ba4536bc77e46b19e44fb1b37ea" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/82/62/d133c36fdab4552db665d6bb2d53ac4834e41a97d8d0244f1aacc03e188f/granian-2.7.1-cp313-cp313t-manylinux_2_28_aarch64.whl", hash = "sha256:bec493af655645e58e6d89c7e37eb7751e9bf827506286e765d79a5c4ff10a3f" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/21/4a/619d699acd3cd37de048ab606a85021f5edf42bd54c7f081d20dccd48041/granian-2.7.1-cp313-cp313t-musllinux_1_1_aarch64.whl", hash = "sha256:dc51944736d5683b255b7cd33581daf8bc44ae1dab31240e1969eca13d1e75cf" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/91/25/389eea98109e4b85e443fae384b30ff67167f27f4df6fb43d26cd151d0dc/granian-2.7.1-cp313-cp313t-musllinux_1_1_armv7l.whl", hash = "sha256:f787bbcb06ca605ff4161a04078591b2269b628165214ab913084e7fdb5ab9d8" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/ac/00/75180d71994b87c0b56385c1b60c93b73b8822ed8edba2c63f72b0f836b6/granian-2.7.1-cp313-cp313t-musllinux_1_1_x86_64.whl", hash = "sha256:52163a3b609489bcb614e45811e2a66a6780b1459bbbc29504de13c23a115112" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/d3/11/a913af3c65debb5e5d577d3cb5ac988313c05c19fca789e167375ee432df/granian-2.7.1-cp313-cp313t-win_amd64.whl", hash = "sha256:b2cd2118353db7f06fee0aefdada9e109434e030ac2fdc8f691b669787680d2e" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/41/c1/cc5c0abc5c573a8832c584f52c98f7882119fe81d52a49285800e25d993f/granian-2.7.1-cp314-cp314-macosx_10_12_x86_64.whl", hash = "sha256:a677972bb9050ec15896452f2c299b56f15e01212c1185d9373b92348fd88930" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e8/77/5248e8cf1c25f080959c0a4e4a8039107b0b2bf67a9fc8904cfe57614a24/granian-2.7.1-cp314-cp314-macosx_11_0_arm64.whl", hash = "sha256:ee4b404425a135274ab69513fdc1883ce954beef22113058e6e2a25d89926e68" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/cb/a0/fa0b961d7c9b1c2f046a58b85ffe1e7bc5d3a7fcc8c947bdd6fd397a312c/granian-2.7.1-cp314-cp314-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:5c4eaf3b0c1602a2ef75a8e418bb6d2867994e7ac246ea6833f7b812289d038c" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/ca/70/edd388b12ebecde4edbbf4d62cd78ed6e5ae0f6b834e88de2fe06e6f948e/granian-2.7.1-cp314-cp314-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:d593d80f568b2025a227a9b0bf664db94c9423069b27c120e288a2350507a4d8" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/74/18/6e8962f1be1a578841e9c68bb8f3a416c30880003c3180a1e6b852ad1717/granian-2.7.1-cp314-cp314-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:ab94be605aaf90968fd04fb527f1b2790f6815dd0e9690586adb4a9be1f25010" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/eb/47/9f07664d847653115b196f70594016de8fd7629e5aa1645d6d20f771cf14/granian-2.7.1-cp314-cp314-manylinux_2_28_aarch64.whl", hash = "sha256:392f6cc3eb7a5039a815a823c3f468161b4eb179d061450c0ec843cef0eb1b54" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/fa/c6/08b9203a4f897a31810bb18344b5ecaf26eb34135916c257c14ec762eb51/granian-2.7.1-cp314-cp314-musllinux_1_1_aarch64.whl", hash = "sha256:ff063c417ee16fadca3c534e2059a6cf47e1df2607f1c6012be4ea6486b814f5" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/f7/69/c7a5c595313432a5373e6014980a77d8f028f24f31b68406af97ace94fe6/granian-2.7.1-cp314-cp314-musllinux_1_1_armv7l.whl", hash = "sha256:1a59ed88c40896db96a973e49a5ba2a2f84d7569c1da8cf11c685d11bffc2ef1" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/2f/3a/fe283eeb7a2f525472bd6ef2b0c6b7fb95d4369902b75d8e7e252628e62e/granian-2.7.1-cp314-cp314-musllinux_1_1_x86_64.whl", hash = "sha256:773ff347d4541634e8c50b82b532eefa68c0043cda100bd44712b88565a5495b" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/61/ea/b6901c64cac1fc3b455acdba279d80454fe963eca314ebfaf4e2eec9933c/granian-2.7.1-cp314-cp314-win_amd64.whl", hash = "sha256:089f8a0d6d6a215f6773aa9dfdb56ec349d28840203517e7a7933485b1a1f404" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/5c/41/bd76745d2fd2e2735390037324cb2d2b2f934473d77fb27f176494f5b2f3/granian-2.7.1-cp314-cp314t-macosx_10_12_x86_64.whl", hash = "sha256:e25c7dedd9325e11bda1d9692f25314791d24ae39b8206fb858f18a57087f2ee" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/40/ea/bdb388e3e24308e92c370674d225e819eee6740dd440d6450860039b934a/granian-2.7.1-cp314-cp314t-macosx_11_0_arm64.whl", hash = "sha256:387c6032d46191deaf18819f15988e98d0f5c85eef09efb28c4c4b7b8b0dc2d2" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/31/9c/438da7d5c66ed2c9df1c5946485e464fd52a420217212e0c9b5bb90f8e93/granian-2.7.1-cp314-cp314t-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:1d1b5b47a34ab0f47f8bd447894412b4d9bdcb2011fbb9d1b8f7890c8442d233" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/91/1a/f317272d59618a846a0c7ea019ab0352d947e8afdae40faea580b98600c7/granian-2.7.1-cp314-cp314t-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:b7f65cd1d46c8ee454b0f29743340bebc170c1da2af83bd759fb02d69c24c7e9" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/d0/63/0c0c0005798c808082ae72b6bc3ccc1282d1b078375b060c5477aabbe407/granian-2.7.1-cp314-cp314t-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:9d12b93e6467fc079b38e104154d5e5625a5e7c6a1776a59039c1e5fb57e0fe3" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e6/27/73655570644b3e727b22e3cf4239eebe90c18d1d3c868fc3d71e4d50dd46/granian-2.7.1-cp314-cp314t-manylinux_2_28_aarch64.whl", hash = "sha256:ff4aba223bfeca0c6bc8f64ef03d87d04aff36515b2fd91108e5c9f55e67a5ee" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/23/00/2b9655d05f14bee4cd4080f3a18f0f0f4e7014158d7323a1cb0d31ed61cb/granian-2.7.1-cp314-cp314t-musllinux_1_1_aarch64.whl", hash = "sha256:2cc036b6f7db04ba6750aa86dff17c7930b7f295e4bfc5f35e9231d9f42e8094" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/c9/e4/deff2560260ddc9a99315ecb345c93485b0b102708838e7c42837c7a6535/granian-2.7.1-cp314-cp314t-musllinux_1_1_armv7l.whl", hash = "sha256:f2834f178ddbe25f077b28eba3b0e3e3814b17a0fc61fe44c17c270eef37ff54" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/d1/52/7fefaf4f1317883e7a5f25a92bca43f914b47d4762ad8f38f48e7e85b2a8/granian-2.7.1-cp314-cp314t-musllinux_1_1_x86_64.whl", hash = "sha256:874d4eedc527f9c59dd192e263be8047b86759e71ac9552283d010bcea93993b" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/0c/c1/d6aa049cdbe15b9ffe7964b01cc50efc8ccc067c3a50da7bc5ced1eaf6a4/granian-2.7.1-cp314-cp314t-win_amd64.whl", hash = "sha256:d787d9bf1744c275fa60775629e910305aa6395a88a32eea25b0008652ed9fe9" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/ab/bc/cf0bc29f583096a842cf0f26ae2fe40c72ed5286d4548be99ecfcdbb17e2/granian-2.7.2-cp313-cp313-macosx_10_12_x86_64.whl", hash = "sha256:76b840ff13dde8838fd33cd096f2e7cadf2c21a499a67f695f53de57deab6ff8" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/2f/0d/bae1dcd2182ba5d9a5df33eb50b56dc5bbe67e31033d822e079aa8c1ff30/granian-2.7.2-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:00ccc8d7284bc7360f310179d0b4d17e5ca3077bbe24427e9e9310df397e3831" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/65/7d/3e0a7f32b0ad5faa1d847c51191391552fa239821c95fc7c022688985df2/granian-2.7.2-cp313-cp313-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:675987c1b321dc8af593db8639e00c25277449b32e8c1b2ddd46b35f28d9fac4" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/89/41/3b44386d636ac6467f0f13f45474c71fc3b90a4f0ba8b536de91b2845a09/granian-2.7.2-cp313-cp313-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:681c6fbe3354aaa6251e6191ec89f5174ac3b9fbc4b4db606fea456d01969fcb" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/52/70/7b24e187aed3fb7ac2b29d2480a045559a509ef9fec54cffb8694a2d94af/granian-2.7.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:8e5c9ae65af5e572dca27d8ca0da4c5180b08473ac47e6f5329699e9455a5cc3" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/fa/4c/cb74c367f9efb874f2c8433fe9bf3e824f05cf719f2251d40e29e07f08c0/granian-2.7.2-cp313-cp313-manylinux_2_28_aarch64.whl", hash = "sha256:e37fab2be919ceb195db00d7f49ec220444b1ecaa07c03f7c1c874cacff9de83" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/58/98/dfed3966ed7fbd3aae56e123598f90dc206484092b8373d0a71e2d8b82a8/granian-2.7.2-cp313-cp313-musllinux_1_1_aarch64.whl", hash = "sha256:8ec167ab30f5396b5caaff16820a39f4e91986d2fe5bdc02992a03c2b2b2b313" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/39/82/acec732a345cd03b2f6e48ac04b66b7b8b61f5c50eb08d7421fc8c56591a/granian-2.7.2-cp313-cp313-musllinux_1_1_armv7l.whl", hash = "sha256:63f426d793f2116d23be265dd826bec1e623680baf94cc270fe08923113a86ba" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/c5/2b/64779e69b08c1ff1bfc09a4ede904ab761ff63f936c275710886057c52f7/granian-2.7.2-cp313-cp313-musllinux_1_1_x86_64.whl", hash = "sha256:1617cbb4efe3112f07fb6762cf81d2d9fe4bdb78971d1fd0a310f8b132f6a51e" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/04/c9/83e546d5f6b0447a4b9ee48ce15c29e43bb3f6b5e1040d33ac61fc9e3b6f/granian-2.7.2-cp313-cp313-win_amd64.whl", hash = "sha256:7a4bd347694ace7a48cd784b911f2d519c2a22154e0d1ed59f5b4864914a8cfe" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/4c/49/9eb88875d709db7e7844e1c681546448dab5ff5651cd1c1d80ac4b1de4e3/granian-2.7.2-cp313-cp313t-macosx_10_12_x86_64.whl", hash = "sha256:016c5857c8baedeab7eb065f98417f5ea26bb72b0f7e0544fe76071efc5ab255" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e3/80/85726ad9999ed89cb6a32f7f57eb50ce7261459d9c30c3b194ae4c5aa2c5/granian-2.7.2-cp313-cp313t-macosx_11_0_arm64.whl", hash = "sha256:dcbe01fa141adf3f90964e86a959e250754aa7c6dad8fa7a855e6fd382de4c13" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/07/82/0df56a42b9f4c327d0e0b052f43369127e1b565b9e66bf2c9488f1c8d759/granian-2.7.2-cp313-cp313t-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:283ba23817a685784b66f45423d2f25715fdc076c8ffb43c49a807ee56a0ffc0" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/ef/cc/d83a351560a3d6377672636129c52f06f8393f5831c5ee0f06f274883ea6/granian-2.7.2-cp313-cp313t-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:3258419c741897273ce155568b5a9cbacb7700a00516e87119a90f7d520d6783" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/84/d1/539907ee96d0ee2bcceabb4a6a9643b75378d6dfea09b7a9e4fd22cdf977/granian-2.7.2-cp313-cp313t-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:a196125c4837491c139c9cc83541b48c408c92b9cfbbf004fd28717f9c02ad21" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/86/bf/4b6f45882f8341e7c6cb824d693deb94c306be6525b483c76fb373d1e749/granian-2.7.2-cp313-cp313t-manylinux_2_28_aarch64.whl", hash = "sha256:746555ac8a2dcd9257bfe7ad58f1d7a60892bc4613df6a7d8f736692b3bb3b88" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/44/b8/832970d2d4b144b87be39f5b9dfd31fdb17f298dc238a0b2100c95002cf8/granian-2.7.2-cp313-cp313t-musllinux_1_1_aarch64.whl", hash = "sha256:5ac1843c6084933a54a07d9dcae643365f1d83aaff3fd4f2676ea301185e4e8b" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/38/bc/1521dbf026d1c9d2465cd54e016efd8ff6e1e72eff521071dab20dd61c44/granian-2.7.2-cp313-cp313t-musllinux_1_1_armv7l.whl", hash = "sha256:3612eb6a3f4351dd2c4df246ed0d21056c0556a6b1ed772dd865310aa55a9ba9" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/19/ae/00884ab77045a2f54db90932f9d1ca522201e2a6b2cf2a9b38840db0fd54/granian-2.7.2-cp313-cp313t-musllinux_1_1_x86_64.whl", hash = "sha256:34708b145e31b4538e0556704a07454a76d6776c55c5bc3a1335e80ef6b3bae3" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/ee/0e/4321e361bccb9681e1045c75e783476de5be7aa47cf05066907530772eba/granian-2.7.2-cp313-cp313t-win_amd64.whl", hash = "sha256:841c48608e55daa2fa434392397cc24175abd48bc5bcefa1e4f74b7243e36c72" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/69/4a/8ce622f4f7d58e035d121b9957dd5a8929028dc99cfc5d2bf7f2aa28912c/granian-2.7.2-cp314-cp314-macosx_10_12_x86_64.whl", hash = "sha256:592806c28c491f9c1d1501bac706ecf5e72b73969f20f912678d53308786d658" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/27/62/7d36ed38a40a68c2856b6d2a6fedd40833e7f82eb90ba0d03f2d69ffadf5/granian-2.7.2-cp314-cp314-macosx_11_0_arm64.whl", hash = "sha256:c9dcde3968b921654bde999468e97d03031f28668bc1fc145c81d8bedb0fb2a4" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/b4/c5/17fea68f4cb280c217cbd65534664722c9c9b0138c2754e20c235d70b5f4/granian-2.7.2-cp314-cp314-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:6d4d78408283ec51f0fb00557856b4593947ad5b48287c04e1c22764a0ac28a5" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/0a/76/35e240d107e0f158662652fd61191de4fb0c2c080e3786ca8f16c71547b7/granian-2.7.2-cp314-cp314-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:66d28b078e8087f794b83822055f95caf93d83b23f47f4efcd5e2f0f7a5d8a81" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/4c/55/a6d08cfecc808149a910e51c57883ab26fad69d922dc2e76fb2d87469e2d/granian-2.7.2-cp314-cp314-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:4ff7a93123ab339ba6cad51cc7141f8880ec47b152ce2491595bb08edda20106" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/98/2e/c86d95f324248fcc5dcaf034c9f688b32f7a488f0b2a4a25e6673776107f/granian-2.7.2-cp314-cp314-manylinux_2_28_aarch64.whl", hash = "sha256:a52effb9889f0944f0353afd6ce5a9d9aa83826d44bbf3c8013e978a3d6ef7b7" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/37/4b/44fde33fe10245a3fba76bf843c387fad2d548244345115b9d87e1c40994/granian-2.7.2-cp314-cp314-musllinux_1_1_aarch64.whl", hash = "sha256:76c987c3ca78bf7666ab053c3ed7e3af405af91b2e5ce2f1cf92634c1581e238" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/90/76/38d205cb527046241a9ee4f51048bf44101c626ad4d2af16dd9d14dc1db6/granian-2.7.2-cp314-cp314-musllinux_1_1_armv7l.whl", hash = "sha256:6590f8092c2bb6614e561ba771f084cbf72ecbc38dbf9849762ac38718085c29" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/00/37/04245c7259e65f1083ce193875c6c44da4c98604d3b00a264a74dd4f042b/granian-2.7.2-cp314-cp314-musllinux_1_1_x86_64.whl", hash = "sha256:7c1ce9b0c9446b680e9545e7fc95a75f0c53a25dedcf924b1750c3e5ba5bf908" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/23/e4/28097a852d8f93f8e3be2014a81f03aa914b8a2c12ca761fac5ae1344b8b/granian-2.7.2-cp314-cp314-win_amd64.whl", hash = "sha256:a69cafb6518c630c84a9285674d45ea6f7342a6279dc25c6bd933b6fad5c55ab" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/cc/07/0e56fb4f178e14b4c1fa1f6f00586ca81761ccbe2d8803f2c12b6b17a7d6/granian-2.7.2-cp314-cp314t-macosx_10_12_x86_64.whl", hash = "sha256:a698d9b662d5648c8ae3dc01ad01688e1a8afc3525e431e7cddb841c53e5e291" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/27/bc/3e69305bf34806cd852f4683deec844a2cb9a4d8888d7f172b507f6080a8/granian-2.7.2-cp314-cp314t-macosx_11_0_arm64.whl", hash = "sha256:17516095b520b3c039ddbe41a6beb2c59d554b668cc229d36d82c93154a799af" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/ec/10/7d58a922b44417a6207c0a3230b0841cd7385a36fc518ac15fed16ebf6f7/granian-2.7.2-cp314-cp314t-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:96b0fd9eac60f939b3cbe44c8f32a42fdb7c1a1a9e07ca89e7795cdc7a606beb" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/54/56/65776c6d759dcef9cce15bc11bdea2c64fe668088faf35d87916bd88f595/granian-2.7.2-cp314-cp314t-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:e50fb13e053384b8bd3823d4967606c6fd89f2b0d20e64de3ae212b85ffdfed2" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/81/ee/d9ed836316607401f158ac264a3f770469d1b1edbf119402777a9eff1833/granian-2.7.2-cp314-cp314t-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:9bb1ef13125bc05ab2e18869ed311beaeb085a4c4c195d55d0865f5753a4c0b4" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/a1/46/eabab80e07a14527c336dec6d902329399f3ba2b82dc94b6435651021359/granian-2.7.2-cp314-cp314t-manylinux_2_28_aarch64.whl", hash = "sha256:b1c77189335070c6ba6b8d158518fde4c50f892753620f0b22a7552ad4347143" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/24/8a/8ce186826066f6d453316229383a5be3b0b8a4130146c21f321ee64fe2cb/granian-2.7.2-cp314-cp314t-musllinux_1_1_aarch64.whl", hash = "sha256:1777166c3c853eed4440adb3cbbf34bba2b77d595bfc143a5826904a80b22f34" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/cf/eb/91ed4646ce1c920ad39db0bcddb6f4755e1823002b14fb026104e3eb8bce/granian-2.7.2-cp314-cp314t-musllinux_1_1_armv7l.whl", hash = "sha256:0ffac19208ae548f3647c849579b803beaed2b50dfb0f3790ad26daac0033484" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/49/2f/58cba479254530ab09132e150e4ab55362f6e875d9e82b6790477843e0aa/granian-2.7.2-cp314-cp314t-musllinux_1_1_x86_64.whl", hash = "sha256:82f34e78c1297bf5a1b6a5097e30428db98b59fce60a7387977b794855c0c3bc" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/29/b3/fd13123ac936a4f79f1ba20ad67328a8d09d586262b8f28cc1cfaa555213/granian-2.7.2-cp314-cp314t-win_amd64.whl", hash = "sha256:e8b87d7ada696eec7e9023974665c83cec978cb83c205eae8fe377de20622f25" },
 ]
 
 [package.optional-dependencies]
@@ -596,36 +607,36 @@ reload = [
 
 [[package]]
 name = "greenlet"
-version = "3.3.1"
+version = "3.3.2"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/8a/99/1cd3411c56a410994669062bd73dd58270c00cc074cac15f385a1fd91f8a/greenlet-3.3.1.tar.gz", hash = "sha256:41848f3230b58c08bb43dee542e74a2a2e34d3c59dc3076cec9151aeeedcae98" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/a3/51/1664f6b78fc6ebbd98019a1fd730e83fa78f2db7058f72b1463d3612b8db/greenlet-3.3.2.tar.gz", hash = "sha256:2eaf067fc6d886931c7962e8c6bede15d2f01965560f3359b27c80bde2d151f2" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/ec/ab/d26750f2b7242c2b90ea2ad71de70cfcd73a948a49513188a0fc0d6fc15a/greenlet-3.3.1-cp313-cp313-macosx_11_0_universal2.whl", hash = "sha256:7ab327905cabb0622adca5971e488064e35115430cec2c35a50fd36e72a315b3" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/10/d3/be7d19e8fad7c5a78eeefb2d896a08cd4643e1e90c605c4be3b46264998f/greenlet-3.3.1-cp313-cp313-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:65be2f026ca6a176f88fb935ee23c18333ccea97048076aef4db1ef5bc0713ac" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/ae/21/fe703aaa056fdb0f17e5afd4b5c80195bbdab701208918938bd15b00d39b/greenlet-3.3.1-cp313-cp313-manylinux_2_24_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:7a3ae05b3d225b4155bda56b072ceb09d05e974bc74be6c3fc15463cf69f33fd" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/06/00/95df0b6a935103c0452dad2203f5be8377e551b8466a29650c4c5a5af6cc/greenlet-3.3.1-cp313-cp313-manylinux_2_24_s390x.manylinux_2_28_s390x.whl", hash = "sha256:12184c61e5d64268a160226fb4818af4df02cfead8379d7f8b99a56c3a54ff3e" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/cb/86/5c6ab23bb3c28c21ed6bebad006515cfe08b04613eb105ca0041fecca852/greenlet-3.3.1-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:6423481193bbbe871313de5fd06a082f2649e7ce6e08015d2a76c1e9186ca5b3" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/c2/f3/7949994264e22639e40718c2daf6f6df5169bf48fb038c008a489ec53a50/greenlet-3.3.1-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:33a956fe78bbbda82bfc95e128d61129b32d66bcf0a20a1f0c08aa4839ffa951" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/8d/6e/d73c94d13b6465e9f7cd6231c68abde838bb22408596c05d9059830b7872/greenlet-3.3.1-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:4b065d3284be43728dd280f6f9a13990b56470b81be20375a207cdc814a983f2" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/5e/b3/c9c23a6478b3bcc91f979ce4ca50879e4d0b2bd7b9a53d8ecded719b92e2/greenlet-3.3.1-cp313-cp313-win_amd64.whl", hash = "sha256:27289986f4e5b0edec7b5a91063c109f0276abb09a7e9bdab08437525977c946" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/90/e7/824beda656097edee36ab15809fd063447b200cc03a7f6a24c34d520bc88/greenlet-3.3.1-cp313-cp313-win_arm64.whl", hash = "sha256:2f080e028001c5273e0b42690eaf359aeef9cb1389da0f171ea51a5dc3c7608d" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/ae/fb/011c7c717213182caf78084a9bea51c8590b0afda98001f69d9f853a495b/greenlet-3.3.1-cp314-cp314-macosx_11_0_universal2.whl", hash = "sha256:bd59acd8529b372775cd0fcbc5f420ae20681c5b045ce25bd453ed8455ab99b5" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/41/2e/a3a417d620363fdbb08a48b1dd582956a46a61bf8fd27ee8164f9dfe87c2/greenlet-3.3.1-cp314-cp314-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:b31c05dd84ef6871dd47120386aed35323c944d86c3d91a17c4b8d23df62f15b" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/b4/09/c6c4a0db47defafd2d6bab8ddfe47ad19963b4e30f5bed84d75328059f8c/greenlet-3.3.1-cp314-cp314-manylinux_2_24_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:02925a0bfffc41e542c70aa14c7eda3593e4d7e274bfcccca1827e6c0875902e" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e2/89/b95f2ddcc5f3c2bc09c8ee8d77be312df7f9e7175703ab780f2014a0e781/greenlet-3.3.1-cp314-cp314-manylinux_2_24_s390x.manylinux_2_28_s390x.whl", hash = "sha256:3e0f3878ca3a3ff63ab4ea478585942b53df66ddde327b59ecb191b19dbbd62d" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/80/38/9d42d60dffb04b45f03dbab9430898352dba277758640751dc5cc316c521/greenlet-3.3.1-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:34a729e2e4e4ffe9ae2408d5ecaf12f944853f40ad724929b7585bca808a9d6f" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/96/61/373c30b7197f9e756e4c81ae90a8d55dc3598c17673f91f4d31c3c689c3f/greenlet-3.3.1-cp314-cp314-musllinux_1_2_aarch64.whl", hash = "sha256:aec9ab04e82918e623415947921dea15851b152b822661cce3f8e4393c3df683" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/fd/d3/ca534310343f5945316f9451e953dcd89b36fe7a19de652a1dc5a0eeef3f/greenlet-3.3.1-cp314-cp314-musllinux_1_2_x86_64.whl", hash = "sha256:71c767cf281a80d02b6c1bdc41c9468e1f5a494fb11bc8688c360524e273d7b1" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/52/cb/c21a3fd5d2c9c8b622e7bede6d6d00e00551a5ee474ea6d831b5f567a8b4/greenlet-3.3.1-cp314-cp314-win_amd64.whl", hash = "sha256:96aff77af063b607f2489473484e39a0bbae730f2ea90c9e5606c9b73c44174a" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/6a/8e/8a2db6d11491837af1de64b8aff23707c6e85241be13c60ed399a72e2ef8/greenlet-3.3.1-cp314-cp314-win_arm64.whl", hash = "sha256:b066e8b50e28b503f604fa538adc764a638b38cf8e81e025011d26e8a627fa79" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/28/24/cbbec49bacdcc9ec652a81d3efef7b59f326697e7edf6ed775a5e08e54c2/greenlet-3.3.1-cp314-cp314t-macosx_11_0_universal2.whl", hash = "sha256:3e63252943c921b90abb035ebe9de832c436401d9c45f262d80e2d06cc659242" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/86/2e/4f2b9323c144c4fe8842a4e0d92121465485c3c2c5b9e9b30a52e80f523f/greenlet-3.3.1-cp314-cp314t-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:76e39058e68eb125de10c92524573924e827927df5d3891fbc97bd55764a8774" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/d9/87/50ca60e515f5bb55a2fbc5f0c9b5b156de7d2fc51a0a69abc9d23914a237/greenlet-3.3.1-cp314-cp314t-manylinux_2_24_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:c9f9d5e7a9310b7a2f416dd13d2e3fd8b42d803968ea580b7c0f322ccb389b97" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/7c/25/c51a63f3f463171e09cb586eb64db0861eb06667ab01a7968371a24c4f3b/greenlet-3.3.1-cp314-cp314t-manylinux_2_24_s390x.manylinux_2_28_s390x.whl", hash = "sha256:4b9721549a95db96689458a1e0ae32412ca18776ed004463df3a9299c1b257ab" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/1d/94/74310866dfa2b73dd08659a3d18762f83985ad3281901ba0ee9a815194fb/greenlet-3.3.1-cp314-cp314t-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:92497c78adf3ac703b57f1e3813c2d874f27f71a178f9ea5887855da413cd6d2" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/97/43/8bf0ffa3d498eeee4c58c212a3905dd6146c01c8dc0b0a046481ca29b18c/greenlet-3.3.1-cp314-cp314t-musllinux_1_2_aarch64.whl", hash = "sha256:ed6b402bc74d6557a705e197d47f9063733091ed6357b3de33619d8a8d93ac53" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/89/90/a3be7a5f378fc6e84abe4dcfb2ba32b07786861172e502388b4c90000d1b/greenlet-3.3.1-cp314-cp314t-musllinux_1_2_x86_64.whl", hash = "sha256:59913f1e5ada20fde795ba906916aea25d442abcc0593fba7e26c92b7ad76249" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e1/2b/98c7f93e6db9977aaee07eb1e51ca63bd5f779b900d362791d3252e60558/greenlet-3.3.1-cp314-cp314t-win_amd64.whl", hash = "sha256:301860987846c24cb8964bdec0e31a96ad4a2a801b41b4ef40963c1b44f33451" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/ac/48/f8b875fa7dea7dd9b33245e37f065af59df6a25af2f9561efa8d822fde51/greenlet-3.3.2-cp313-cp313-macosx_11_0_universal2.whl", hash = "sha256:aa6ac98bdfd716a749b84d4034486863fd81c3abde9aa3cf8eff9127981a4ae4" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/49/8d/9771d03e7a8b1ee456511961e1b97a6d77ae1dea4a34a5b98eee706689d3/greenlet-3.3.2-cp313-cp313-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:ab0c7e7901a00bc0a7284907273dc165b32e0d109a6713babd04471327ff7986" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/59/0e/4223c2bbb63cd5c97f28ffb2a8aee71bdfb30b323c35d409450f51b91e3e/greenlet-3.3.2-cp313-cp313-manylinux_2_24_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:d248d8c23c67d2291ffd47af766e2a3aa9fa1c6703155c099feb11f526c63a92" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/94/2b/4d012a69759ac9d77210b8bfb128bc621125f5b20fc398bce3940d036b1c/greenlet-3.3.2-cp313-cp313-manylinux_2_24_s390x.manylinux_2_28_s390x.whl", hash = "sha256:ccd21bb86944ca9be6d967cf7691e658e43417782bce90b5d2faeda0ff78a7dd" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/7a/34/259b28ea7a2a0c904b11cd36c79b8cef8019b26ee5dbe24e73b469dea347/greenlet-3.3.2-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:b6997d360a4e6a4e936c0f9625b1c20416b8a0ea18a8e19cabbefc712e7397ab" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/0a/03/996c2d1689d486a6e199cb0f1cf9e4aa940c500e01bdf201299d7d61fa69/greenlet-3.3.2-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:64970c33a50551c7c50491671265d8954046cb6e8e2999aacdd60e439b70418a" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/d9/c4/2570fc07f34a39f2caf0bf9f24b0a1a0a47bc2e8e465b2c2424821389dfc/greenlet-3.3.2-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:1a9172f5bf6bd88e6ba5a84e0a68afeac9dc7b6b412b245dd64f52d83c81e55b" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/91/39/5ef5aa23bc545aa0d31e1b9b55822b32c8da93ba657295840b6b34124009/greenlet-3.3.2-cp313-cp313-win_amd64.whl", hash = "sha256:a7945dd0eab63ded0a48e4dcade82939783c172290a7903ebde9e184333ca124" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/62/6b/a89f8456dcb06becff288f563618e9f20deed8dd29beea14f9a168aef64b/greenlet-3.3.2-cp313-cp313-win_arm64.whl", hash = "sha256:394ead29063ee3515b4e775216cb756b2e3b4a7e55ae8fd884f17fa579e6b327" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/3f/ae/8bffcbd373b57a5992cd077cbe8858fff39110480a9d50697091faea6f39/greenlet-3.3.2-cp314-cp314-macosx_11_0_universal2.whl", hash = "sha256:8d1658d7291f9859beed69a776c10822a0a799bc4bfe1bd4272bb60e62507dab" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/d1/c0/45f93f348fa49abf32ac8439938726c480bd96b2a3c6f4d949ec0124b69f/greenlet-3.3.2-cp314-cp314-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:18cb1b7337bca281915b3c5d5ae19f4e76d35e1df80f4ad3c1a7be91fadf1082" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/b3/de/dd7589b3f2b8372069ab3e4763ea5329940fc7ad9dcd3e272a37516d7c9b/greenlet-3.3.2-cp314-cp314-manylinux_2_24_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:c2e47408e8ce1c6f1ceea0dffcdf6ebb85cc09e55c7af407c99f1112016e45e9" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/cd/ac/85804f74f1ccea31ba518dcc8ee6f14c79f73fe36fa1beba38930806df09/greenlet-3.3.2-cp314-cp314-manylinux_2_24_s390x.manylinux_2_28_s390x.whl", hash = "sha256:e3cb43ce200f59483eb82949bf1835a99cf43d7571e900d7c8d5c62cdf25d2f9" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/d2/d8/09bfa816572a4d83bccd6750df1926f79158b1c36c5f73786e26dbe4ee38/greenlet-3.3.2-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:63d10328839d1973e5ba35e98cccbca71b232b14051fd957b6f8b6e8e80d0506" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/48/cf/56832f0c8255d27f6c35d41b5ec91168d74ec721d85f01a12131eec6b93c/greenlet-3.3.2-cp314-cp314-musllinux_1_2_aarch64.whl", hash = "sha256:8e4ab3cfb02993c8cc248ea73d7dae6cec0253e9afa311c9b37e603ca9fad2ce" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/0a/23/b90b60a4aabb4cec0796e55f25ffbfb579a907c3898cd2905c8918acaa16/greenlet-3.3.2-cp314-cp314-musllinux_1_2_x86_64.whl", hash = "sha256:94ad81f0fd3c0c0681a018a976e5c2bd2ca2d9d94895f23e7bb1af4e8af4e2d5" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/f3/ca/2101ca3d9223a1dc125140dbc063644dca76df6ff356531eb27bc267b446/greenlet-3.3.2-cp314-cp314-win_amd64.whl", hash = "sha256:8c4dd0f3997cf2512f7601563cc90dfb8957c0cff1e3a1b23991d4ea1776c492" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/f6/4a/ecf894e962a59dea60f04877eea0fd5724618da89f1867b28ee8b91e811f/greenlet-3.3.2-cp314-cp314-win_arm64.whl", hash = "sha256:cd6f9e2bbd46321ba3bbb4c8a15794d32960e3b0ae2cc4d49a1a53d314805d71" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/98/6d/8f2ef704e614bcf58ed43cfb8d87afa1c285e98194ab2cfad351bf04f81e/greenlet-3.3.2-cp314-cp314t-macosx_11_0_universal2.whl", hash = "sha256:e26e72bec7ab387ac80caa7496e0f908ff954f31065b0ffc1f8ecb1338b11b54" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/5e/0d/93894161d307c6ea237a43988f27eba0947b360b99ac5239ad3fe09f0b47/greenlet-3.3.2-cp314-cp314t-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:8b466dff7a4ffda6ca975979bab80bdadde979e29fc947ac3be4451428d8b0e4" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/f5/2c/d2d506ebd8abcb57386ec4f7ba20f4030cbe56eae541bc6fd6ef399c0b41/greenlet-3.3.2-cp314-cp314t-manylinux_2_24_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:b8bddc5b73c9720bea487b3bffdb1840fe4e3656fba3bd40aa1489e9f37877ff" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/d1/67/8197b7e7e602150938049d8e7f30de1660cfb87e4c8ee349b42b67bdb2e1/greenlet-3.3.2-cp314-cp314t-manylinux_2_24_s390x.manylinux_2_28_s390x.whl", hash = "sha256:59b3e2c40f6706b05a9cd299c836c6aa2378cabe25d021acd80f13abf81181cf" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/8e/30/3a09155fbf728673a1dea713572d2d31159f824a37c22da82127056c44e4/greenlet-3.3.2-cp314-cp314t-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:b26b0f4428b871a751968285a1ac9648944cea09807177ac639b030bddebcea4" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/f3/fd/d05a4b7acd0154ed758797f0a43b4c0962a843bedfe980115e842c5b2d08/greenlet-3.3.2-cp314-cp314t-musllinux_1_2_aarch64.whl", hash = "sha256:1fb39a11ee2e4d94be9a76671482be9398560955c9e568550de0224e41104727" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/6f/e1/50ee92a5db521de8f35075b5eff060dd43d39ebd46c2181a2042f7070385/greenlet-3.3.2-cp314-cp314t-musllinux_1_2_x86_64.whl", hash = "sha256:20154044d9085151bc309e7689d6f7ba10027f8f5a8c0676ad398b951913d89e" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/29/4b/45d90626aef8e65336bed690106d1382f7a43665e2249017e9527df8823b/greenlet-3.3.2-cp314-cp314t-win_amd64.whl", hash = "sha256:c04c5e06ec3e022cbfe2cd4a846e1d4e50087444f875ff6d2c2ad8445495cf1a" },
 ]
 
 [[package]]
@@ -740,14 +751,14 @@ wheels = [
 
 [[package]]
 name = "joserfc"
-version = "1.6.2"
+version = "1.6.3"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "cryptography" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/03/7a/c5bfcb971e5d330e21ae26935cc798dcf928a68c4e42a6990d0d6f1e83d6/joserfc-1.6.2.tar.gz", hash = "sha256:fd666ee075dbc4889b8b0353437847644777c1045c394838feeadb5aaecd72ab" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/ce/90/b8cc8635c4ce2e5e8104bf26ef147f6e599478f6329107283cdc53aae97f/joserfc-1.6.3.tar.gz", hash = "sha256:c00c2830db969b836cba197e830e738dd9dda0955f1794e55d3c636f17f5c9a6" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/de/e7/921d11bc89086a0b22a72e9f3ab8423855e1aab01a0da17bc83b702ceb3c/joserfc-1.6.2-py3-none-any.whl", hash = "sha256:2570a69cca95619fae4ffad9d051f0eb57a7741a5a9bd1afc996e74534e31a3d" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/12/4f/124b3301067b752f44f292f0b9a74e837dd75ff863ee39500a082fc4c733/joserfc-1.6.3-py3-none-any.whl", hash = "sha256:6beab3635358cbc565cb94fb4c53d0557e6d10a15b933e2134939351590bda9a" },
 ]
 
 [[package]]
@@ -897,7 +908,7 @@ wheels = [
 
 [[package]]
 name = "microbootstrap"
-version = "1.2.0"
+version = "1.2.3"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "eval-type-backport" },
@@ -926,9 +937,9 @@ dependencies = [
     { name = "sentry-sdk" },
     { name = "structlog" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/c1/87/9b26b4a7256ecee614da19fe9f5537ab920a3dc0ae0ad446acfb1a1319b8/microbootstrap-1.2.0.tar.gz", hash = "sha256:7d233d31c9ebf8fdf1752d49320572065b83527ba69fb85fc53633817ced9bb7" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/be/16/a248905ccf588368de564b127129c0e542b0e1ad928ce49ea93501c7c7fd/microbootstrap-1.2.3.tar.gz", hash = "sha256:44ca717d777b6c5666c3adc4e2ebcc89fc5cae7bb4e52d04b412d31eab60daf1" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/73/f8/2fea679f075e4524d82e94d84e9be3919caeccc17a0245363f03ac0bcf85/microbootstrap-1.2.0-py3-none-any.whl", hash = "sha256:5dcdc584ef0e1061316e76eb631bbcf225e8f0a1159e03d267eb40b15afd928a" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/37/ac/532c01c6806b17bdebda89982fc157264ba90c9c1a4f6e7ce55d6edc4040/microbootstrap-1.2.3-py3-none-any.whl", hash = "sha256:7e724f05ba30885560dd0ea18fb28e311600a43e95a9592a0a08fd9f5a1233f6" },
 ]
 
 [package.optional-dependencies]
@@ -980,29 +991,29 @@ wheels = [
 
 [[package]]
 name = "opentelemetry-api"
-version = "1.39.1"
+version = "1.40.0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "importlib-metadata" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/97/b9/3161be15bb8e3ad01be8be5a968a9237c3027c5be504362ff800fca3e442/opentelemetry_api-1.39.1.tar.gz", hash = "sha256:fbde8c80e1b937a2c61f20347e91c0c18a1940cecf012d62e65a7caf08967c9c" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/2c/1d/4049a9e8698361cc1a1aa03a6c59e4fa4c71e0c0f94a30f988a6876a2ae6/opentelemetry_api-1.40.0.tar.gz", hash = "sha256:159be641c0b04d11e9ecd576906462773eb97ae1b657730f0ecf64d32071569f" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/cf/df/d3f1ddf4bb4cb50ed9b1139cc7b1c54c34a1e7ce8fd1b9a37c0d1551a6bd/opentelemetry_api-1.39.1-py3-none-any.whl", hash = "sha256:2edd8463432a7f8443edce90972169b195e7d6a05500cd29e6d13898187c9950" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/5f/bf/93795954016c522008da367da292adceed71cca6ee1717e1d64c83089099/opentelemetry_api-1.40.0-py3-none-any.whl", hash = "sha256:82dd69331ae74b06f6a874704be0cfaa49a1650e1537d4a813b86ecef7d0ecf9" },
 ]
 
 [[package]]
 name = "opentelemetry-distro"
-version = "0.60b1"
+version = "0.61b0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "opentelemetry-api" },
     { name = "opentelemetry-instrumentation" },
     { name = "opentelemetry-sdk" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/15/77/f0b1f2bcf451ec5bc443d53bc7437577c3fc8444b3eb0d416ac5f7558b7b/opentelemetry_distro-0.60b1.tar.gz", hash = "sha256:8b7326b83a55ff7b17bb92225a86e2736a004f6af7aff00cb5d87b2d8e5bc283" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/f5/00/1f8acc51326956a596fefaf67751380001af36029132a7a07d4debce3c06/opentelemetry_distro-0.61b0.tar.gz", hash = "sha256:975b845f50181ad53753becf4fd4b123b54fa04df5a9d78812264436d6518981" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/24/70/78a86531495040fcad9569d7daa630eca06d27d37c825a8aad448b7c1c5b/opentelemetry_distro-0.60b1-py3-none-any.whl", hash = "sha256:581104a786f5df252f4dfe725e0ae16337a26da902acb92d8b3e7aee29f0c76e" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/56/2c/efcc995cd7484e6e55b1d26bd7fa6c55ca96bd415ff94310b52c19f330b0/opentelemetry_distro-0.61b0-py3-none-any.whl", hash = "sha256:f21d1ac0627549795d75e332006dd068877f00e461b1b2e8fe4568d6eb7b9590" },
 ]
 
 [package.optional-dependencies]
@@ -1012,32 +1023,32 @@ otlp = [
 
 [[package]]
 name = "opentelemetry-exporter-otlp"
-version = "1.39.1"
+version = "1.40.0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "opentelemetry-exporter-otlp-proto-grpc" },
     { name = "opentelemetry-exporter-otlp-proto-http" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/30/9c/3ab1db90f32da200dba332658f2bbe602369e3d19f6aba394031a42635be/opentelemetry_exporter_otlp-1.39.1.tar.gz", hash = "sha256:7cf7470e9fd0060c8a38a23e4f695ac686c06a48ad97f8d4867bc9b420180b9c" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/d0/37/b6708e0eff5c5fb9aba2e0ea09f7f3bcbfd12a592d2a780241b5f6014df7/opentelemetry_exporter_otlp-1.40.0.tar.gz", hash = "sha256:7caa0870b95e2fcb59d64e16e2b639ecffb07771b6cd0000b5d12e5e4fef765a" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/00/6c/bdc82a066e6fb1dcf9e8cc8d4e026358fe0f8690700cc6369a6bf9bd17a7/opentelemetry_exporter_otlp-1.39.1-py3-none-any.whl", hash = "sha256:68ae69775291f04f000eb4b698ff16ff685fdebe5cb52871bc4e87938a7b00fe" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/2d/fc/aea77c28d9f3ffef2fdafdc3f4a235aee4091d262ddabd25882f47ce5c5f/opentelemetry_exporter_otlp-1.40.0-py3-none-any.whl", hash = "sha256:48c87e539ec9afb30dc443775a1334cc5487de2f72a770a4c00b1610bf6c697d" },
 ]
 
 [[package]]
 name = "opentelemetry-exporter-otlp-proto-common"
-version = "1.39.1"
+version = "1.40.0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "opentelemetry-proto" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e9/9d/22d241b66f7bbde88a3bfa6847a351d2c46b84de23e71222c6aae25c7050/opentelemetry_exporter_otlp_proto_common-1.39.1.tar.gz", hash = "sha256:763370d4737a59741c89a67b50f9e39271639ee4afc999dadfe768541c027464" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/51/bc/1559d46557fe6eca0b46c88d4c2676285f1f3be2e8d06bb5d15fbffc814a/opentelemetry_exporter_otlp_proto_common-1.40.0.tar.gz", hash = "sha256:1cbee86a4064790b362a86601ee7934f368b81cd4cc2f2e163902a6e7818a0fa" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/8c/02/ffc3e143d89a27ac21fd557365b98bd0653b98de8a101151d5805b5d4c33/opentelemetry_exporter_otlp_proto_common-1.39.1-py3-none-any.whl", hash = "sha256:08f8a5862d64cc3435105686d0216c1365dc5701f86844a8cd56597d0c764fde" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/8b/ca/8f122055c97a932311a3f640273f084e738008933503d0c2563cd5d591fc/opentelemetry_exporter_otlp_proto_common-1.40.0-py3-none-any.whl", hash = "sha256:7081ff453835a82417bf38dccf122c827c3cbc94f2079b03bba02a3165f25149" },
 ]
 
 [[package]]
 name = "opentelemetry-exporter-otlp-proto-grpc"
-version = "1.39.1"
+version = "1.40.0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "googleapis-common-protos" },
@@ -1048,14 +1059,14 @@ dependencies = [
     { name = "opentelemetry-sdk" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/53/48/b329fed2c610c2c32c9366d9dc597202c9d1e58e631c137ba15248d8850f/opentelemetry_exporter_otlp_proto_grpc-1.39.1.tar.gz", hash = "sha256:772eb1c9287485d625e4dbe9c879898e5253fea111d9181140f51291b5fec3ad" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/8f/7f/b9e60435cfcc7590fa87436edad6822240dddbc184643a2a005301cc31f4/opentelemetry_exporter_otlp_proto_grpc-1.40.0.tar.gz", hash = "sha256:bd4015183e40b635b3dab8da528b27161ba83bf4ef545776b196f0fb4ec47740" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/81/a3/cc9b66575bd6597b98b886a2067eea2693408d2d5f39dad9ab7fc264f5f3/opentelemetry_exporter_otlp_proto_grpc-1.39.1-py3-none-any.whl", hash = "sha256:fa1c136a05c7e9b4c09f739469cbdb927ea20b34088ab1d959a849b5cc589c18" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/96/6f/7ee0980afcbdcd2d40362da16f7f9796bd083bf7f0b8e038abfbc0300f5d/opentelemetry_exporter_otlp_proto_grpc-1.40.0-py3-none-any.whl", hash = "sha256:2aa0ca53483fe0cf6405087a7491472b70335bc5c7944378a0a8e72e86995c52" },
 ]
 
 [[package]]
 name = "opentelemetry-exporter-otlp-proto-http"
-version = "1.39.1"
+version = "1.40.0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "googleapis-common-protos" },
@@ -1066,14 +1077,14 @@ dependencies = [
     { name = "requests" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/80/04/2a08fa9c0214ae38880df01e8bfae12b067ec0793446578575e5080d6545/opentelemetry_exporter_otlp_proto_http-1.39.1.tar.gz", hash = "sha256:31bdab9745c709ce90a49a0624c2bd445d31a28ba34275951a6a362d16a0b9cb" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/2e/fa/73d50e2c15c56be4d000c98e24221d494674b0cc95524e2a8cb3856d95a4/opentelemetry_exporter_otlp_proto_http-1.40.0.tar.gz", hash = "sha256:db48f5e0f33217588bbc00274a31517ba830da576e59503507c839b38fa0869c" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/95/f1/b27d3e2e003cd9a3592c43d099d2ed8d0a947c15281bf8463a256db0b46c/opentelemetry_exporter_otlp_proto_http-1.39.1-py3-none-any.whl", hash = "sha256:d9f5207183dd752a412c4cd564ca8875ececba13be6e9c6c370ffb752fd59985" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/a0/3a/8865d6754e61c9fb170cdd530a124a53769ee5f740236064816eb0ca7301/opentelemetry_exporter_otlp_proto_http-1.40.0-py3-none-any.whl", hash = "sha256:a8d1dab28f504c5d96577d6509f80a8150e44e8f45f82cdbe0e34c99ab040069" },
 ]
 
 [[package]]
 name = "opentelemetry-exporter-prometheus-remote-write"
-version = "0.60b1"
+version = "0.61b0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "opentelemetry-api" },
@@ -1082,14 +1093,14 @@ dependencies = [
     { name = "python-snappy" },
     { name = "requests" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/bf/22/5309c2df7cca65d3fac4a009b3db0e133e833f8a4ba573a82595cc3fc0ce/opentelemetry_exporter_prometheus_remote_write-0.60b1.tar.gz", hash = "sha256:246b4648c6d7ee21e14b2483f3be4e649de0b6807ca4daf7fbae66097c91aa35" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/bf/34/0c984f84335bfacc3d5305707d62e4277a998b342fcad0a6e70e661259ad/opentelemetry_exporter_prometheus_remote_write-0.61b0.tar.gz", hash = "sha256:1b41ae6c59e3d4f92d0c98f8b065604c71d6407982f7b708458a642683d1bfb3" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/56/9c/66e3582dff4a3d20b300e769aecf72eac14cf27afc7be453f7715083cfa2/opentelemetry_exporter_prometheus_remote_write-0.60b1-py3-none-any.whl", hash = "sha256:b6520856914816de14682ef91830f95889bdaa1b9d9cad9ddc2907460868aa5b" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/75/be/cc8b30c1283ff30637994d37d0f0878b20f027b91c92446f966b4d24c6c3/opentelemetry_exporter_prometheus_remote_write-0.61b0-py3-none-any.whl", hash = "sha256:069b922fcb61db54588d7b53736ec01195b6cd06bf123b3d84da3f9569fe728c" },
 ]
 
 [[package]]
 name = "opentelemetry-instrumentation"
-version = "0.60b1"
+version = "0.61b0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "opentelemetry-api" },
@@ -1097,28 +1108,28 @@ dependencies = [
     { name = "packaging" },
     { name = "wrapt" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/41/0f/7e6b713ac117c1f5e4e3300748af699b9902a2e5e34c9cf443dde25a01fa/opentelemetry_instrumentation-0.60b1.tar.gz", hash = "sha256:57ddc7974c6eb35865af0426d1a17132b88b2ed8586897fee187fd5b8944bd6a" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/da/37/6bf8e66bfcee5d3c6515b79cb2ee9ad05fe573c20f7ceb288d0e7eeec28c/opentelemetry_instrumentation-0.61b0.tar.gz", hash = "sha256:cb21b48db738c9de196eba6b805b4ff9de3b7f187e4bbf9a466fa170514f1fc7" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/77/d2/6788e83c5c86a2690101681aeef27eeb2a6bf22df52d3f263a22cee20915/opentelemetry_instrumentation-0.60b1-py3-none-any.whl", hash = "sha256:04480db952b48fb1ed0073f822f0ee26012b7be7c3eac1a3793122737c78632d" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/d8/3e/f6f10f178b6316de67f0dfdbbb699a24fbe8917cf1743c1595fb9dcdd461/opentelemetry_instrumentation-0.61b0-py3-none-any.whl", hash = "sha256:92a93a280e69788e8f88391247cc530fd81f16f2b011979d4d6398f805cfbc63" },
 ]
 
 [[package]]
 name = "opentelemetry-instrumentation-aio-pika"
-version = "0.60b1"
+version = "0.61b0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "opentelemetry-api" },
     { name = "opentelemetry-instrumentation" },
     { name = "wrapt" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/7a/c0/c579e5d5adc9e3b525d3a1afde38a7bfe1b1afe8ca870da1d20738bc11e6/opentelemetry_instrumentation_aio_pika-0.60b1.tar.gz", hash = "sha256:718cbc066be3ba579fc28ee4e1458bfe8681782e98c3bf7b04145f8165f22f3b" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/8b/24/d8a58e517d398fea40f09b009d9a1a04f90c4cee83ff550d12c01471e538/opentelemetry_instrumentation_aio_pika-0.61b0.tar.gz", hash = "sha256:ca55f1a1211fcea0433972e1366dc2d6feea9633434deed375e0ae0aaa9a52f6" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/4e/67/e5e655d84fd8f4a5505f54574f1e84a7362a45c2dca211000171a2f9e888/opentelemetry_instrumentation_aio_pika-0.60b1-py3-none-any.whl", hash = "sha256:a27af7c054f5ba7f49ac1cff1cdec54061096c7387c20f0123bd2a81b1478016" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/71/7e/bfe7cd89d9111651d633159c7126d2a062019b62050fe46f7b420abff263/opentelemetry_instrumentation_aio_pika-0.61b0-py3-none-any.whl", hash = "sha256:bcd1a63045c981df6f755a87809f7b4033f61f6f258d3c10246d826a1d9f5e9e" },
 ]
 
 [[package]]
 name = "opentelemetry-instrumentation-aiohttp-client"
-version = "0.60b1"
+version = "0.61b0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "opentelemetry-api" },
@@ -1127,14 +1138,14 @@ dependencies = [
     { name = "opentelemetry-util-http" },
     { name = "wrapt" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/c0/79/95be90c555fd7efde79dcba36ea5c668815aa2d0a4250b63687e0f91c74a/opentelemetry_instrumentation_aiohttp_client-0.60b1.tar.gz", hash = "sha256:d0e7d5aa057791ca4d9090b0d3c9982f253c1a24b6bc78a734fc18d8dd97927b" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/6f/6d/24fed4de661de107f2426b28bbd87b51eaab28a2339b62f269a36ae24505/opentelemetry_instrumentation_aiohttp_client-0.61b0.tar.gz", hash = "sha256:c53ab3b88efcb7ce98c1129cc0389f0a1f214eb3675269b6c157770adcf47877" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/ca/f4/1a1ec632c86269750ae833c8fbdd4c8d15316eb1c21e3544e34791c805ee/opentelemetry_instrumentation_aiohttp_client-0.60b1-py3-none-any.whl", hash = "sha256:34c5097256a30b16c5a2a88a409ed82b92972a494c43212c85632d204a78c2a1" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/df/f3/1edc42716521a3f754ac32ffb908f102e0f131f8e43fcd9ab29cab286723/opentelemetry_instrumentation_aiohttp_client-0.61b0-py3-none-any.whl", hash = "sha256:09bc47514c162507b357366ce15578743fd6305078cf7d872db1c99c13fa6972" },
 ]
 
 [[package]]
 name = "opentelemetry-instrumentation-aiokafka"
-version = "0.60b1"
+version = "0.61b0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "opentelemetry-api" },
@@ -1142,14 +1153,14 @@ dependencies = [
     { name = "opentelemetry-semantic-conventions" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/87/f7/3295445df13574aa6d7c04be92d098d8d318a4ba317cad178f49d67494cb/opentelemetry_instrumentation_aiokafka-0.60b1.tar.gz", hash = "sha256:db06278ae8d415f8fe114b7fc54cf62c8e9e5f73f2e8fa33ffaa9a5bd240ed7e" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/08/33/e05648ab6e8d3e1e19366c99dc33c16ec272c431f89def590922c6eda0cb/opentelemetry_instrumentation_aiokafka-0.61b0.tar.gz", hash = "sha256:1c2fabbe0c16e2f9d6bf6c34cb182af6974868e96d8dbb00f45c27f5ac48ee6a" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/c2/3d/804e5ac8aeb538164da90578986c531c30b602e873f029319273f8dfd0a0/opentelemetry_instrumentation_aiokafka-0.60b1-py3-none-any.whl", hash = "sha256:1a073f1d66b92b8e7f4c7f5bd783efeb0c26b291d4d3dd29f4c54fce884b1f50" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/6f/e3/a440f692a96af4f7b270d88cf8a3d76fbe132c6268111c4965bb8c01f66d/opentelemetry_instrumentation_aiokafka-0.61b0-py3-none-any.whl", hash = "sha256:2bb6c9e492a5c1961f48a1e8d2982f3adeddc18f3bb089ac32ace2291e9d0d2e" },
 ]
 
 [[package]]
 name = "opentelemetry-instrumentation-asgi"
-version = "0.60b1"
+version = "0.61b0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "asgiref" },
@@ -1158,14 +1169,14 @@ dependencies = [
     { name = "opentelemetry-semantic-conventions" },
     { name = "opentelemetry-util-http" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/77/db/851fa88db7441da82d50bd80f2de5ee55213782e25dc858e04d0c9961d60/opentelemetry_instrumentation_asgi-0.60b1.tar.gz", hash = "sha256:16bfbe595cd24cda309a957456d0fc2523f41bc7b076d1f2d7e98a1ad9876d6f" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/00/3e/143cf5c034e58037307e6a24f06e0dd64b2c49ae60a965fc580027581931/opentelemetry_instrumentation_asgi-0.61b0.tar.gz", hash = "sha256:9d08e127244361dc33976d39dd4ca8f128b5aa5a7ae425208400a80a095019b5" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/76/76/1fb94367cef64420d2171157a6b9509582873bd09a6afe08a78a8d1f59d9/opentelemetry_instrumentation_asgi-0.60b1-py3-none-any.whl", hash = "sha256:d48def2dbed10294c99cfcf41ebbd0c414d390a11773a41f472d20000fcddc25" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/19/78/154470cf9d741a7487fbb5067357b87386475bbb77948a6707cae982e158/opentelemetry_instrumentation_asgi-0.61b0-py3-none-any.whl", hash = "sha256:e4b3ce6b66074e525e717efff20745434e5efd5d9df6557710856fba356da7a4" },
 ]
 
 [[package]]
 name = "opentelemetry-instrumentation-asyncio"
-version = "0.60b1"
+version = "0.61b0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "opentelemetry-api" },
@@ -1173,28 +1184,28 @@ dependencies = [
     { name = "opentelemetry-semantic-conventions" },
     { name = "wrapt" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/9e/7f/a108a095fa56c715559a9e441f7fb7b0741cbfb4e363acfb69a7f12648b4/opentelemetry_instrumentation_asyncio-0.60b1.tar.gz", hash = "sha256:0ddb8ada367c7102662c42433740779a055eace08d65079c86ef65e75d1a66b3" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/48/06/f14eacf4fde6892402a4fe1023cbca4a5d4f08f37d930ea3e414a98c85d0/opentelemetry_instrumentation_asyncio-0.61b0.tar.gz", hash = "sha256:3b173b009f108fcbc6ee4f7482e7ae8b76518a87a620ad5e7dd24e4c26066c3c" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/fa/50/6be23a04742c69e53bfc417134ee0955d0572ce1540242023de73aa74e18/opentelemetry_instrumentation_asyncio-0.60b1-py3-none-any.whl", hash = "sha256:9f326c6947a23dccc02a07ab432b0c62b62bf7312a7608c38771014217199316" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/58/8f/79913d7ebc2bd2be9a81f8ecbe0f7413c3bec55c83c89337b93c8de5417a/opentelemetry_instrumentation_asyncio-0.61b0-py3-none-any.whl", hash = "sha256:43273d5b74880b06c5a766f779fa480a50fc5a09a7c81468a60457b794e3f3cd" },
 ]
 
 [[package]]
 name = "opentelemetry-instrumentation-asyncpg"
-version = "0.60b1"
+version = "0.61b0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "opentelemetry-api" },
     { name = "opentelemetry-instrumentation" },
     { name = "opentelemetry-semantic-conventions" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/da/ec/6bd1dba7435cf54b52046d89cac1541d0cc4411f74adbcec50420025f4f5/opentelemetry_instrumentation_asyncpg-0.60b1.tar.gz", hash = "sha256:56dbafc800b83de839e8048cc0a8b76dc2d4182fce6f1fd94aa95ba3f8a2f800" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/cb/12/c704def946c66c1e039f2ebff9c8605f4d5a857a67acdfa5d0c3da0bb6b5/opentelemetry_instrumentation_asyncpg-0.61b0.tar.gz", hash = "sha256:a620bec93409e23335fac135231da0a16df705faab8521286a622fcc87666424" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/f9/99/04899e21a64dff4e551c63b4426c921628a73df8fbe9cd1f60b18bd9142e/opentelemetry_instrumentation_asyncpg-0.60b1-py3-none-any.whl", hash = "sha256:3d64346571822188445bef7c8219709e6ee76f9ed2583a07c503e619f6dd4169" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/d8/ab/0d8ace084c87fa1156e7c8ad144e7867fbdeda3e15ff6c4c50c9e4730a13/opentelemetry_instrumentation_asyncpg-0.61b0-py3-none-any.whl", hash = "sha256:81039b94b3a0b014199cf7c2bd2753679fe600929620065619c13831e579a892" },
 ]
 
 [[package]]
 name = "opentelemetry-instrumentation-dbapi"
-version = "0.60b1"
+version = "0.61b0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "opentelemetry-api" },
@@ -1202,14 +1213,14 @@ dependencies = [
     { name = "opentelemetry-semantic-conventions" },
     { name = "wrapt" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/94/b5/1e1f0642892a2abb6e75b7009ccee946e801cded88caac3d803cf46c8c73/opentelemetry_instrumentation_dbapi-0.60b1.tar.gz", hash = "sha256:a239d328249b86fba5e42900b98bf31ee99c07092530feca18afde92c600f901" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/d6/ed/ba91c9e4a3ec65781e9c59982109f0a36de9fa574f622596b33d1985dab5/opentelemetry_instrumentation_dbapi-0.61b0.tar.gz", hash = "sha256:02fa800682c1de87dcad0e59f2092b3b6fb8b8ea0636518f989e1166b418dcb9" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/4e/08/d4c78b6e317d9975d473dd98f7854f5731ff4a1d470c65d2630fa68a1484/opentelemetry_instrumentation_dbapi-0.60b1-py3-none-any.whl", hash = "sha256:5577189f678de5b9828c930c8fb72e8f1999b304131777b60099e5c4b3948193" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/73/a5/d26c68f3fd33eb7410985cef7700bb426e2c4a26de9207902cbbffb19a3f/opentelemetry_instrumentation_dbapi-0.61b0-py3-none-any.whl", hash = "sha256:8f762c39c8edd20c6aef3282550a2cfbfec76c3f431bf5c36327dcf9ece2e5a0" },
 ]
 
 [[package]]
 name = "opentelemetry-instrumentation-fastapi"
-version = "0.60b1"
+version = "0.61b0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "opentelemetry-api" },
@@ -1218,14 +1229,14 @@ dependencies = [
     { name = "opentelemetry-semantic-conventions" },
     { name = "opentelemetry-util-http" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/9c/e7/e7e5e50218cf488377209d85666b182fa2d4928bf52389411ceeee1b2b60/opentelemetry_instrumentation_fastapi-0.60b1.tar.gz", hash = "sha256:de608955f7ff8eecf35d056578346a5365015fd7d8623df9b1f08d1c74769c01" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/37/35/aa727bb6e6ef930dcdc96a617b83748fece57b43c47d83ba8d83fbeca657/opentelemetry_instrumentation_fastapi-0.61b0.tar.gz", hash = "sha256:3a24f35b07c557ae1bbc483bf8412221f25d79a405f8b047de8b670722e2fa9f" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/7d/cc/6e808328ba54662e50babdcab21138eae4250bc0fddf67d55526a615a2ca/opentelemetry_instrumentation_fastapi-0.60b1-py3-none-any.whl", hash = "sha256:af94b7a239ad1085fc3a820ecf069f67f579d7faf4c085aaa7bd9b64eafc8eaf" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/91/05/acfeb2cccd434242a0a7d0ea29afaf077e04b42b35b485d89aee4e0d9340/opentelemetry_instrumentation_fastapi-0.61b0-py3-none-any.whl", hash = "sha256:a1a844d846540d687d377516b2ff698b51d87c781b59f47c214359c4a241047c" },
 ]
 
 [[package]]
 name = "opentelemetry-instrumentation-httpx"
-version = "0.60b1"
+version = "0.61b0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "opentelemetry-api" },
@@ -1234,41 +1245,41 @@ dependencies = [
     { name = "opentelemetry-util-http" },
     { name = "wrapt" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/86/08/11208bcfcab4fc2023252c3f322aa397fd9ad948355fea60f5fc98648603/opentelemetry_instrumentation_httpx-0.60b1.tar.gz", hash = "sha256:a506ebaf28c60112cbe70ad4f0338f8603f148938cb7b6794ce1051cd2b270ae" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/cd/2a/e2becd55e33c29d1d9ef76e2579040ed1951cb33bacba259f6aff2fdd2a6/opentelemetry_instrumentation_httpx-0.61b0.tar.gz", hash = "sha256:6569ec097946c5551c2a4252f74c98666addd1bf047c1dde6b4ef426719ff8dd" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/43/59/b98e84eebf745ffc75397eaad4763795bff8a30cbf2373a50ed4e70646c5/opentelemetry_instrumentation_httpx-0.60b1-py3-none-any.whl", hash = "sha256:f37636dd742ad2af83d896ba69601ed28da51fa4e25d1ab62fde89ce413e275b" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/af/88/dde310dce56e2d85cf1a09507f5888544955309edc4b8d22971d6d3d1417/opentelemetry_instrumentation_httpx-0.61b0-py3-none-any.whl", hash = "sha256:dee05c93a6593a5dc3ae5d9d5c01df8b4e2c5d02e49275e5558534ee46343d5e" },
 ]
 
 [[package]]
 name = "opentelemetry-instrumentation-logging"
-version = "0.60b1"
+version = "0.61b0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "opentelemetry-api" },
     { name = "opentelemetry-instrumentation" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/60/a6/4515895b383113677fd2ad21813df5e56108a2df14ebb7916c962c9a0234/opentelemetry_instrumentation_logging-0.60b1.tar.gz", hash = "sha256:98f4b9c7aeb9314a30feee7c002c7ea9abea07c90df5f97fb058b850bc45b89a" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/ae/e0/69473f925acfe2d4edf5c23bcced36906ac3627aa7c5722a8e3f60825f3b/opentelemetry_instrumentation_logging-0.61b0.tar.gz", hash = "sha256:feaa30b700acd2a37cc81db5f562ab0c3a5b6cc2453595e98b72c01dcf649584" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/f1/f9/8a4ce3901bc52277794e4b18c4ac43dc5929806eff01d22812364132f45f/opentelemetry_instrumentation_logging-0.60b1-py3-none-any.whl", hash = "sha256:f2e18cbc7e1dd3628c80e30d243897fdc93c5b7e0c8ae60abd2b9b6a99f82343" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e0/0e/2137db5239cc5e564495549a4d11488a7af9b48fc76520a0eea20e69ddae/opentelemetry_instrumentation_logging-0.61b0-py3-none-any.whl", hash = "sha256:6d87e5ded6a0128d775d41511f8380910a1b610671081d16efb05ac3711c0074" },
 ]
 
 [[package]]
 name = "opentelemetry-instrumentation-psycopg"
-version = "0.60b1"
+version = "0.61b0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "opentelemetry-api" },
     { name = "opentelemetry-instrumentation" },
     { name = "opentelemetry-instrumentation-dbapi" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/1c/3e/c158da3e2bd3211234c6f440ec8fb2773c63b126e9082dfb0cf03fbec396/opentelemetry_instrumentation_psycopg-0.60b1.tar.gz", hash = "sha256:c13a81a898307ebdaa8aa4a0ac17753cb308270fcb07a17a857f74b6021b5a12" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/99/00/b98148b3054eb8301a56d523de82ee2fd86a047dba38330c2404d85496e3/opentelemetry_instrumentation_psycopg-0.61b0.tar.gz", hash = "sha256:74e9fed3802945f7ae335cffc30fd18cf58c34a4d0619315f799fa21eb5c74ff" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/32/ff/99e333b617c19041ba2f0311ecf91b735b914fff2b29d5e85b3081e77d12/opentelemetry_instrumentation_psycopg-0.60b1-py3-none-any.whl", hash = "sha256:67fa627561f00b903020843b9254a1be6f3f8c64501033afe629a574a2325ec2" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/db/2b/3c36bfc6dc82a7c50c769aff407eaf32e688d655bc61a774609d96b55603/opentelemetry_instrumentation_psycopg-0.61b0-py3-none-any.whl", hash = "sha256:a3e242cad56c0ad4f4f872017c73ce7e6c7012081dda6bd0d776c127fedc358a" },
 ]
 
 [[package]]
 name = "opentelemetry-instrumentation-redis"
-version = "0.60b1"
+version = "0.61b0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "opentelemetry-api" },
@@ -1276,14 +1287,14 @@ dependencies = [
     { name = "opentelemetry-semantic-conventions" },
     { name = "wrapt" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/6a/1e/225364fab4db793f6f5024ed9f3dd53774fd7c7c21fa242460234dcdf8d9/opentelemetry_instrumentation_redis-0.60b1.tar.gz", hash = "sha256:ecafa8f81c88917b59f0d842fb3d157f3a8edc71fb4b85bebca3bc19432ce7b8" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/cf/21/26205f89358a5f2be3ee5512d3d3bce16b622977f64aeaa9d3fa8887dd39/opentelemetry_instrumentation_redis-0.61b0.tar.gz", hash = "sha256:ae0fbb56be9a641e621d55b02a7d62977a2c77c5ee760addd79b9b266e46e523" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/05/bd/d55d3b34fd49df08d9d9fa3701dff0051b216e2c7e9adaaa4ff6aa1de8d7/opentelemetry_instrumentation_redis-0.60b1-py3-none-any.whl", hash = "sha256:33bef0ff9af6f2d88de90c1cd7e25675c10a16d4f9ee5ae7592b28bb08b78139" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/a5/e1/8f4c8e4194291dbe828aeabe779050a8497b379ad90040a5a0a7074b1d08/opentelemetry_instrumentation_redis-0.61b0-py3-none-any.whl", hash = "sha256:8d4e850bbb5f8eeafa44c0eac3a007990c7125de187bc9c3659e29ff7e091172" },
 ]
 
 [[package]]
 name = "opentelemetry-instrumentation-sqlalchemy"
-version = "0.60b1"
+version = "0.61b0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "opentelemetry-api" },
@@ -1292,71 +1303,71 @@ dependencies = [
     { name = "packaging" },
     { name = "wrapt" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/92/16/6a4cbff1b7cd86d1e58ffd100255f6da781a88f4a2affdcc3721880191c9/opentelemetry_instrumentation_sqlalchemy-0.60b1.tar.gz", hash = "sha256:b614e874a7c0a692838a0da613d1654e81a0612867836a1f0765e40e9c8cc49b" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/9e/4f/3a325b180944610697a0a926d49d782b41a86120050d44fefb2715b630ac/opentelemetry_instrumentation_sqlalchemy-0.61b0.tar.gz", hash = "sha256:13a3a159a2043a52f0180b3757fbaa26741b0e08abb50deddce4394c118956e6" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/d0/b7/2234bc761c197c7f099f30cad5d50efd8286c59b5b8f45cfd6ba6ebe7d5e/opentelemetry_instrumentation_sqlalchemy-0.60b1-py3-none-any.whl", hash = "sha256:486a5f264d264c44e07e0320e33fd19d09cecd2fd4b99c1064046e77a27d9f9f" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/1f/97/b906a930c6a1a20c53ecc8b58cabc2cdd0ce560a2b5d44259084ffe4333e/opentelemetry_instrumentation_sqlalchemy-0.61b0-py3-none-any.whl", hash = "sha256:f115e0be54116ba4c327b8d7b68db4045ee18d44439d888ab8130a549c50d1c1" },
 ]
 
 [[package]]
 name = "opentelemetry-instrumentation-system-metrics"
-version = "0.60b1"
+version = "0.61b0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "opentelemetry-api" },
     { name = "opentelemetry-instrumentation" },
     { name = "psutil" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/c5/68/55e946130c4630fda3cce8ceccb9d6ccd9967278cd082af66243c5228145/opentelemetry_instrumentation_system_metrics-0.60b1.tar.gz", hash = "sha256:b9c3a40f31f20c694c386bd28fa0eed5268532bb78f545bbd8e23bbe99d81e09" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/9c/68/a403ade03a7ccba3d113a02c041942ab8feb4471101eb3a02da6403e9258/opentelemetry_instrumentation_system_metrics-0.61b0.tar.gz", hash = "sha256:3eb55f9a058797cf915946cbb7445e00b31316ac3e55050475792edf3367c321" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/98/a1/fef3de5fba4f80012af7be501e8d216048aa710929d9818e1d2cd3ddc854/opentelemetry_instrumentation_system_metrics-0.60b1-py3-none-any.whl", hash = "sha256:21fb040ed6cfabc8ca97c63548fd01689f7ec92c64bbc6cfd08f30489a336fc6" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/8d/2b/3142c6e0f3c9a5be3e5187933bc28b0c8b7e77c04937aec317eee96e8fdb/opentelemetry_instrumentation_system_metrics-0.61b0-py3-none-any.whl", hash = "sha256:7d4fe3e0ce14e0e6eb18f5826100d6cc1af662e5a8ebc74e9b91fe23f192f3e8" },
 ]
 
 [[package]]
 name = "opentelemetry-proto"
-version = "1.39.1"
+version = "1.40.0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "protobuf" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/49/1d/f25d76d8260c156c40c97c9ed4511ec0f9ce353f8108ca6e7561f82a06b2/opentelemetry_proto-1.39.1.tar.gz", hash = "sha256:6c8e05144fc0d3ed4d22c2289c6b126e03bcd0e6a7da0f16cedd2e1c2772e2c8" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/4c/77/dd38991db037fdfce45849491cb61de5ab000f49824a00230afb112a4392/opentelemetry_proto-1.40.0.tar.gz", hash = "sha256:03f639ca129ba513f5819810f5b1f42bcb371391405d99c168fe6937c62febcd" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/51/95/b40c96a7b5203005a0b03d8ce8cd212ff23f1793d5ba289c87a097571b18/opentelemetry_proto-1.39.1-py3-none-any.whl", hash = "sha256:22cdc78efd3b3765d09e68bfbd010d4fc254c9818afd0b6b423387d9dee46007" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/b9/b2/189b2577dde745b15625b3214302605b1353436219d42b7912e77fa8dc24/opentelemetry_proto-1.40.0-py3-none-any.whl", hash = "sha256:266c4385d88923a23d63e353e9761af0f47a6ed0d486979777fe4de59dc9b25f" },
 ]
 
 [[package]]
 name = "opentelemetry-sdk"
-version = "1.39.1"
+version = "1.40.0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "opentelemetry-api" },
     { name = "opentelemetry-semantic-conventions" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/eb/fb/c76080c9ba07e1e8235d24cdcc4d125ef7aa3edf23eb4e497c2e50889adc/opentelemetry_sdk-1.39.1.tar.gz", hash = "sha256:cf4d4563caf7bff906c9f7967e2be22d0d6b349b908be0d90fb21c8e9c995cc6" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/58/fd/3c3125b20ba18ce2155ba9ea74acb0ae5d25f8cd39cfd37455601b7955cc/opentelemetry_sdk-1.40.0.tar.gz", hash = "sha256:18e9f5ec20d859d268c7cb3c5198c8d105d073714db3de50b593b8c1345a48f2" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/7c/98/e91cf858f203d86f4eccdf763dcf01cf03f1dae80c3750f7e635bfa206b6/opentelemetry_sdk-1.39.1-py3-none-any.whl", hash = "sha256:4d5482c478513ecb0a5d938dcc61394e647066e0cc2676bee9f3af3f3f45f01c" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/2c/c5/6a852903d8bfac758c6dc6e9a68b015d3c33f2f1be5e9591e0f4b69c7e0a/opentelemetry_sdk-1.40.0-py3-none-any.whl", hash = "sha256:787d2154a71f4b3d81f20524a8ce061b7db667d24e46753f32a7bc48f1c1f3f1" },
 ]
 
 [[package]]
 name = "opentelemetry-semantic-conventions"
-version = "0.60b1"
+version = "0.61b0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "opentelemetry-api" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/91/df/553f93ed38bf22f4b999d9be9c185adb558982214f33eae539d3b5cd0858/opentelemetry_semantic_conventions-0.60b1.tar.gz", hash = "sha256:87c228b5a0669b748c76d76df6c364c369c28f1c465e50f661e39737e84bc953" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/6d/c0/4ae7973f3c2cfd2b6e321f1675626f0dab0a97027cc7a297474c9c8f3d04/opentelemetry_semantic_conventions-0.61b0.tar.gz", hash = "sha256:072f65473c5d7c6dc0355b27d6c9d1a679d63b6d4b4b16a9773062cb7e31192a" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/7a/5e/5958555e09635d09b75de3c4f8b9cae7335ca545d77392ffe7331534c402/opentelemetry_semantic_conventions-0.60b1-py3-none-any.whl", hash = "sha256:9fa8c8b0c110da289809292b0591220d3a7b53c1526a23021e977d68597893fb" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/b2/37/cc6a55e448deaa9b27377d087da8615a3416d8ad523d5960b78dbeadd02a/opentelemetry_semantic_conventions-0.61b0-py3-none-any.whl", hash = "sha256:fa530a96be229795f8cef353739b618148b0fe2b4b3f005e60e262926c4d38e2" },
 ]
 
 [[package]]
 name = "opentelemetry-util-http"
-version = "0.60b1"
+version = "0.61b0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/50/fc/c47bb04a1d8a941a4061307e1eddfa331ed4d0ab13d8a9781e6db256940a/opentelemetry_util_http-0.60b1.tar.gz", hash = "sha256:0d97152ca8c8a41ced7172d29d3622a219317f74ae6bb3027cfbdcf22c3cc0d6" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/57/3c/f0196223efc5c4ca19f8fad3d5462b171ac6333013335ce540c01af419e9/opentelemetry_util_http-0.61b0.tar.gz", hash = "sha256:1039cb891334ad2731affdf034d8fb8b48c239af9b6dd295e5fabd07f1c95572" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/16/5c/d3f1733665f7cd582ef0842fb1d2ed0bc1fba10875160593342d22bba375/opentelemetry_util_http-0.60b1-py3-none-any.whl", hash = "sha256:66381ba28550c91bee14dcba8979ace443444af1ed609226634596b4b0faf199" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/0d/e5/c08aaaf2f64288d2b6ef65741d2de5454e64af3e050f34285fb1907492fe/opentelemetry_util_http-0.61b0-py3-none-any.whl", hash = "sha256:8e715e848233e9527ea47e275659ea60a57a75edf5206a3b937e236a6da5fc33" },
 ]
 
 [[package]]
@@ -1448,16 +1459,17 @@ wheels = [
 
 [[package]]
 name = "protobuf"
-version = "5.29.6"
+version = "6.33.5"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/7e/57/394a763c103e0edf87f0938dafcd918d53b4c011dfc5c8ae80f3b0452dbb/protobuf-5.29.6.tar.gz", hash = "sha256:da9ee6a5424b6b30fd5e45c5ea663aef540ca95f9ad99d1e887e819cdf9b8723" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/ba/25/7c72c307aafc96fa87062aa6291d9f7c94836e43214d43722e86037aac02/protobuf-6.33.5.tar.gz", hash = "sha256:6ddcac2a081f8b7b9642c09406bc6a4290128fce5f471cddd165960bb9119e5c" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/d4/88/9ee58ff7863c479d6f8346686d4636dd4c415b0cbeed7a6a7d0617639c2a/protobuf-5.29.6-cp310-abi3-win32.whl", hash = "sha256:62e8a3114992c7c647bce37dcc93647575fc52d50e48de30c6fcb28a6a291eb1" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/1c/66/2dc736a4d576847134fb6d80bd995c569b13cdc7b815d669050bf0ce2d2c/protobuf-5.29.6-cp310-abi3-win_amd64.whl", hash = "sha256:7e6ad413275be172f67fdee0f43484b6de5a904cc1c3ea9804cb6fe2ff366eda" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/06/db/49b05966fd208ae3f44dcd33837b6243b4915c57561d730a43f881f24dea/protobuf-5.29.6-cp38-abi3-macosx_10_9_universal2.whl", hash = "sha256:b5a169e664b4057183a34bdc424540e86eea47560f3c123a0d64de4e137f9269" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/b7/d7/48cbf6b0c3c39761e47a99cb483405f0fde2be22cf00d71ef316ce52b458/protobuf-5.29.6-cp38-abi3-manylinux2014_aarch64.whl", hash = "sha256:a8866b2cff111f0f863c1b3b9e7572dc7eaea23a7fae27f6fc613304046483e6" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e3/dd/cadd6ec43069247d91f6345fa7a0d2858bef6af366dbd7ba8f05d2c77d3b/protobuf-5.29.6-cp38-abi3-manylinux2014_x86_64.whl", hash = "sha256:e3387f44798ac1106af0233c04fb8abf543772ff241169946f698b3a9a3d3ab9" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/5a/cb/e3065b447186cb70aa65acc70c86baf482d82bf75625bf5a2c4f6919c6a3/protobuf-5.29.6-py3-none-any.whl", hash = "sha256:6b9edb641441b2da9fa8f428760fc136a49cf97a52076010cf22a2ff73438a86" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/b1/79/af92d0a8369732b027e6d6084251dd8e782c685c72da161bd4a2e00fbabb/protobuf-6.33.5-cp310-abi3-win32.whl", hash = "sha256:d71b040839446bac0f4d162e758bea99c8251161dae9d0983a3b88dee345153b" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/55/75/bb9bc917d10e9ee13dee8607eb9ab963b7cf8be607c46e7862c748aa2af7/protobuf-6.33.5-cp310-abi3-win_amd64.whl", hash = "sha256:3093804752167bcab3998bec9f1048baae6e29505adaf1afd14a37bddede533c" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/a2/6b/e48dfc1191bc5b52950246275bf4089773e91cb5ba3592621723cdddca62/protobuf-6.33.5-cp39-abi3-macosx_10_9_universal2.whl", hash = "sha256:a5cb85982d95d906df1e2210e58f8e4f1e3cdc088e52c921a041f9c9a0386de5" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/4e/b1/c79468184310de09d75095ed1314b839eb2f72df71097db9d1404a1b2717/protobuf-6.33.5-cp39-abi3-manylinux2014_aarch64.whl", hash = "sha256:9b71e0281f36f179d00cbcb119cb19dec4d14a81393e5ea220f64b286173e190" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/c5/f5/65d838092fd01c44d16037953fd4c2cc851e783de9b8f02b27ec4ffd906f/protobuf-6.33.5-cp39-abi3-manylinux2014_s390x.whl", hash = "sha256:8afa18e1d6d20af15b417e728e9f60f3aa108ee76f23c3b2c07a2c3b546d3afd" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/9b/53/a9443aa3ca9ba8724fdfa02dd1887c1bcd8e89556b715cfbacca6b63dbec/protobuf-6.33.5-cp39-abi3-manylinux2014_x86_64.whl", hash = "sha256:cbf16ba3350fb7b889fca858fb215967792dc125b35c7976ca4818bee3521cf0" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/57/bf/2086963c69bdac3d7cff1cc7ff79b8ce5ea0bec6797a017e1be338a46248/protobuf-6.33.5-py3-none-any.whl", hash = "sha256:69915a973dd0f60f31a08b8318b73eab2bd6a392c79184b3612226b0a3f8ec02" },
 ]
 
 [[package]]
@@ -1649,16 +1661,19 @@ wheels = [
 
 [[package]]
 name = "pyroscope-io"
-version = "1.0.1"
+version = "1.0.4"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "cffi" },
 ]
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/9c/17/c2421da1df3dca1f96668f75e7c759beafce406493017731d4520ee8ab20/pyroscope_io-1.0.4.tar.gz", hash = "sha256:b191ce8e2445e34591f250a23c1fa03e3b7a6ce0cf461fdf4f1a21bfd1c7da40" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/4b/33/1f9d4033fb055ee1ce8ac3aef9187dac6540b4c35a098f27ef0a795590cf/pyroscope_io-1.0.1-py2.py3-none-macosx_11_0_arm64.whl", hash = "sha256:e1618223769e5afa3459e98cc3a815f37ffb40b7324c597b78e0bb917ff0893e" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/ad/3a/8a9726b1163447367f9584d6d77d910003e7d5219b828021127334a497d2/pyroscope_io-1.0.1-py2.py3-none-macosx_11_0_x86_64.whl", hash = "sha256:9f39014116670aa24dacbb5faf3b4b7b0e08bd7940cf4a509878c5a12eeb6f94" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/14/06/747183436738e77afdbe834bb4769d64912d4af8fa2b00ff055f2da562df/pyroscope_io-1.0.1-py2.py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:661d1bd754fc360b3772cb6a9a2b0b54c022c223e48d7cb93794c1e671b09c1c" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/c5/30/a1dcc77f0f5d2c9594c8076268af767cd34807ae7b14a43d4b1a8386dfc6/pyroscope_io-1.0.1-py2.py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:8c11941fda319e8b42bd31b4498b571172902c9a9f38b6a336ed6a3d56394e72" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/25/71/cec9e6dc587689da7e8f96ae6a3d845db2c6199db9493cc21a59c0dea894/pyroscope_io-1.0.4-cp310-abi3-macosx_11_0_arm64.whl", hash = "sha256:b161d729efc8b793fafe4c6cc0d9d449473dfbeb72919aa5de1a33fd37f28db6" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/8e/48/073ba0458642dba1f2d775022e402936ebedcc29bc23cb12e3aa8a38655d/pyroscope_io-1.0.4-cp310-abi3-macosx_11_0_x86_64.whl", hash = "sha256:5b9fa727bf934fce772abb245fb33451fb57b6ad646cb2826e2bff0d656f464f" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/1a/c5/548b30ce330d7f09bc7ee2de6617912f9d7564281025118eb256b40c0852/pyroscope_io-1.0.4-cp310-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:7d1defd792d582ab963cd1946c8853d5b30eda7b060bdf10ecc53e8a7395ec39" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/0a/9a/86ecde7df062fa3a89774e4c6b031eea097b1d3d70f9404d4d655e316815/pyroscope_io-1.0.4-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:62c4c6de74882ab37cb91e7f8d7af35749d6513c557e2857f9f443c463713d68" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e9/18/3ae66705d5bb55598ce696559db1863393731be2a3797a4257f0894d4827/pyroscope_io-1.0.4-cp310-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:a30a950bffbc58f6a7d40d543fa2856acffa850149882bd50858c5000dead1ba" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/b3/e8/b3c4a5d9e99c5e4f63cbd1eb995c06f784ff00e73de33cf4c2d848ee173e/pyroscope_io-1.0.4-cp310-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:e0a689e0b872020a3490e4eb6166da9a393750206606a6bae13c1f6ae44ec0fd" },
 ]
 
 [[package]]
@@ -1706,11 +1721,11 @@ wheels = [
 
 [[package]]
 name = "python-dotenv"
-version = "1.2.1"
+version = "1.2.2"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/f0/26/19cadc79a718c5edbec86fd4919a6b6d3f681039a2f6d66d14be94e75fb9/python_dotenv-1.2.1.tar.gz", hash = "sha256:42667e897e16ab0d66954af0e60a9caa94f0fd4ecf3aaf6d2d260eec1aa36ad6" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/82/ed/0301aeeac3e5353ef3d94b6ec08bbcabd04a72018415dcb29e588514bba8/python_dotenv-1.2.2.tar.gz", hash = "sha256:2c371a91fbd7ba082c2c1dc1f8bf89ca22564a087c2c287cd9b662adde799cf3" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/14/1b/a298b06749107c305e1fe0f814c6c74aea7b2f1e10989cb30f544a1b3253/python_dotenv-1.2.1-py3-none-any.whl", hash = "sha256:b81ee9561e9ca4004139c6cbba3a238c32b03e4894671e181b671e8cb8425d61" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/0b/d7/1959b9648791274998a9c3526f6d0ec8fd2233e4d4acce81bbae76b44b2a/python_dotenv-1.2.2-py3-none-any.whl", hash = "sha256:1d8214789a24de455a8b8bd8ae6fe3c6b69a5e3d64aa8a8e5d68e694bbcb285a" },
 ]
 
 [[package]]
@@ -1727,14 +1742,14 @@ wheels = [
 
 [[package]]
 name = "raif-db-utils"
-version = "0.1.1"
+version = "0.2.0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/python-community-pypi/simple" }
 dependencies = [
-    { name = "backoff" },
+    { name = "stamina" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/python-community-pypi/raif-db-utils/0.1.1/raif_db_utils-0.1.1.tar.gz", hash = "sha256:5179e09a0797b5b2f582413e47b6e36aa2bff895d267189a0eccb94b3d94659c" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/python-community-pypi/raif-db-utils/0.2.0/raif_db_utils-0.2.0.tar.gz", hash = "sha256:9d3bccd275e037cef52cb659d72b19633768eebd81091a21be541ab85c4a6f5d" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/python-community-pypi/raif-db-utils/0.1.1/raif_db_utils-0.1.1-py3-none-any.whl", hash = "sha256:9ff216a205e77837f36b5d601f09b20ca9375072b4b489cc457017b3b574332d" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/python-community-pypi/raif-db-utils/0.2.0/raif_db_utils-0.2.0-py3-none-any.whl", hash = "sha256:d76b63f9164244ff388999de818ac4dcebbfecbbe868fae97b73b513b7fb76d2" },
 ]
 
 [[package]]
@@ -1767,40 +1782,40 @@ wheels = [
 
 [[package]]
 name = "ruff"
-version = "0.15.1"
+version = "0.15.6"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/04/dc/4e6ac71b511b141cf626357a3946679abeba4cf67bc7cc5a17920f31e10d/ruff-0.15.1.tar.gz", hash = "sha256:c590fe13fb57c97141ae975c03a1aedb3d3156030cabd740d6ff0b0d601e203f" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/51/df/f8629c19c5318601d3121e230f74cbee7a3732339c52b21daa2b82ef9c7d/ruff-0.15.6.tar.gz", hash = "sha256:8394c7bb153a4e3811a4ecdacd4a8e6a4fa8097028119160dffecdcdf9b56ae4" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/23/bf/e6e4324238c17f9d9120a9d60aa99a7daaa21204c07fcd84e2ef03bb5fd1/ruff-0.15.1-py3-none-linux_armv6l.whl", hash = "sha256:b101ed7cf4615bda6ffe65bdb59f964e9f4a0d3f85cbf0e54f0ab76d7b90228a" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/b3/ea/c8f89d32e7912269d38c58f3649e453ac32c528f93bb7f4219258be2e7ed/ruff-0.15.1-py3-none-macosx_10_12_x86_64.whl", hash = "sha256:939c995e9277e63ea632cc8d3fae17aa758526f49a9a850d2e7e758bfef46602" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/5e/0f/1d0d88bc862624247d82c20c10d4c0f6bb2f346559d8af281674cf327f15/ruff-0.15.1-py3-none-macosx_11_0_arm64.whl", hash = "sha256:1d83466455fdefe60b8d9c8df81d3c1bbb2115cede53549d3b522ce2bc703899" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/f5/c8/291c49cefaa4a9248e986256df2ade7add79388fe179e0691be06fae6f37/ruff-0.15.1-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:a9457e3c3291024866222b96108ab2d8265b477e5b1534c7ddb1810904858d16" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/c3/1a/f5707440e5ae43ffa5365cac8bbb91e9665f4a883f560893829cf16a606b/ruff-0.15.1-py3-none-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:92c92b003e9d4f7fbd33b1867bb15a1b785b1735069108dfc23821ba045b29bc" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/2a/ff/26ddc8c4da04c8fd3ee65a89c9fb99eaa5c30394269d424461467be2271f/ruff-0.15.1-py3-none-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:1fe5c41ab43e3a06778844c586251eb5a510f67125427625f9eb2b9526535779" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/fc/00/50920cb385b89413f7cdb4bb9bc8fc59c1b0f30028d8bccc294189a54955/ruff-0.15.1-py3-none-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:66a6dd6df4d80dc382c6484f8ce1bcceb55c32e9f27a8b94c32f6c7331bf14fb" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/5d/6d/2f5cad8380caf5632a15460c323ae326f1e1a2b5b90a6ee7519017a017ca/ruff-0.15.1-py3-none-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:6a4a42cbb8af0bda9bcd7606b064d7c0bc311a88d141d02f78920be6acb5aa83" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/a3/1d/5f56cae1d6c40b8a318513599b35ea4b075d7dc1cd1d04449578c29d1d75/ruff-0.15.1-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:4ab064052c31dddada35079901592dfba2e05f5b1e43af3954aafcbc1096a5b2" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/cd/20/6f8d7d8f768c93b0382b33b9306b3b999918816da46537d5a61635514635/ruff-0.15.1-py3-none-manylinux_2_31_riscv64.whl", hash = "sha256:5631c940fe9fe91f817a4c2ea4e81f47bee3ca4aa646134a24374f3c19ad9454" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/9a/67/d640ac76069f64cdea59dba02af2e00b1fa30e2103c7f8d049c0cff4cafd/ruff-0.15.1-py3-none-musllinux_1_2_aarch64.whl", hash = "sha256:68138a4ba184b4691ccdc39f7795c66b3c68160c586519e7e8444cf5a53e1b4c" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/65/3d/e1429f64a3ff89297497916b88c32a5cc88eeca7e9c787072d0e7f1d3e1e/ruff-0.15.1-py3-none-musllinux_1_2_armv7l.whl", hash = "sha256:518f9af03bfc33c03bdb4cb63fabc935341bb7f54af500f92ac309ecfbba6330" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/78/83/e2c3bade17dad63bf1e1c2ffaf11490603b760be149e1419b07049b36ef2/ruff-0.15.1-py3-none-musllinux_1_2_i686.whl", hash = "sha256:da79f4d6a826caaea95de0237a67e33b81e6ec2e25fc7e1993a4015dffca7c61" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/a1/27/fdc0e11a813e6338e0706e8b39bb7a1d61ea5b36873b351acee7e524a72a/ruff-0.15.1-py3-none-musllinux_1_2_x86_64.whl", hash = "sha256:3dd86dccb83cd7d4dcfac303ffc277e6048600dfc22e38158afa208e8bf94a1f" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/f6/58/ac864a75067dcbd3b95be5ab4eb2b601d7fbc3d3d736a27e391a4f92a5c1/ruff-0.15.1-py3-none-win32.whl", hash = "sha256:660975d9cb49b5d5278b12b03bb9951d554543a90b74ed5d366b20e2c57c2098" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e0/5e/d4ccc8a27ecdb78116feac4935dfc39d1304536f4296168f91ed3ec00cd2/ruff-0.15.1-py3-none-win_amd64.whl", hash = "sha256:c820fef9dd5d4172a6570e5721704a96c6679b80cf7be41659ed439653f62336" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/2a/07/5bda6a85b220c64c65686bc85bd0bbb23b29c62b3a9f9433fa55f17cda93/ruff-0.15.1-py3-none-win_arm64.whl", hash = "sha256:5ff7d5f0f88567850f45081fac8f4ec212be8d0b963e385c3f7d0d2eb4899416" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/9e/2f/4e03a7e5ce99b517e98d3b4951f411de2b0fa8348d39cf446671adcce9a2/ruff-0.15.6-py3-none-linux_armv6l.whl", hash = "sha256:7c98c3b16407b2cf3d0f2b80c80187384bc92c6774d85fefa913ecd941256fff" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/70/60/55bcdc3e9f80bcf39edf0cd272da6fa511a3d94d5a0dd9e0adf76ceebdb4/ruff-0.15.6-py3-none-macosx_10_12_x86_64.whl", hash = "sha256:ee7dcfaad8b282a284df4aa6ddc2741b3f4a18b0555d626805555a820ea181c3" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e7/f9/005c29bd1726c0f492bfa215e95154cf480574140cb5f867c797c18c790b/ruff-0.15.6-py3-none-macosx_11_0_arm64.whl", hash = "sha256:3bd9967851a25f038fc8b9ae88a7fbd1b609f30349231dffaa37b6804923c4bb" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/5f/74/2f861f5fd7cbb2146bddb5501450300ce41562da36d21868c69b7a828169/ruff-0.15.6-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:13f4594b04e42cd24a41da653886b04d2ff87adbf57497ed4f728b0e8a4866f8" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/c1/a1/309f2364a424eccb763cdafc49df843c282609f47fe53aa83f38272389e0/ruff-0.15.6-py3-none-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:e2ed8aea2f3fe57886d3f00ea5b8aae5bf68d5e195f487f037a955ff9fbaac9e" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/30/41/7ebf1d32658b4bab20f8ac80972fb19cd4e2c6b78552be263a680edc55ac/ruff-0.15.6-py3-none-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:70789d3e7830b848b548aae96766431c0dc01a6c78c13381f423bf7076c66d15" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/76/be/6d488f6adca047df82cd62c304638bcb00821c36bd4881cfca221561fdfc/ruff-0.15.6-py3-none-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:542aaf1de3154cea088ced5a819ce872611256ffe2498e750bbae5247a8114e9" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/71/68/e6f125df4af7e6d0b498f8d373274794bc5156b324e8ab4bf5c1b4fc0ec7/ruff-0.15.6-py3-none-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:1c22e6f02c16cfac3888aa636e9eba857254d15bbacc9906c9689fdecb1953ab" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/f1/9f/f85ef5fd01a52e0b472b26dc1b4bd228b8f6f0435975442ffa4741278703/ruff-0.15.6-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:98893c4c0aadc8e448cfa315bd0cc343a5323d740fe5f28ef8a3f9e21b381f7e" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/8c/26/b75f8c421f5654304b89471ed384ae8c7f42b4dff58fa6ce1626d7f2b59a/ruff-0.15.6-py3-none-manylinux_2_31_riscv64.whl", hash = "sha256:70d263770d234912374493e8cc1e7385c5d49376e41dfa51c5c3453169dc581c" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/fc/d4/d5a6d065962ff7a68a86c9b4f5500f7d101a0792078de636526c0edd40da/ruff-0.15.6-py3-none-musllinux_1_2_aarch64.whl", hash = "sha256:55a1ad63c5a6e54b1f21b7514dfadc0c7fb40093fa22e95143cf3f64ebdcd512" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/d6/56/7c3acf3d50910375349016cf33de24be021532042afbed87942858992491/ruff-0.15.6-py3-none-musllinux_1_2_armv7l.whl", hash = "sha256:8dc473ba093c5ec238bb1e7429ee676dca24643c471e11fbaa8a857925b061c0" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/06/54/6faa39e9c1033ff6a3b6e76b5df536931cd30caf64988e112bbf91ef5ce5/ruff-0.15.6-py3-none-musllinux_1_2_i686.whl", hash = "sha256:85b042377c2a5561131767974617006f99f7e13c63c111b998f29fc1e58a4cfb" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/cb/1e/509a201b843b4dfb0b32acdedf68d951d3377988cae43949ba4c4133a96a/ruff-0.15.6-py3-none-musllinux_1_2_x86_64.whl", hash = "sha256:cef49e30bc5a86a6a92098a7fbf6e467a234d90b63305d6f3ec01225a9d092e0" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/6c/25/3fc9114abf979a41673ce877c08016f8e660ad6cf508c3957f537d2e9fa9/ruff-0.15.6-py3-none-win32.whl", hash = "sha256:bbf67d39832404812a2d23020dda68fee7f18ce15654e96fb1d3ad21a5fe436c" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/89/7a/09ece68445ceac348df06e08bf75db72d0e8427765b96c9c0ffabc1be1d9/ruff-0.15.6-py3-none-win_amd64.whl", hash = "sha256:aee25bc84c2f1007ecb5037dff75cef00414fdf17c23f07dc13e577883dca406" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/7f/d0/578c47dd68152ddddddf31cd7fc67dc30b7cdf639a86275fda821b0d9d98/ruff-0.15.6-py3-none-win_arm64.whl", hash = "sha256:c34de3dd0b0ba203be50ae70f5910b17188556630e2178fd7d79fc030eb0d837" },
 ]
 
 [[package]]
 name = "sentry-sdk"
-version = "2.53.0"
+version = "2.54.0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "certifi" },
     { name = "urllib3" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/d3/06/66c8b705179bc54087845f28fd1b72f83751b6e9a195628e2e9af9926505/sentry_sdk-2.53.0.tar.gz", hash = "sha256:6520ef2c4acd823f28efc55e43eb6ce2e6d9f954a95a3aa96b6fd14871e92b77" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/c8/e9/2e3a46c304e7fa21eaa70612f60354e32699c7102eb961f67448e222ad7c/sentry_sdk-2.54.0.tar.gz", hash = "sha256:2620c2575128d009b11b20f7feb81e4e4e8ae08ec1d36cbc845705060b45cc1b" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/47/d4/2fdf854bc3b9c7f55219678f812600a20a138af2dd847d99004994eada8f/sentry_sdk-2.53.0-py2.py3-none-any.whl", hash = "sha256:46e1ed8d84355ae54406c924f6b290c3d61f4048625989a723fd622aab838899" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/53/39/be412cc86bc6247b8f69e9383d7950711bd86f8d0a4a4b0fe8fad685bc21/sentry_sdk-2.54.0-py2.py3-none-any.whl", hash = "sha256:fd74e0e281dcda63afff095d23ebcd6e97006102cdc8e78a29f19ecdf796a0de" },
 ]
 
 [[package]]
@@ -1814,37 +1829,41 @@ wheels = [
 
 [[package]]
 name = "sqlalchemy"
-version = "2.0.46"
+version = "2.0.48"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
 dependencies = [
     { name = "greenlet", marker = "platform_machine == 'AMD64' or platform_machine == 'WIN32' or platform_machine == 'aarch64' or platform_machine == 'amd64' or platform_machine == 'ppc64le' or platform_machine == 'win32' or platform_machine == 'x86_64'" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/06/aa/9ce0f3e7a9829ead5c8ce549392f33a12c4555a6c0609bb27d882e9c7ddf/sqlalchemy-2.0.46.tar.gz", hash = "sha256:cf36851ee7219c170bb0793dbc3da3e80c582e04a5437bc601bfe8c85c9216d7" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/1f/73/b4a9737255583b5fa858e0bb8e116eb94b88c910164ed2ed719147bde3de/sqlalchemy-2.0.48.tar.gz", hash = "sha256:5ca74f37f3369b45e1f6b7b06afb182af1fd5dde009e4ffd831830d98cbe5fe7" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/b3/4b/fa7838fe20bb752810feed60e45625a9a8b0102c0c09971e2d1d95362992/sqlalchemy-2.0.46-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:93a12da97cca70cea10d4b4fc602589c4511f96c1f8f6c11817620c021d21d00" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/46/c1/b34dccd712e8ea846edf396e00973dda82d598cb93762e55e43e6835eba9/sqlalchemy-2.0.46-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:af865c18752d416798dae13f83f38927c52f085c52e2f32b8ab0fef46fdd02c2" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/96/48/a04d9c94753e5d5d096c628c82a98c4793b9c08ca0e7155c3eb7d7db9f24/sqlalchemy-2.0.46-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:8d679b5f318423eacb61f933a9a0f75535bfca7056daeadbf6bd5bcee6183aee" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/be/f4/06eda6e91476f90a7d8058f74311cb65a2fb68d988171aced81707189131/sqlalchemy-2.0.46-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:64901e08c33462acc9ec3bad27fc7a5c2b6491665f2aa57564e57a4f5d7c52ad" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/ab/a2/d2af04095412ca6345ac22b33b89fe8d6f32a481e613ffcb2377d931d8d0/sqlalchemy-2.0.46-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:e8ac45e8f4eaac0f9f8043ea0e224158855c6a4329fd4ee37c45c61e3beb518e" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/31/48/1980c7caa5978a3b8225b4d230e69a2a6538a3562b8b31cea679b6933c83/sqlalchemy-2.0.46-cp313-cp313-win32.whl", hash = "sha256:8d3b44b3d0ab2f1319d71d9863d76eeb46766f8cf9e921ac293511804d39813f" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/2d/54/f8d65bbde3d877617c4720f3c9f60e99bb7266df0d5d78b6e25e7c149f35/sqlalchemy-2.0.46-cp313-cp313-win_amd64.whl", hash = "sha256:77f8071d8fbcbb2dd11b7fd40dedd04e8ebe2eb80497916efedba844298065ef" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/56/ba/9be4f97c7eb2b9d5544f2624adfc2853e796ed51d2bb8aec90bc94b7137e/sqlalchemy-2.0.46-cp313-cp313t-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:a1e8cc6cc01da346dc92d9509a63033b9b1bda4fed7a7a7807ed385c7dccdc10" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/20/a6/b1fc6634564dbb4415b7ed6419cdfeaadefd2c39cdab1e3aa07a5f2474c2/sqlalchemy-2.0.46-cp313-cp313t-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:96c7cca1a4babaaf3bfff3e4e606e38578856917e52f0384635a95b226c87764" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/a1/d8/41e0bdfc0f930ff236f86fccd12962d8fa03713f17ed57332d38af6a3782/sqlalchemy-2.0.46-cp313-cp313t-musllinux_1_2_aarch64.whl", hash = "sha256:b2a9f9aee38039cf4755891a1e50e1effcc42ea6ba053743f452c372c3152b1b" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/f0/8b/9dcbec62d95bea85f5ecad9b8d65b78cc30fb0ffceeb3597961f3712549b/sqlalchemy-2.0.46-cp313-cp313t-musllinux_1_2_x86_64.whl", hash = "sha256:db23b1bf8cfe1f7fda19018e7207b20cdb5168f83c437ff7e95d19e39289c447" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e9/f8/5ecdfc73383ec496de038ed1614de9e740a82db9ad67e6e4514ebc0708a3/sqlalchemy-2.0.46-cp314-cp314-macosx_11_0_arm64.whl", hash = "sha256:56bdd261bfd0895452006d5316cbf35739c53b9bb71a170a331fa0ea560b2ada" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e5/bf/eba3036be7663ce4d9c050bc3d63794dc29fbe01691f2bf5ccb64e048d20/sqlalchemy-2.0.46-cp314-cp314-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:33e462154edb9493f6c3ad2125931e273bbd0be8ae53f3ecd1c161ea9a1dd366" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/05/45/1256fb597bb83b58a01ddb600c59fe6fdf0e5afe333f0456ed75c0f8d7bd/sqlalchemy-2.0.46-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:9bcdce05f056622a632f1d44bb47dbdb677f58cad393612280406ce37530eb6d" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/d9/a0/2053b39e4e63b5d7ceb3372cface0859a067c1ddbd575ea7e9985716f771/sqlalchemy-2.0.46-cp314-cp314-musllinux_1_2_aarch64.whl", hash = "sha256:8e84b09a9b0f19accedcbeff5c2caf36e0dd537341a33aad8d680336152dc34e" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/1e/87/97713497d9502553c68f105a1cb62786ba1ee91dea3852ae4067ed956a50/sqlalchemy-2.0.46-cp314-cp314-musllinux_1_2_x86_64.whl", hash = "sha256:4f52f7291a92381e9b4de9050b0a65ce5d6a763333406861e33906b8aa4906bf" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/a8/87/5d1b23548f420ff823c236f8bea36b1a997250fd2f892e44a3838ca424f4/sqlalchemy-2.0.46-cp314-cp314-win32.whl", hash = "sha256:70ed2830b169a9960193f4d4322d22be5c0925357d82cbf485b3369893350908" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/3a/20/555f39cbcf0c10cf452988b6a93c2a12495035f68b3dbd1a408531049d31/sqlalchemy-2.0.46-cp314-cp314-win_amd64.whl", hash = "sha256:3c32e993bc57be6d177f7d5d31edb93f30726d798ad86ff9066d75d9bf2e0b6b" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/3e/f0/f96c8057c982d9d8a7a68f45d69c674bc6f78cad401099692fe16521640a/sqlalchemy-2.0.46-cp314-cp314t-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:4dafb537740eef640c4d6a7c254611dca2df87eaf6d14d6a5fca9d1f4c3fc0fa" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/d7/53/3b37dda0a5b137f21ef608d8dfc77b08477bab0fe2ac9d3e0a66eaeab6fc/sqlalchemy-2.0.46-cp314-cp314t-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:42a1643dc5427b69aca967dae540a90b0fbf57eaf248f13a90ea5930e0966863" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/33/75/f28622ba6dde79cd545055ea7bd4062dc934e0621f7b3be2891f8563f8de/sqlalchemy-2.0.46-cp314-cp314t-musllinux_1_2_aarch64.whl", hash = "sha256:ff33c6e6ad006bbc0f34f5faf941cfc62c45841c64c0a058ac38c799f15b5ede" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/a9/42/4afecbbc38d5e99b18acef446453c76eec6fbd03db0a457a12a056836e22/sqlalchemy-2.0.46-cp314-cp314t-musllinux_1_2_x86_64.whl", hash = "sha256:82ec52100ec1e6ec671563bbd02d7c7c8d0b9e71a0723c72f22ecf52d1755330" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/fc/a1/9c4efa03300926601c19c18582531b45aededfb961ab3c3585f1e24f120b/sqlalchemy-2.0.46-py3-none-any.whl", hash = "sha256:f9c11766e7e7c0a2767dda5acb006a118640c9fc0a4104214b96269bfb78399e" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/d1/c6/569dc8bf3cd375abc5907e82235923e986799f301cd79a903f784b996fca/sqlalchemy-2.0.48-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:e3070c03701037aa418b55d36532ecb8f8446ed0135acb71c678dbdf12f5b6e4" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/6d/ff/f4e04a4bd5a24304f38cb0d4aa2ad4c0fb34999f8b884c656535e1b2b74c/sqlalchemy-2.0.48-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:2645b7d8a738763b664a12a1542c89c940daa55196e8d73e55b169cc5c99f65f" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/fe/88/cb59509e4668d8001818d7355d9995be90c321313078c912420603a7cb95/sqlalchemy-2.0.48-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:b19151e76620a412c2ac1c6f977ab1b9fa7ad43140178345136456d5265b32ed" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/87/dc/1609a4442aefd750ea2f32629559394ec92e89ac1d621a7f462b70f736ff/sqlalchemy-2.0.48-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:5b193a7e29fd9fa56e502920dca47dffe60f97c863494946bd698c6058a55658" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/37/c3/6ae2ab5ea2fa989fbac4e674de01224b7a9d744becaf59bb967d62e99bed/sqlalchemy-2.0.48-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:36ac4ddc3d33e852da9cb00ffb08cea62ca05c39711dc67062ca2bb1fae35fd8" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/6f/82/ea4665d1bb98c50c19666e672f21b81356bd6077c4574e3d2bbb84541f53/sqlalchemy-2.0.48-cp313-cp313-win32.whl", hash = "sha256:389b984139278f97757ea9b08993e7b9d1142912e046ab7d82b3fbaeb0209131" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/b7/2b/b9040bec58c58225f073f5b0c1870defe1940835549dafec680cbd58c3c3/sqlalchemy-2.0.48-cp313-cp313-win_amd64.whl", hash = "sha256:d612c976cbc2d17edfcc4c006874b764e85e990c29ce9bd411f926bbfb02b9a2" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/f4/f4/7b17bd50244b78a49d22cc63c969d71dc4de54567dc152a9b46f6fae40ce/sqlalchemy-2.0.48-cp313-cp313t-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:69f5bc24904d3bc3640961cddd2523e361257ef68585d6e364166dfbe8c78fae" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/20/0d/213668e9aca61d370f7d2a6449ea4ec699747fac67d4bda1bb3d129025be/sqlalchemy-2.0.48-cp313-cp313t-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:fd08b90d211c086181caed76931ecfa2bdfc83eea3cfccdb0f82abc6c4b876cb" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/85/d7/a84edf412979e7d59c69b89a5871f90a49228360594680e667cb2c46a828/sqlalchemy-2.0.48-cp313-cp313t-musllinux_1_2_aarch64.whl", hash = "sha256:1ccd42229aaac2df431562117ac7e667d702e8e44afdb6cf0e50fa3f18160f0b" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/86/55/42404ce5770f6be26a2b0607e7866c31b9a4176c819e9a7a5e0a055770be/sqlalchemy-2.0.48-cp313-cp313t-musllinux_1_2_x86_64.whl", hash = "sha256:f0dcbc588cd5b725162c076eb9119342f6579c7f7f55057bb7e3c6ff27e13121" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/ae/ae/29b87775fadc43e627cf582fe3bda4d02e300f6b8f2747c764950d13784c/sqlalchemy-2.0.48-cp313-cp313t-win32.whl", hash = "sha256:9764014ef5e58aab76220c5664abb5d47d5bc858d9debf821e55cfdd0f128485" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/91/44/f39d063c90f2443e5b46ec4819abd3d8de653893aae92df42a5c4f5843de/sqlalchemy-2.0.48-cp313-cp313t-win_amd64.whl", hash = "sha256:e2f35b4cccd9ed286ad62e0a3c3ac21e06c02abc60e20aa51a3e305a30f5fa79" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/f7/b3/f437eaa1cf028bb3c927172c7272366393e73ccd104dcf5b6963f4ab5318/sqlalchemy-2.0.48-cp314-cp314-macosx_11_0_arm64.whl", hash = "sha256:e2d0d88686e3d35a76f3e15a34e8c12d73fc94c1dea1cd55782e695cc14086dd" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/6c/1c/b3abdf0f402aa3f60f0df6ea53d92a162b458fca2321d8f1f00278506402/sqlalchemy-2.0.48-cp314-cp314-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:49b7bddc1eebf011ea5ab722fdbe67a401caa34a350d278cc7733c0e88fecb1f" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/f2/5e/327428a034407651a048f5e624361adf3f9fbac9d0fa98e981e9c6ff2f5e/sqlalchemy-2.0.48-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:426c5ca86415d9b8945c7073597e10de9644802e2ff502b8e1f11a7a2642856b" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/2a/ca/ece73c81a918add0965b76b868b7b5359e068380b90ef1656ee995940c02/sqlalchemy-2.0.48-cp314-cp314-musllinux_1_2_aarch64.whl", hash = "sha256:288937433bd44e3990e7da2402fabc44a3c6c25d3704da066b85b89a85474ae0" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/88/11/fbaf1ae91fa4ee43f4fe79661cead6358644824419c26adb004941bdce7c/sqlalchemy-2.0.48-cp314-cp314-musllinux_1_2_x86_64.whl", hash = "sha256:8183dc57ae7d9edc1346e007e840a9f3d6aa7b7f165203a99e16f447150140d2" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/fa/a8/5fb0deb13930b4f2f698c5541ae076c18981173e27dd00376dbaea7a9c82/sqlalchemy-2.0.48-cp314-cp314-win32.whl", hash = "sha256:1182437cb2d97988cfea04cf6cdc0b0bb9c74f4d56ec3d08b81e23d621a28cc6" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/95/7e/e83615cb63f80047f18e61e31e8e32257d39458426c23006deeaf48f463b/sqlalchemy-2.0.48-cp314-cp314-win_amd64.whl", hash = "sha256:144921da96c08feb9e2b052c5c5c1d0d151a292c6135623c6b2c041f2a45f9e0" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/83/e3/69d8711b3f2c5135e9cde5f063bc1605860f0b2c53086d40c04017eb1f77/sqlalchemy-2.0.48-cp314-cp314t-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:5aee45fd2c6c0f2b9cdddf48c48535e7471e42d6fb81adfde801da0bd5b93241" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/f8/4f/a7cce98facca73c149ea4578981594aaa5fd841e956834931de503359336/sqlalchemy-2.0.48-cp314-cp314t-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:7cddca31edf8b0653090cbb54562ca027c421c58ddde2c0685f49ff56a1690e0" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/cd/7d/5936c7a03a0b0cb0fa0cc425998821c6029756b0855a8f7ee70fba1de955/sqlalchemy-2.0.48-cp314-cp314t-musllinux_1_2_aarch64.whl", hash = "sha256:7a936f1bb23d370b7c8cc079d5fce4c7d18da87a33c6744e51a93b0f9e97e9b3" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/f4/33/cea7dfc31b52904efe3dcdc169eb4514078887dff1f5ae28a7f4c5d54b3c/sqlalchemy-2.0.48-cp314-cp314t-musllinux_1_2_x86_64.whl", hash = "sha256:e004aa9248e8cb0a5f9b96d003ca7c1c0a5da8decd1066e7b53f59eb8ce7c62b" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/c8/95/32107c4d13be077a9cae61e9ae49966a35dc4bf442a8852dd871db31f62e/sqlalchemy-2.0.48-cp314-cp314t-win32.whl", hash = "sha256:b8438ec5594980d405251451c5b7ea9aa58dda38eb7ac35fb7e4c696712ee24f" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/d2/d7/1e073da7a4bc645eb83c76067284a0374e643bc4be57f14cc6414656f92c/sqlalchemy-2.0.48-cp314-cp314t-win_amd64.whl", hash = "sha256:d854b3970067297f3a7fbd7a4683587134aa9b3877ee15aa29eea478dc68f933" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/46/2c/9664130905f03db57961b8980b05cab624afd114bf2be2576628a9f22da4/sqlalchemy-2.0.48-py3-none-any.whl", hash = "sha256:a66fe406437dd65cacd96a72689a3aaaecaebbcd62d81c5ac1c0fdbeac835096" },
 ]
 
 [[package]]
@@ -1891,11 +1910,11 @@ wheels = [
 
 [[package]]
 name = "that-depends"
-version = "3.9.1"
+version = "3.9.2"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/a7/fc/10d57941504b18a00e1881f2abccc13c7fd70291772bb0c4474b096d49f3/that_depends-3.9.1.tar.gz", hash = "sha256:265138cb810e8dfd80465af67d66607983ed12a01ee67289ca1414b226739134" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/3e/fd/3c51e080513f66ef3ac65e02f6373404e61b331bc5ddfe0f718c6bace41d/that_depends-3.9.2.tar.gz", hash = "sha256:44c55d27c0597b78a077de99ae36a020582585d9122635a44805a3e66416dc47" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/aa/9d/1d5bc7880088921aaa0414afdef6c539035ff84574fe4cc1d6c4ce280de9/that_depends-3.9.1-py3-none-any.whl", hash = "sha256:42960048cd4ebd85126b5777e996cbfa63901cfb0f25a1bad3c639fc840ed339" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/17/f0/4fcb14f6c93ee1a327f2e27909ee1551f6cc3c8263513f1962471671d523/that_depends-3.9.2-py3-none-any.whl", hash = "sha256:0426d5a6f848cf93350050ba29c14a948c29342f0e811a6e633f43360458389e" },
 ]
 
 [[package]]
@@ -1930,43 +1949,43 @@ wheels = [
 
 [[package]]
 name = "ujson"
-version = "5.11.0"
+version = "5.12.0"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
-sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/43/d9/3f17e3c5773fb4941c68d9a37a47b1a79c9649d6c56aefbed87cc409d18a/ujson-5.11.0.tar.gz", hash = "sha256:e204ae6f909f099ba6b6b942131cee359ddda2b6e4ea39c12eb8b991fe2010e0" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/cb/3e/c35530c5ffc25b71c59ae0cd7b8f99df37313daa162ce1e2f7925f7c2877/ujson-5.12.0.tar.gz", hash = "sha256:14b2e1eb528d77bc0f4c5bd1a7ebc05e02b5b41beefb7e8567c9675b8b13bcf4" }
 wheels = [
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/1c/ec/2de9dd371d52c377abc05d2b725645326c4562fc87296a8907c7bcdf2db7/ujson-5.11.0-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:109f59885041b14ee9569bf0bb3f98579c3fa0652317b355669939e5fc5ede53" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/5b/a4/f611f816eac3a581d8a4372f6967c3ed41eddbae4008d1d77f223f1a4e0a/ujson-5.11.0-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:a31c6b8004438e8c20fc55ac1c0e07dad42941db24176fe9acf2815971f8e752" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e9/c5/c161940967184de96f5cbbbcce45b562a4bf851d60f4c677704b1770136d/ujson-5.11.0-cp313-cp313-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:78c684fb21255b9b90320ba7e199780f653e03f6c2528663768965f4126a5b50" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/2b/d6/c7b2444238f5b2e2d0e3dab300b9ddc3606e4b1f0e4bed5a48157cebc792/ujson-5.11.0-cp313-cp313-manylinux_2_24_i686.manylinux_2_28_i686.whl", hash = "sha256:4c9f5d6a27d035dd90a146f7761c2272cf7103de5127c9ab9c4cd39ea61e878a" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/fe/a3/292551f936d3d02d9af148f53e1bc04306b00a7cf1fcbb86fa0d1c887242/ujson-5.11.0-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:837da4d27fed5fdc1b630bd18f519744b23a0b5ada1bbde1a36ba463f2900c03" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/90/a6/82cfa70448831b1a9e73f882225980b5c689bf539ec6400b31656a60ea46/ujson-5.11.0-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:787aff4a84da301b7f3bac09bc696e2e5670df829c6f8ecf39916b4e7e24e701" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/84/5c/96e2266be50f21e9b27acaee8ca8f23ea0b85cb998c33d4f53147687839b/ujson-5.11.0-cp313-cp313-musllinux_1_2_i686.whl", hash = "sha256:6dd703c3e86dc6f7044c5ac0b3ae079ed96bf297974598116aa5fb7f655c3a60" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/8d/20/78abe3d808cf3bb3e76f71fca46cd208317bf461c905d79f0d26b9df20f1/ujson-5.11.0-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:3772e4fe6b0c1e025ba3c50841a0ca4786825a4894c8411bf8d3afe3a8061328" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/d8/50/8856e24bec5e2fc7f775d867aeb7a3f137359356200ac44658f1f2c834b2/ujson-5.11.0-cp313-cp313-win32.whl", hash = "sha256:8fa2af7c1459204b7a42e98263b069bd535ea0cd978b4d6982f35af5a04a4241" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/5b/d8/1baee0f4179a4d0f5ce086832147b6cc9b7731c24ca08e14a3fdb8d39c32/ujson-5.11.0-cp313-cp313-win_amd64.whl", hash = "sha256:34032aeca4510a7c7102bd5933f59a37f63891f30a0706fb46487ab6f0edf8f0" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/a9/8c/6d85ef5be82c6d66adced3ec5ef23353ed710a11f70b0b6a836878396334/ujson-5.11.0-cp313-cp313-win_arm64.whl", hash = "sha256:ce076f2df2e1aa62b685086fbad67f2b1d3048369664b4cdccc50707325401f9" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/28/08/4518146f4984d112764b1dfa6fb7bad691c44a401adadaa5e23ccd930053/ujson-5.11.0-cp314-cp314-macosx_10_13_x86_64.whl", hash = "sha256:65724738c73645db88f70ba1f2e6fb678f913281804d5da2fd02c8c5839af302" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/29/37/2107b9a62168867a692654d8766b81bd2fd1e1ba13e2ec90555861e02b0c/ujson-5.11.0-cp314-cp314-macosx_11_0_arm64.whl", hash = "sha256:29113c003ca33ab71b1b480bde952fbab2a0b6b03a4ee4c3d71687cdcbd1a29d" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/9b/f8/25583c70f83788edbe3ca62ce6c1b79eff465d78dec5eb2b2b56b3e98b33/ujson-5.11.0-cp314-cp314-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:c44c703842024d796b4c78542a6fcd5c3cb948b9fc2a73ee65b9c86a22ee3638" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/ed/ca/19b3a632933a09d696f10dc1b0dfa1d692e65ad507d12340116ce4f67967/ujson-5.11.0-cp314-cp314-manylinux_2_24_i686.manylinux_2_28_i686.whl", hash = "sha256:e750c436fb90edf85585f5c62a35b35082502383840962c6983403d1bd96a02c" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/55/7a/4572af5324ad4b2bfdd2321e898a527050290147b4ea337a79a0e4e87ec7/ujson-5.11.0-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:f278b31a7c52eb0947b2db55a5133fbc46b6f0ef49972cd1a80843b72e135aba" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/7b/71/a2b8c19cf4e1efe53cf439cdf7198ac60ae15471d2f1040b490c1f0f831f/ujson-5.11.0-cp314-cp314-musllinux_1_2_aarch64.whl", hash = "sha256:ab2cb8351d976e788669c8281465d44d4e94413718af497b4e7342d7b2f78018" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/7a/3e/7b98668cba3bb3735929c31b999b374ebc02c19dfa98dfebaeeb5c8597ca/ujson-5.11.0-cp314-cp314-musllinux_1_2_i686.whl", hash = "sha256:090b4d11b380ae25453100b722d0609d5051ffe98f80ec52853ccf8249dfd840" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/a1/ea/8870f208c20b43571a5c409ebb2fe9b9dba5f494e9e60f9314ac01ea8f78/ujson-5.11.0-cp314-cp314-musllinux_1_2_x86_64.whl", hash = "sha256:80017e870d882d5517d28995b62e4e518a894f932f1e242cbc802a2fd64d365c" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/63/b6/c0e6607e37fa47929920a685a968c6b990a802dec65e9c5181e97845985d/ujson-5.11.0-cp314-cp314-win32.whl", hash = "sha256:1d663b96eb34c93392e9caae19c099ec4133ba21654b081956613327f0e973ac" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/4e/56/f4fe86b4c9000affd63e9219e59b222dc48b01c534533093e798bf617a7e/ujson-5.11.0-cp314-cp314-win_amd64.whl", hash = "sha256:849e65b696f0d242833f1df4182096cedc50d414215d1371fca85c541fbff629" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/0a/f3/669437f0280308db4783b12a6d88c00730b394327d8334cc7a32ef218e64/ujson-5.11.0-cp314-cp314-win_arm64.whl", hash = "sha256:e73df8648c9470af2b6a6bf5250d4744ad2cf3d774dcf8c6e31f018bdd04d764" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/6e/cd/e9809b064a89fe5c4184649adeb13c1b98652db3f8518980b04227358574/ujson-5.11.0-cp314-cp314t-macosx_10_13_x86_64.whl", hash = "sha256:de6e88f62796372fba1de973c11138f197d3e0e1d80bcb2b8aae1e826096d433" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/1b/be/ae26a6321179ebbb3a2e2685b9007c71bcda41ad7a77bbbe164005e956fc/ujson-5.11.0-cp314-cp314t-macosx_11_0_arm64.whl", hash = "sha256:49e56ef8066f11b80d620985ae36869a3ff7e4b74c3b6129182ec5d1df0255f3" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/ae/e9/fb4a220ee6939db099f4cfeeae796ecb91e7584ad4d445d4ca7f994a9135/ujson-5.11.0-cp314-cp314t-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:1a325fd2c3a056cf6c8e023f74a0c478dd282a93141356ae7f16d5309f5ff823" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/bd/f8/fc4b952b8f5fea09ea3397a0bd0ad019e474b204cabcb947cead5d4d1ffc/ujson-5.11.0-cp314-cp314t-manylinux_2_24_i686.manylinux_2_28_i686.whl", hash = "sha256:a0af6574fc1d9d53f4ff371f58c96673e6d988ed2b5bf666a6143c782fa007e9" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/2e/e5/af5491dfda4f8b77e24cf3da68ee0d1552f99a13e5c622f4cef1380925c3/ujson-5.11.0-cp314-cp314t-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:10f29e71ecf4ecd93a6610bd8efa8e7b6467454a363c3d6416db65de883eb076" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/c4/09/0945349dd41f25cc8c38d78ace49f14c5052c5bbb7257d2f466fa7bdb533/ujson-5.11.0-cp314-cp314t-musllinux_1_2_aarch64.whl", hash = "sha256:1a0a9b76a89827a592656fe12e000cf4f12da9692f51a841a4a07aa4c7ecc41c" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/49/44/8e04496acb3d5a1cbee3a54828d9652f67a37523efa3d3b18a347339680a/ujson-5.11.0-cp314-cp314t-musllinux_1_2_i686.whl", hash = "sha256:b16930f6a0753cdc7d637b33b4e8f10d5e351e1fb83872ba6375f1e87be39746" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/64/ae/4bc825860d679a0f208a19af2f39206dfd804ace2403330fdc3170334a2f/ujson-5.11.0-cp314-cp314t-musllinux_1_2_x86_64.whl", hash = "sha256:04c41afc195fd477a59db3a84d5b83a871bd648ef371cf8c6f43072d89144eef" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/30/ed/5a057199fb0a5deabe0957073a1c1c1c02a3e99476cd03daee98ea21fa57/ujson-5.11.0-cp314-cp314t-win32.whl", hash = "sha256:aa6d7a5e09217ff93234e050e3e380da62b084e26b9f2e277d2606406a2fc2e5" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/aa/03/b19c6176bdf1dc13ed84b886e99677a52764861b6cc023d5e7b6ebda249d/ujson-5.11.0-cp314-cp314t-win_amd64.whl", hash = "sha256:48055e1061c1bb1f79e75b4ac39e821f3f35a9b82de17fce92c3140149009bec" },
-    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/5d/ca/a0413a3874b2dc1708b8796ca895bf363292f9c70b2e8ca482b7dbc0259d/ujson-5.11.0-cp314-cp314t-win_arm64.whl", hash = "sha256:1194b943e951092db611011cb8dbdb6cf94a3b816ed07906e14d3bc6ce0e90ab" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/3f/f1/0ef0eeab1db8493e1833c8b440fe32cf7538f7afa6e7f7c7e9f62cef464d/ujson-5.12.0-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:15d416440148f3e56b9b244fdaf8a09fcf5a72e4944b8e119f5bf60417a2bfc8" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/b0/2f/9159f6f399b3f572d20847a2b80d133e3a03c14712b0da4971a36879fb64/ujson-5.12.0-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:e0dd3676ea0837cd70ea1879765e9e9f6be063be0436de9b3ea4b775caf83654" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e5/a9/f96376818d71495d1a4be19a0ab6acf0cc01dd8826553734c3d4dac685b2/ujson-5.12.0-cp313-cp313-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:7bbf05c38debc90d1a195b11340cc85cb43ab3e753dc47558a3a84a38cbc72da" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/98/8d/dd4a151caac6fdcb77f024fbe7f09d465ebf347a628ed6dd581a0a7f6364/ujson-5.12.0-cp313-cp313-manylinux_2_24_i686.manylinux_2_28_i686.whl", hash = "sha256:3c2f947e55d3c7cfe124dd4521ee481516f3007d13c6ad4bf6aeb722e190eb1b" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/c7/17/0d36c2fee0a8d8dc37b011ccd5bbdcfaff8b8ec2bcfc5be998661cdc935b/ujson-5.12.0-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:2ea6206043385343aff0b7da65cf73677f6f5e50de8f1c879e557f4298cac36a" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/8c/04/b0ee4a4b643a01ba398441da1e357480595edb37c6c94c508dbe0eb9eb60/ujson-5.12.0-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:bb349dbba57c76eec25e5917e07f35aabaf0a33b9e67fc13d188002500106487" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/2d/08/0e7780d0bbb48fe57ded91f550144bcc99c03b5360bf2886dd0dae0ea8f5/ujson-5.12.0-cp313-cp313-musllinux_1_2_i686.whl", hash = "sha256:937794042342006f707837f38d721426b11b0774d327a2a45c0bd389eb750a87" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/ba/4c/e0e34107715bb4dd2d4dcc1ce244d2f074638837adf38aff85a37506efe4/ujson-5.12.0-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:6ad57654570464eb1b040b5c353dee442608e06cff9102b8fcb105565a44c9ed" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/72/43/814f4e2b5374d0d505c254ba4bed43eb25d2d046f19f5fd88555f81a7bd0/ujson-5.12.0-cp313-cp313-win32.whl", hash = "sha256:76bf3e7406cf23a3e1ca6a23fb1fb9ea82f4f6bd226fe226e09146b0194f85dc" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/0f/fe/19310d848ebe93315b6cb171277e4ce29f47ef9d46caabd63ff05d5be548/ujson-5.12.0-cp313-cp313-win_amd64.whl", hash = "sha256:15e555c4caca42411270b2ed2b2ebc7b3a42bb04138cef6c956e1f1d49709fe2" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/3f/e4/7a39103d7634691601a02bd1ca7268fba4da47ed586365e6ee68168f575a/ujson-5.12.0-cp313-cp313-win_arm64.whl", hash = "sha256:bd03472c36fa3a386a6deb887113b9e3fa40efba8203eb4fe786d3c0ccc724f6" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/10/bd/9a8d693254bada62bfea75a507e014afcfdb6b9d047b6f8dd134bfefaf67/ujson-5.12.0-cp314-cp314-macosx_10_15_x86_64.whl", hash = "sha256:85833bca01aa5cae326ac759276dc175c5fa3f7b3733b7d543cf27f2df12d1ef" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/bd/2d/285a83df8176e18dcd675d1a4cff8f7620f003f30903ea43929406e98986/ujson-5.12.0-cp314-cp314-macosx_11_0_arm64.whl", hash = "sha256:d22cad98c2a10bbf6aa083a8980db6ed90d4285a841c4de892890c2b28286ef9" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/bf/8b/e2f09e16dabfa91f6a84555df34a4329fa7621e92ed054d170b9054b9bb2/ujson-5.12.0-cp314-cp314-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:99cc80facad240b0c2fb5a633044420878aac87a8e7c348b9486450cba93f27c" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/68/fb/ba1d06f3658a0c36d0ab3869ec3914f202bad0a9bde92654e41516c7bb13/ujson-5.12.0-cp314-cp314-manylinux_2_24_i686.manylinux_2_28_i686.whl", hash = "sha256:d1831c07bd4dce53c4b666fa846c7eba4b7c414f2e641a4585b7f50b72f502dc" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/64/2b/3e322bf82d926d9857206cd5820438d78392d1f523dacecb8bd899952f73/ujson-5.12.0-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:0e00cec383eab2406c9e006bd4edb55d284e94bb943fda558326048178d26961" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e9/fd/af72d69603f9885e5136509a529a4f6d88bf652b457263ff96aefcd3ab7d/ujson-5.12.0-cp314-cp314-musllinux_1_2_aarch64.whl", hash = "sha256:f19b3af31d02a2e79c5f9a6deaab0fb3c116456aeb9277d11720ad433de6dfc6" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/9c/a7/a2411ec81aef7872578e56304c3e41b3a544a9809e95c8e1df46923fc40b/ujson-5.12.0-cp314-cp314-musllinux_1_2_i686.whl", hash = "sha256:bacbd3c69862478cbe1c7ed4325caedec580d8acf31b8ee1b9a1e02a56295cad" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/ed/85/aa18ae175dd03a118555aa14304d4f466f9db61b924c97c6f84388ecacb1/ujson-5.12.0-cp314-cp314-musllinux_1_2_x86_64.whl", hash = "sha256:94c5f1621cbcab83c03be46441f090b68b9f307b6c7ec44d4e3f6d5997383df4" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/d3/d4/4b40b67ac7e916ebffc3041ae2320c5c0b8a045300d4c542b6e50930cca5/ujson-5.12.0-cp314-cp314-win32.whl", hash = "sha256:e6369ac293d2cc40d52577e4fa3d75a70c1aae2d01fa3580a34a4e6eff9286b9" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/24/38/a1496d2a3428981f2b3a2ffbb4656c2b05be6cc406301d6b10a6445f6481/ujson-5.12.0-cp314-cp314-win_amd64.whl", hash = "sha256:31348a0ffbfc815ce78daac569d893349d85a0b57e1cd2cdbba50b7f333784da" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/85/d3/39dbd3159543d9c57ec3a82d36226152cf0d710784894ce5aa24b8220ac1/ujson-5.12.0-cp314-cp314-win_arm64.whl", hash = "sha256:6879aed770557f0961b252648d36f6fdaab41079d37a2296b5649fd1b35608e0" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/c3/71/9b4dacb177d3509077e50497222d39eec04c8b41edb1471efc764d645237/ujson-5.12.0-cp314-cp314t-macosx_10_15_x86_64.whl", hash = "sha256:7ddb08b3c2f9213df1f2e3eb2fbea4963d80ec0f8de21f0b59898e34f3b3d96d" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/24/c2/8abffa3be1f3d605c4a62445fab232b3e7681512ce941c6b23014f404d36/ujson-5.12.0-cp314-cp314t-macosx_11_0_arm64.whl", hash = "sha256:0a3ae28f0b209be5af50b54ca3e2123a3de3a57d87b75f1e5aa3d7961e041983" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/db/2e/60114a35d1d6796eb428f7affcba00a921831ff604a37d9142c3d8bbe5c5/ujson-5.12.0-cp314-cp314t-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:d30ad4359413c8821cc7b3707f7ca38aa8bc852ba3b9c5a759ee2d7740157315" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/c8/ad/010925c2116c21ce119f9c2ff18d01f48a19ade3ff4c5795da03ce5829fc/ujson-5.12.0-cp314-cp314t-manylinux_2_24_i686.manylinux_2_28_i686.whl", hash = "sha256:02f93da7a4115e24f886b04fd56df1ee8741c2ce4ea491b7ab3152f744ad8f8e" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/9b/74/db7f638bf20282b1dccf454386cbd483faaaed3cdbb9cb27e06f74bb109e/ujson-5.12.0-cp314-cp314t-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:3ff4ede90ed771140caa7e1890de17431763a483c54b3c1f88bd30f0cc1affc0" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/9c/7e/3ebaecfa70a2e8ce623db8e21bd5cb05d42a5ef943bcbb3309d71b5de68d/ujson-5.12.0-cp314-cp314t-musllinux_1_2_aarch64.whl", hash = "sha256:a7bf9cc97f05048ac8f3e02cd58f0fe62b901453c24345bfde287f4305dcc31c" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/2e/aa/e073eda7f0036c2973b28db7bb99faba17a932e7b52d801f9bb3e726271f/ujson-5.12.0-cp314-cp314t-musllinux_1_2_i686.whl", hash = "sha256:2324d9a0502317ffc35d38e153c1b2fa9610ae03775c9d0f8d0cca7b8572b04e" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/1c/01/b9a13f058fdd50c746b192c4447ca8d6352e696dcda912ccee10f032ff85/ujson-5.12.0-cp314-cp314t-musllinux_1_2_x86_64.whl", hash = "sha256:50524f4f6a1c839714dbaff5386a1afb245d2d5ec8213a01fbc99cea7307811e" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/c4/37/3d1b4e0076b6e43379600b5229a5993db8a759ff2e1830ea635d876f6644/ujson-5.12.0-cp314-cp314t-win32.whl", hash = "sha256:f7a0430d765f9bda043e6aefaba5944d5f21ec43ff4774417d7e296f61917382" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/b1/c5/3c2a262a138b9f0014fe1134a6b5fdc2c54245030affbaac2fcbc0632138/ujson-5.12.0-cp314-cp314t-win_amd64.whl", hash = "sha256:ccbfd94e59aad4a2566c71912b55f0547ac1680bfac25eb138e6703eb3dd434e" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/83/40/956dc20b7e00dc0ff3259871864f18dab211837fce3478778bedb3132ac1/ujson-5.12.0-cp314-cp314t-win_arm64.whl", hash = "sha256:42d875388fbd091c7ea01edfff260f839ba303038ffb23475ef392012e4d63dd" },
 ]
 
 [[package]]
