@@ -160,7 +160,7 @@ class TestOrderWorkflow:
     def test_full_order_lifecycle(self) -> None:
         order_id: typing.Final = uuid4()
         location: typing.Final = Location.must_create(5, 5)
-        order: typing.Final = Order.must_create(order_id, location, 100)
+        order: typing.Final[Order] = Order.must_create(order_id, location, 100)
 
         assert order.status == OrderStatus.CREATED
         assert order.courier_id is None
@@ -168,7 +168,7 @@ class TestOrderWorkflow:
         courier_id: typing.Final = uuid4()
         assign_result: typing.Final = order.assign(courier_id)
         assert assign_result.is_success
-        assert order.status == OrderStatus.ASSIGNED
+        assert order.status == OrderStatus.ASSIGNED  # type: ignore[comparison-overlap]
         assert order.courier_id == courier_id
 
         complete_result: typing.Final = order.complete()

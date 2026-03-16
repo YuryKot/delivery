@@ -6,7 +6,7 @@ import sqlalchemy
 
 class Settings(microbootstrap.FastApiSettings):
     # Database settings
-    database_dsn: str = ""
+    database_dsn: str = "postgresql+psycopg://postgres:postgres@localhost:5432/delivery"
     database_connection_retries: int = 3
 
     # HTTP server settings
