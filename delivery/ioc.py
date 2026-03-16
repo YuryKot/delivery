@@ -8,8 +8,14 @@ from that_depends import ContextScopes, providers
 
 from delivery.adapters.out.postgres.courier_repository import CourierRepositoryImpl
 from delivery.adapters.out.postgres.order_repository import OrderRepositoryImpl
-from delivery.adapters.out.postgres.unit_of_work import UnitOfWorkImpl
+from delivery.core.application.commands.assign_order_to_courier import AssignOrderToCourierCommandHandlerImpl
+from delivery.core.application.commands.create_courier import CreateCourierCommandHandlerImpl
+from delivery.core.application.commands.create_order import CreateOrderCommandHandlerImpl
+from delivery.core.application.commands.move_couriers import MoveCouriersCommandHandlerImpl
+from delivery.core.application.queries.get_all_couriers import GetAllCouriersQueryHandlerImpl
+from delivery.core.application.queries.get_all_incomplete_orders import GetAllIncompleteOrdersQueryHandlerImpl
 from delivery.core.domain.service.order_dispatch_service import OrderDispatchDomainService
+from delivery.event_publisher import DefaultDomainEventPublisher
 from delivery.settings import settings
 
 
@@ -41,4 +47,31 @@ class IOCContainer(that_depends.BaseContainer):
 
     order_repository = providers.Factory(OrderRepositoryImpl, main_database_session.cast)
     courier_repository = providers.Factory(CourierRepositoryImpl, main_database_session.cast)
-    unit_of_work = providers.Factory(UnitOfWorkImpl, main_database_session.cast)
+
+    domain_event_publisher = providers.Singleton(DefaultDomainEventPublisher)
+    create_courier_handler = providers.Factory(
+        CreateCourierCommandHandlerImpl, courier_repository.cast, domain_event_publisher.cast
+    )
+    create_order_handler = providers.Factory(
+        CreateOrderCommandHandlerImpl,
+        order_repository.cast,
+        courier_repository.cast,
+        domain_event_publisher.cast,
+    )
+    move_couriers_handler = providers.Factory(
+        MoveCouriersCommandHandlerImpl,
+        domain_event_publisher.cast,
+    )
+    assign_order_to_courier_handler = providers.Factory(
+        AssignOrderToCourierCommandHandlerImpl,
+        order_dispatch_service.cast,
+        domain_event_publisher.cast,
+    )
+    get_all_couriers_handler = providers.Factory(
+        GetAllCouriersQueryHandlerImpl,
+        courier_repository.cast,
+    )
+    get_all_incomplete_orders_handler = providers.Factory(
+        GetAllIncompleteOrdersQueryHandlerImpl,
+        main_database_session.cast,
+    )

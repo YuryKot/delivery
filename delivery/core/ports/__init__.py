@@ -1,10 +1,10 @@
 from delivery.core.ports.courier_repository import CourierRepository
 from delivery.core.ports.order_repository import OrderRepository
-from delivery.core.ports.unit_of_work import UnitOfWork
+from delivery.core.ports.unit_of_work import DeliveryUnitOfWork
 
 
 __all__ = [
     "CourierRepository",
+    "DeliveryUnitOfWork",
     "OrderRepository",
-    "UnitOfWork",
 ]
