@@ -20,13 +20,15 @@ class OrderDispatchDomainService:
         if error is not None:
             return Result.failure(error)
 
-        suitable_couriers: typing.Final = [courier for courier in couriers if courier.can_take_order(order.volume)]
+        suitable_couriers: typing.Final = [
+            courier for courier in couriers if courier.can_take_order(order.volume.value)
+        ]
 
         if not suitable_couriers:
             return Result.failure(
                 Error.of(
                     "order.dispatch.no.suitable.courier",
-                    f"No suitable courier found for order {order.id} with volume {order.volume}",
+                    f"No suitable courier found for order {order.id} with volume {order.volume.value}",
                 )
             )
 

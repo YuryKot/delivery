@@ -5,7 +5,7 @@ import pytest
 import sqlalchemy.ext.asyncio as sa_async
 
 from delivery.adapters.out.postgres.order_repository import OrderRepositoryImpl
-from delivery.core.domain.model.kernel import Location
+from delivery.core.domain.model.kernel import Location, Volume
 from delivery.core.domain.model.order.order import Order
 from delivery.core.domain.model.order.order_status import OrderStatus
 from delivery.core.ports.order_repository import OrderRepository
@@ -22,7 +22,7 @@ class TestOrderRepository:
     @staticmethod
     def _create_order(location: Location, volume: int) -> Order:
         order_id: typing.Final = uuid.uuid4()
-        return Order.must_create(id_=order_id, location=location, volume=volume)
+        return Order.must_create(id_=order_id, location=location, volume=Volume.must_create(volume))
 
     async def test_add_and_get_by_id(
         self,

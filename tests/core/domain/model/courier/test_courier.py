@@ -4,7 +4,7 @@ from uuid import uuid4
 import pytest
 
 from delivery.core.domain.model.courier.courier import Courier
-from delivery.core.domain.model.kernel import Location
+from delivery.core.domain.model.kernel import Location, Volume
 from delivery.libs.errs.error import DomainInvariantError
 
 
@@ -154,7 +154,7 @@ class TestCourierCanTakeOrder:
         courier: typing.Final = Courier.must_create("Иван", 2, location)
         order_id: typing.Final = uuid4()
 
-        courier.take_order(order_id, 10)
+        courier.take_order(order_id, Volume.must_create(10))
 
         assert not courier.can_take_order(5)
         assert not courier.can_take_order(10)
@@ -166,7 +166,7 @@ class TestCourierTakeOrder:
         courier: typing.Final = Courier.must_create("Иван", 2, location)
         order_id: typing.Final = uuid4()
 
-        result: typing.Final = courier.take_order(order_id, 8)
+        result: typing.Final = courier.take_order(order_id, Volume.must_create(8))
 
         assert result.is_success
         assert courier.storage_places[0].order_id == order_id
@@ -179,7 +179,7 @@ class TestCourierTakeOrder:
         courier.add_storage_place("Багажник", 100)
         order_id: typing.Final = uuid4()
 
-        result: typing.Final = courier.take_order(order_id, 8)
+        result: typing.Final = courier.take_order(order_id, Volume.must_create(8))
 
         assert result.is_success
         assert courier.storage_places[0].order_id == order_id
@@ -193,8 +193,8 @@ class TestCourierTakeOrder:
         first_order: typing.Final = uuid4()
         second_order: typing.Final = uuid4()
 
-        courier.take_order(first_order, 10)
-        result: typing.Final = courier.take_order(second_order, 50)
+        courier.take_order(first_order, Volume.must_create(10))
+        result: typing.Final = courier.take_order(second_order, Volume.must_create(50))
 
         assert result.is_success
         assert courier.storage_places[0].order_id == first_order
@@ -205,7 +205,7 @@ class TestCourierTakeOrder:
         courier: typing.Final = Courier.must_create("Иван", 2, location)
         order_id: typing.Final = uuid4()
 
-        result: typing.Final = courier.take_order(order_id, 100)
+        result: typing.Final = courier.take_order(order_id, Volume.must_create(100))
 
         assert result.is_failure
         error: typing.Final = result.get_error()
@@ -217,8 +217,8 @@ class TestCourierTakeOrder:
         first_order: typing.Final = uuid4()
         second_order: typing.Final = uuid4()
 
-        courier.take_order(first_order, 10)
-        result: typing.Final = courier.take_order(second_order, 5)
+        courier.take_order(first_order, Volume.must_create(10))
+        result: typing.Final = courier.take_order(second_order, Volume.must_create(5))
 
         assert result.is_failure
         error: typing.Final = result.get_error()
@@ -227,9 +227,9 @@ class TestCourierTakeOrder:
     @pytest.mark.parametrize(
         ("order_volume", "error_code_fragment"),
         [
-            (0, "must.be.greater.or.equal"),
-            (-1, "must.be.greater.or.equal"),
-            (-100, "must.be.greater.or.equal"),
+            (0, "value.is.out.of.range"),
+            (-1, "value.is.out.of.range"),
+            (-100, "value.is.out.of.range"),
         ],
         ids=[
             "zero_volume",
@@ -239,13 +239,12 @@ class TestCourierTakeOrder:
     )
     def test_take_order_invalid_volume(self, order_volume: int, error_code_fragment: str) -> None:
         location: typing.Final = Location.must_create(5, 5)
-        courier: typing.Final = Courier.must_create("[ИМЯ_3336]", 2, location)
-        order_id: typing.Final = uuid4()
+        Courier.must_create("name", 2, location)
 
-        result: typing.Final = courier.take_order(order_id, order_volume)
+        volume_result: typing.Final = Volume.create(order_volume)
 
-        assert result.is_failure
-        error: typing.Final = result.get_error()
+        assert volume_result.is_failure
+        error: typing.Final = volume_result.get_error()
         assert error_code_fragment in error.code
 
 
@@ -255,7 +254,7 @@ class TestCourierCompleteOrder:
         courier: typing.Final = Courier.must_create("Иван", 2, location)
         order_id: typing.Final = uuid4()
 
-        courier.take_order(order_id, 8)
+        courier.take_order(order_id, Volume.must_create(8))
         result: typing.Final = courier.complete_order(order_id)
 
         assert result.is_success
@@ -281,8 +280,8 @@ class TestCourierCompleteOrder:
         order1: typing.Final = uuid4()
         order2: typing.Final = uuid4()
 
-        courier.take_order(order1, 10)
-        courier.take_order(order2, 30)
+        courier.take_order(order1, Volume.must_create(10))
+        courier.take_order(order2, Volume.must_create(30))
 
         result: typing.Final = courier.complete_order(order1)
 
@@ -398,7 +397,7 @@ class TestCourierWorkflow:
         order_id: typing.Final = uuid4()
         assert courier.can_take_order(30)
 
-        take_result: typing.Final = courier.take_order(order_id, 30)
+        take_result: typing.Final = courier.take_order(order_id, Volume.must_create(30))
         assert take_result.is_success
         assert not courier.can_take_order(30)
 

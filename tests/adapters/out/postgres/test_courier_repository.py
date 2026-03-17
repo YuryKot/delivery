@@ -6,7 +6,7 @@ import sqlalchemy.ext.asyncio as sa_async
 
 from delivery.adapters.out.postgres.courier_repository import CourierRepositoryImpl
 from delivery.core.domain.model.courier.courier import Courier
-from delivery.core.domain.model.kernel import Location
+from delivery.core.domain.model.kernel import Location, Volume
 from delivery.core.domain.model.order.order import Order
 from delivery.core.ports.courier_repository import CourierRepository
 
@@ -32,7 +32,7 @@ class TestCourierRepository:
     @staticmethod
     def _create_order(location: Location, volume: int) -> Order:
         order_id: typing.Final = uuid.uuid4()
-        return Order.must_create(id_=order_id, location=location, volume=volume)
+        return Order.must_create(id_=order_id, location=location, volume=Volume.must_create(volume))
 
     async def test_add_and_get_by_id(
         self,
@@ -166,7 +166,7 @@ class TestCourierRepository:
             location=Location.must_create(5, 5),
             volume=5,
         )
-        take_result: typing.Final = occupied_courier.take_order(order.id, order.volume)  # type: ignore[arg-type]
+        take_result: typing.Final = occupied_courier.take_order(order.id, Volume.must_create(5))  # type: ignore[arg-type]
         assert take_result.is_success
 
         await courier_repository.update(occupied_courier)

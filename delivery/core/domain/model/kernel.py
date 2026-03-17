@@ -45,3 +45,109 @@ class Location(ValueObject["Location"]):
 
     def __repr__(self) -> str:
         return f"Location(x={self._x}, y={self._y})"
+
+
+class Volume(ValueObject["Volume"]):
+    _MIN_VALUE: typing.Final[int] = 1
+    _MAX_VALUE: typing.Final[int] = 100
+
+    def __init__(self, value: int) -> None:
+        self._value = value
+
+    @staticmethod
+    def create(value: int) -> Result["Volume", Error]:
+        err: typing.Final = Guard.against_out_of_range(value, Volume._MIN_VALUE, Volume._MAX_VALUE, "volume")
+        if err is not None:
+            return Result.failure(err)
+
+        return Result.success(Volume(value))
+
+    @staticmethod
+    def must_create(value: int) -> "Volume":
+        return Volume.create(value).get_value_or_throw()
+
+    @property
+    def value(self) -> int:
+        return self._value
+
+    def equality_components(self) -> typing.Iterable[object]:
+        return [self._value]
+
+    def __repr__(self) -> str:
+        return f"Volume(value={self._value})"
+
+
+class Address(ValueObject["Address"]):
+    def __init__(
+        self,
+        country: str,
+        city: str,
+        street: str,
+        house: str,
+        apartment: str,
+    ) -> None:
+        self._country = country
+        self._city = city
+        self._street = street
+        self._house = house
+        self._apartment = apartment
+
+    @staticmethod
+    def create(
+        country: str,
+        city: str,
+        street: str,
+        house: str,
+        apartment: str,
+    ) -> Result["Address", Error]:
+        err: typing.Final = Guard.combine(
+            Guard.against_null_or_empty(country, "country"),
+            Guard.against_null_or_empty(city, "city"),
+            Guard.against_null_or_empty(street, "street"),
+            Guard.against_null_or_empty(house, "house"),
+            Guard.against_null_or_empty(apartment, "apartment"),
+        )
+        if err is not None:
+            return Result.failure(err)
+
+        return Result.success(Address(country, city, street, house, apartment))
+
+    @staticmethod
+    def must_create(
+        country: str,
+        city: str,
+        street: str,
+        house: str,
+        apartment: str,
+    ) -> "Address":
+        return Address.create(country, city, street, house, apartment).get_value_or_throw()
+
+    @property
+    def country(self) -> str:
+        return self._country
+
+    @property
+    def city(self) -> str:
+        return self._city
+
+    @property
+    def street(self) -> str:
+        return self._street
+
+    @property
+    def house(self) -> str:
+        return self._house
+
+    @property
+    def apartment(self) -> str:
+        return self._apartment
+
+    def equality_components(self) -> typing.Iterable[object]:
+        return [self._country, self._city, self._street, self._house, self._apartment]
+
+    def __repr__(self) -> str:
+        return (
+            f"Address(country={self._country}, city={self._city}, "
+            f"street={self._street}, house={self._house}, "
+            f"apartment={self._apartment})"
+        )
