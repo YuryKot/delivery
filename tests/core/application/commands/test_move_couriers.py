@@ -10,7 +10,7 @@ from delivery.core.application.commands.move_couriers import (
     MoveCouriersCommandHandlerImpl,
 )
 from delivery.core.domain.model.courier.courier import Courier
-from delivery.core.domain.model.kernel import Location
+from delivery.core.domain.model.kernel import Location, Volume
 from delivery.core.ports.unit_of_work import DeliveryUnitOfWork
 from delivery.event_publisher import DefaultDomainEventPublisher
 from tests.test_fixtures import create_test_order
@@ -85,7 +85,7 @@ class TestMoveCouriersCommandHandler:
         )
 
         courier: typing.Final = Courier.must_create(name="Test", speed=10, location=location)
-        courier.take_order(order_id, order_volume=1)
+        courier.take_order(order_id, Volume.must_create(1))
 
         mock_uow: typing.Final = MagicMock()
         mock_uow.order.get_all_assigned = AsyncMock(return_value=[order])

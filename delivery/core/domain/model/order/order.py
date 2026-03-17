@@ -1,7 +1,7 @@
 import typing
 from uuid import UUID
 
-from delivery.core.domain.model.kernel import Location
+from delivery.core.domain.model.kernel import Location, Volume
 from delivery.core.domain.model.order.order_status import OrderStatus
 from delivery.libs.ddd.aggregate import Aggregate
 from delivery.libs.errs.error import Error
@@ -14,7 +14,7 @@ class Order(Aggregate[UUID]):
         self,
         id_: UUID,
         location: Location,
-        volume: int,
+        volume: Volume,
         status: OrderStatus,
         courier_id: UUID | None = None,
     ) -> None:
@@ -28,14 +28,14 @@ class Order(Aggregate[UUID]):
     def create(
         id_: UUID,
         location: Location,
-        volume: int,
+        volume: Volume,
     ) -> Result["Order", Error]:
         if location is None:
             return Result.failure(Error.of("value.is.required", "location is required"))
 
         err: typing.Final = Guard.combine(
             Guard.against_null_or_empty_uuid(id_, "id"),
-            Guard.against_less_or_equal(volume, 0, "volume"),
+            Guard.against_null(volume, "volume"),
         )
         if err is not None:
             return Result.failure(err)
@@ -53,7 +53,7 @@ class Order(Aggregate[UUID]):
     def must_create(
         id_: UUID,
         location: Location,
-        volume: int,
+        volume: Volume,
     ) -> "Order":
         return Order.create(id_, location, volume).get_value_or_throw()
 
@@ -62,7 +62,7 @@ class Order(Aggregate[UUID]):
         return self._location
 
     @property
-    def volume(self) -> int:
+    def volume(self) -> Volume:
         return self._volume
 
     @property

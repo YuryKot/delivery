@@ -4,7 +4,7 @@ import uuid
 import pytest
 
 from delivery.core.domain.model.courier.courier import Courier
-from delivery.core.domain.model.kernel import Location
+from delivery.core.domain.model.kernel import Location, Volume
 from delivery.core.domain.model.order.order import Order
 from delivery.core.domain.service import OrderDispatchDomainService
 
@@ -32,7 +32,7 @@ class TestOrderDispatchDomainService:
         return Order.must_create(
             id_=order_id,
             location=location,
-            volume=volume,
+            volume=Volume.must_create(volume),
         )
 
     def test_dispatch_with_null_order_raises_error(
@@ -141,7 +141,7 @@ class TestOrderDispatchDomainService:
             location=Location.must_create(1, 1),
         )
         occupied_order_id: typing.Final = uuid.uuid4()
-        take_result: typing.Final = small_courier.take_order(occupied_order_id, order_volume=10)
+        take_result: typing.Final = small_courier.take_order(occupied_order_id, Volume.must_create(10))
         assert take_result.is_success
 
         large_courier: typing.Final = self._create_courier(
@@ -172,7 +172,7 @@ class TestOrderDispatchDomainService:
             location=Location.must_create(1, 1),
         )
         occupied_order_id_1: typing.Final = uuid.uuid4()
-        take_result1: typing.Final = courier1.take_order(occupied_order_id_1, order_volume=10)
+        take_result1: typing.Final = courier1.take_order(occupied_order_id_1, Volume.must_create(10))
         assert take_result1.is_success
 
         courier2: typing.Final = self._create_courier(
@@ -181,7 +181,7 @@ class TestOrderDispatchDomainService:
             location=Location.must_create(1, 1),
         )
         occupied_order_id_2: typing.Final = uuid.uuid4()
-        take_result2: typing.Final = courier2.take_order(occupied_order_id_2, order_volume=10)
+        take_result2: typing.Final = courier2.take_order(occupied_order_id_2, Volume.must_create(10))
         assert take_result2.is_success
 
         order: typing.Final = self._create_order(
@@ -222,7 +222,7 @@ class TestOrderDispatchDomainService:
         )
 
         occupied_order_id: typing.Final = uuid.uuid4()
-        take_result: typing.Final = busy_courier.take_order(occupied_order_id, order_volume=5)
+        take_result: typing.Final = busy_courier.take_order(occupied_order_id, Volume.must_create(5))
         assert take_result.is_success
 
         free_courier: typing.Final = self._create_courier(

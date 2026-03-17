@@ -2,7 +2,7 @@ import typing
 from uuid import UUID, uuid4
 
 from delivery.core.domain.model.courier.storage_place import StoragePlace
-from delivery.core.domain.model.kernel import Location
+from delivery.core.domain.model.kernel import Location, Volume
 from delivery.libs.ddd.aggregate import Aggregate
 from delivery.libs.errs.error import Error
 from delivery.libs.errs.guard import Guard
@@ -93,27 +93,27 @@ class Courier(Aggregate[UUID]):
     def can_take_order(self, order_volume: int) -> bool:
         return any(place.can_store(order_volume) for place in self._storage_places)
 
-    def take_order(self, order_id: UUID, order_volume: int) -> UnitResult[Error]:
+    def take_order(self, order_id: UUID, order_volume: Volume) -> UnitResult[Error]:
         err: typing.Final = Guard.combine(
             Guard.against_null_or_empty_uuid(order_id, "order_id"),
-            Guard.against_less_or_equal(order_volume, 0, "order_volume"),
+            Guard.against_null(order_volume, "order_volume"),
         )
         if err is not None:
             return UnitResult.failure(err)
 
-        suitable_places: typing.Final = [place for place in self._storage_places if place.can_store(order_volume)]
+        suitable_places: typing.Final = [place for place in self._storage_places if place.can_store(order_volume.value)]
 
         if not suitable_places:
             return UnitResult.failure(
                 Error.of(
                     "courier.no.available.storage",
-                    f"Courier {self._name} has no available storage for order volume {order_volume}",
+                    f"Courier {self._name} has no available storage for order volume {order_volume.value}",
                 )
             )
 
         best_place: typing.Final = min(suitable_places, key=lambda p: p.total_volume)
 
-        store_result: typing.Final = best_place.store(order_id, order_volume)
+        store_result: typing.Final = best_place.store(order_id, order_volume.value)
         if store_result.is_failure:
             return store_result
 
