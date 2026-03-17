@@ -39,7 +39,6 @@ async def _rollback_database(db_connection: sa_async.AsyncConnection) -> typing.
     yield
     if db_connection.in_transaction():
         await transaction.rollback()
-    await db_connection.close()
 
 
 @pytest.fixture
