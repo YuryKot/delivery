@@ -239,8 +239,7 @@ class TestCourierTakeOrder:
     )
     def test_take_order_invalid_volume(self, order_volume: int, error_code_fragment: str) -> None:
         location: typing.Final = Location.must_create(5, 5)
-        courier: typing.Final = Courier.must_create("[ИМЯ_3336]", 2, location)
-        order_id: typing.Final = uuid4()
+        Courier.must_create("name", 2, location)
 
         volume_result: typing.Final = Volume.create(order_volume)
 
