@@ -44,11 +44,13 @@ class TestCreateCourierCommandHandler:
         mock_courier_repository.add = AsyncMock()
         mock_domain_event_publisher.publish = AsyncMock()
 
-        await handler.handle(command)
+        result: typing.Final = await handler.handle(command)
 
+        assert result.is_success
         mock_courier_repository.add.assert_called_once()
         mock_domain_event_publisher.publish.assert_called_once()
 
         added_courier: typing.Final = mock_courier_repository.add.call_args[0][0]
         assert added_courier.name == "Test Courier"
         assert added_courier.speed == 10
+        assert result.get_value() == added_courier.id

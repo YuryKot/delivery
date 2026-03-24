@@ -9,6 +9,7 @@ from that_depends import ContextScopes
 from that_depends.providers import DIContextMiddleware
 
 from delivery import lifetime
+from delivery.adapters.input.http.router import create_router
 from delivery.exception_handlers import register_exception_handlers
 from delivery.settings import settings
 
@@ -23,6 +24,9 @@ def build_app() -> FastAPI:
     )
     application: typing.Final = FastApiBootstrapper(settings).configure_application(app_config).bootstrap()
     register_exception_handlers(application)
+
+    application.include_router(create_router())
+
     return application
 
 
