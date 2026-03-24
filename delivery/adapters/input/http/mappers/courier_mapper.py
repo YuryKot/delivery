@@ -10,7 +10,7 @@ class CourierMapper:
         return HttpCourier(
             id=dto.id,
             name=dto.name,
-            location=HttpLocation(x=dto.location_x, y=dto.location_y).model_dump(),
+            location=HttpLocation(x=dto.location_x, y=dto.location_y),
         )
 
     @staticmethod

@@ -1,6 +1,7 @@
 import typing
 
 from fastapi import APIRouter, Depends, status
+from that_depends import Provide
 
 from delivery.adapters.input.http.mappers.order_mapper import OrderMapper
 from delivery.adapters.input.http.models.error import Error as HttpError
@@ -9,6 +10,7 @@ from delivery.core.application.queries.get_all_incomplete_orders import (
     GetAllIncompleteOrdersQuery,
     GetAllIncompleteOrdersQueryHandler,
 )
+from delivery.ioc import IOCContainer
 
 
 router = APIRouter()
@@ -22,7 +24,10 @@ router = APIRouter()
     },
 )
 async def get_active_orders(
-    handler: typing.Annotated[GetAllIncompleteOrdersQueryHandler, Depends()],
+    handler: typing.Annotated[
+        GetAllIncompleteOrdersQueryHandler,
+        Depends(Provide[IOCContainer.get_all_incomplete_orders_handler]),
+    ],
 ) -> list[Order]:
     query: typing.Final = GetAllIncompleteOrdersQuery()
 

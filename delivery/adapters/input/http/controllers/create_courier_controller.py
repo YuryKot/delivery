@@ -2,6 +2,7 @@ import typing
 
 from fastapi import APIRouter, Depends, status
 from fastapi.responses import JSONResponse
+from that_depends import Provide
 
 from delivery.adapters.input.http.models.courier import CreateCourierResponse, NewCourier
 from delivery.adapters.input.http.models.error import Error as HttpError
@@ -9,6 +10,7 @@ from delivery.core.application.commands.create_courier import (
     CreateCourierCommand,
     CreateCourierCommandHandler,
 )
+from delivery.ioc import IOCContainer
 from delivery.libs.errs.error import Error
 
 
@@ -27,7 +29,10 @@ router = APIRouter()
 )
 async def create_courier(
     request: NewCourier,
-    handler: typing.Annotated[CreateCourierCommandHandler, Depends()],
+    handler: typing.Annotated[
+        CreateCourierCommandHandler,
+        Depends(Provide[IOCContainer.create_courier_handler]),
+    ],
 ) -> JSONResponse:
     command: typing.Final = CreateCourierCommand(
         name=request.name,

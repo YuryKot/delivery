@@ -43,6 +43,10 @@ class AssignOrderToCourierCommandHandlerImpl(AssignOrderToCourierCommandHandler)
 
             best_courier: typing.Final = dispatch_result.get_value()
 
+            take_result: typing.Final = best_courier.take_order(typing.cast("UUID", order.id), order.volume)
+            if take_result.is_failure:
+                return UnitResult.failure(take_result.get_error())
+
             assign_result: typing.Final = order.assign(typing.cast("UUID", best_courier.id))
             if assign_result.is_failure:
                 return UnitResult.failure(assign_result.get_error())

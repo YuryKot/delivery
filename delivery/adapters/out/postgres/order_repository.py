@@ -21,10 +21,10 @@ class OrderRepositoryImpl(OrderRepository):
         self._repo: typing.Final = _OrderAlchemyRepository(session=session)
 
     async def add(self, order: Order) -> None:
-        await self._repo.add(to_model(order), auto_commit=False)
+        await self._repo.add(to_model(order), auto_commit=True)
 
     async def update(self, order: Order) -> None:
-        await self._repo.update(to_model(order), auto_commit=False)
+        await self._repo.update(to_model(order), auto_commit=True)
 
     async def get_by_id(self, order_id: UUID) -> Order | None:
         model: typing.Final = await self._repo.get_one_or_none(id=order_id)

@@ -21,10 +21,11 @@ class CourierRepositoryImpl(CourierRepository):
         self._repo: typing.Final = _CourierAlchemyRepository(session=session)
 
     async def add(self, courier: Courier) -> None:
-        await self._repo.add(to_model(courier), auto_commit=False)
+        await self._repo.add(to_model(courier), auto_commit=True)
 
     async def update(self, courier: Courier) -> None:
         await self._session.merge(to_model(courier))
+        await self._session.commit()
 
     async def get_by_id(self, courier_id: UUID) -> Courier | None:
         model: typing.Final = await self._repo.get_one_or_none(id=courier_id)
