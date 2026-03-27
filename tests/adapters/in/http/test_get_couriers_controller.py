@@ -53,7 +53,7 @@ class TestGetCouriersController:
 
         mock_handler.handle.return_value = Result.failure(Error.of("db.error", "Database connection failed"))
 
-        with pytest.raises(Exception, match="db.error"):
+        with pytest.raises(Exception, match=r"db\.error"):
             await get_couriers(handler=mock_handler)
 
         mock_handler.handle.assert_called_once()

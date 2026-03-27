@@ -1,9 +1,8 @@
-import random
 import typing
 
-from delivery.core.domain.model.kernel import Location
 from delivery.core.domain.model.order.order import Order
 from delivery.core.ports.courier_repository import CourierRepository
+from delivery.core.ports.geo_location_client import GeoLocationClient
 from delivery.core.ports.order_repository import OrderRepository
 from delivery.event_publisher import DefaultDomainEventPublisher
 from delivery.libs.errs.error import Error
@@ -17,16 +16,16 @@ class CreateOrderCommandHandlerImpl(CreateOrderCommandHandler):
         self,
         order_repository: OrderRepository,
         courier_repository: CourierRepository,
+        geo_location_client: GeoLocationClient,
         domain_event_publisher: DefaultDomainEventPublisher,
     ) -> None:
         self._order_repository = order_repository
         self._courier_repository = courier_repository
+        self._geo_location_client = geo_location_client
         self._domain_event_publisher = domain_event_publisher
 
     async def handle(self, command: CreateOrderCommand) -> UnitResult[Error]:
-        random_x: typing.Final = random.randint(1, 10)  # noqa: S311
-        random_y: typing.Final = random.randint(1, 10)  # noqa: S311
-        location_result: typing.Final = Location.create(random_x, random_y)
+        location_result: typing.Final = await self._geo_location_client.get_location(command.address.street)
         if location_result.is_failure:
             return UnitResult.failure(location_result.get_error())
 

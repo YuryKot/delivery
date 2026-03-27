@@ -10,32 +10,34 @@ from delivery.core.application.queries.get_all_couriers import (
     GetAllCouriersQueryHandlerImpl,
 )
 from delivery.core.domain.model.kernel import Location
-from delivery.core.ports.courier_repository import CourierRepository
 from tests.test_fixtures import create_test_courier
 
 
 class TestGetAllCouriersQueryHandler:
     @pytest.fixture
-    def mock_courier_repository(self) -> MagicMock:
-        return MagicMock(spec=CourierRepository)
+    def mock_session(self) -> MagicMock:
+        return MagicMock()
 
     @pytest.fixture
     def handler(
         self,
-        mock_courier_repository: MagicMock,
+        mock_session: MagicMock,
     ) -> GetAllCouriersQueryHandler:
         return GetAllCouriersQueryHandlerImpl(
-            courier_repository=mock_courier_repository,
+            session=mock_session,
         )
 
     @pytest.mark.anyio
     async def test_get_all_couriers_should_return_empty_list(
         self,
         handler: GetAllCouriersQueryHandler,
-        mock_courier_repository: MagicMock,
+        mock_session: MagicMock,
     ) -> None:
         query: typing.Final = GetAllCouriersQuery()
-        mock_courier_repository.get_all_free = AsyncMock(return_value=[])
+
+        mock_result: typing.Final = MagicMock()
+        mock_result.scalars.return_value.unique.return_value.all.return_value = []
+        mock_session.execute = AsyncMock(return_value=mock_result)
 
         result: typing.Final = await handler.handle(query)
 
@@ -46,14 +48,28 @@ class TestGetAllCouriersQueryHandler:
     async def test_get_all_couriers_should_return_couriers(
         self,
         handler: GetAllCouriersQueryHandler,
-        mock_courier_repository: MagicMock,
+        mock_session: MagicMock,
     ) -> None:
         query: typing.Final = GetAllCouriersQuery()
 
         courier1: typing.Final = create_test_courier(name="Courier 1", location=Location.must_create(1, 1))
         courier2: typing.Final = create_test_courier(name="Courier 2", location=Location.must_create(2, 2))
 
-        mock_courier_repository.get_all_free = AsyncMock(return_value=[courier1, courier2])
+        mock_model1: typing.Final = MagicMock()
+        mock_model1.id = courier1.id
+        mock_model1.name = courier1.name
+        mock_model1.location_x = 1
+        mock_model1.location_y = 1
+
+        mock_model2: typing.Final = MagicMock()
+        mock_model2.id = courier2.id
+        mock_model2.name = courier2.name
+        mock_model2.location_x = 2
+        mock_model2.location_y = 2
+
+        mock_result: typing.Final = MagicMock()
+        mock_result.scalars.return_value.unique.return_value.all.return_value = [mock_model1, mock_model2]
+        mock_session.execute = AsyncMock(return_value=mock_result)
 
         result: typing.Final = await handler.handle(query)
 

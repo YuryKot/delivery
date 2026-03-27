@@ -8,6 +8,8 @@ dependencies = [
     "advanced-alchemy",
     "alembic",
     "apscheduler",
+    "grpcio>=1.78.0",
+    "grpcio-tools>=1.78.0",
     "httpx>=0.28.1",
     "joserfc",
     "microbootstrap[fastapi,granian]",
@@ -78,6 +80,8 @@ lines-after-imports = 2
 
 [tool.ruff.lint.extend-per-file-ignores]
 "tests/*.py" = ["S101", "S311", "PLR2004", "PLR0913"]
+"delivery/adapters/out/grps/geo_pb2.py" = ["ALL"]
+"delivery/adapters/out/grps/geo_pb2_grpc.py" = ["ALL"]
 
 [tool.pytest.ini_options]
 addopts = '--cov=. -p no:warnings --cov-report term-missing'
@@ -93,6 +97,7 @@ concurrency = ["thread", "greenlet"]
 python_version = "3.13"
 strict = true
 plugins = ["pydantic.mypy"]
+exclude = ["delivery/adapters/out/grps/geo_pb2\\.py", "delivery/adapters/out/grps/geo_pb2_grpc\\.py"]
 
 [tool.flake8]
 select = ["WPS"]
