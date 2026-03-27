@@ -6,11 +6,16 @@ import sqlalchemy
 
 class Settings(microbootstrap.FastApiSettings):
     # Database settings
-    database_dsn: str = "postgresql+psycopg://postgres:postgres@localhost:5432/delivery"
+    database_dsn: str = "postgresql+psycopg://username:secret@localhost:5433/delivery"
     database_connection_retries: int = 3
 
     # HTTP server settings
-    http_port: int = 8082
+    server_port: int = 8082
+
+    cors_allowed_origins: list[str] = ["*"]
+    cors_allowed_methods: list[str] = ["*"]
+    cors_allowed_headers: list[str] = ["*"]
+    cors_allowed_credentials: bool = True
 
     # Kafka settings
     kafka_bootstrap_servers: str = "localhost:9092"

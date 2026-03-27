@@ -69,9 +69,25 @@ class IOCContainer(that_depends.BaseContainer):
     )
     get_all_couriers_handler = providers.Factory(
         GetAllCouriersQueryHandlerImpl,
-        courier_repository.cast,
+        main_database_session.cast,
     )
     get_all_incomplete_orders_handler = providers.Factory(
         GetAllIncompleteOrdersQueryHandlerImpl,
         main_database_session.cast,
+    )
+
+    app_main_database_session = providers.Resource(create_database_session, main_database_engine.cast)
+    app_order_repository = providers.Factory(OrderRepositoryImpl, app_main_database_session.cast)
+    app_courier_repository = providers.Factory(CourierRepositoryImpl, app_main_database_session.cast)
+    app_order_dispatch_service = providers.Factory(OrderDispatchDomainService)
+    app_domain_event_publisher = providers.Singleton(DefaultDomainEventPublisher)
+
+    app_assign_order_to_courier_handler = providers.Factory(
+        AssignOrderToCourierCommandHandlerImpl,
+        app_order_dispatch_service.cast,
+        app_domain_event_publisher.cast,
+    )
+    app_move_couriers_handler = providers.Factory(
+        MoveCouriersCommandHandlerImpl,
+        app_domain_event_publisher.cast,
     )
