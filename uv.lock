@@ -22,6 +22,31 @@ wheels = [
 ]
 
 [[package]]
+name = "aiokafka"
+version = "0.13.0"
+source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
+dependencies = [
+    { name = "async-timeout" },
+    { name = "packaging" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/87/18/d3a4f8f9ad099fc59217b8cdf66eeecde3a9ef3bb31fe676e431a3b0010f/aiokafka-0.13.0.tar.gz", hash = "sha256:7d634af3c8d694a37a6c8535c54f01a740e74cccf7cc189ecc4a3d64e31ce122" }
+wheels = [
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/e3/f6/a74c49759233e98b61182ba3d49d5ac9c8de0643651892acba2704fba1cc/aiokafka-0.13.0-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:39d71c40cff733221a6b2afff4beeac5dacbd119fb99eec5198af59115264a1a" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/cf/52/4f7e80eee2c69cd8b047c18145469bf0dc27542a5dca3f96ff81ade575b0/aiokafka-0.13.0-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:faa2f5f3d0d2283a0c1a149748cc7e3a3862ef327fa5762e2461088eedde230a" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/81/9b/d2766bb3b0bad53eb25a88e51a884be4b77a1706053ad717b893b4daea4b/aiokafka-0.13.0-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:b890d535e55f5073f939585bef5301634df669e97832fda77aa743498f008662" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/8f/00/12e0a39cd4809149a09b4a52b629abc9bf80e7b8bad9950040b1adae99fc/aiokafka-0.13.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:e22eb8a1475b9c0f45b553b6e2dcaf4ec3c0014bf4e389e00a0a0ec85d0e3bdc" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/38/4a/0bc91e90faf55533fe6468461c2dd31c22b0e1d274b9386f341cca3f7eb7/aiokafka-0.13.0-cp313-cp313-win32.whl", hash = "sha256:ae507c7b09e882484f709f2e7172b3a4f75afffcd896d00517feb35c619495bb" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/23/63/5433d1aa10c4fb4cf85bd73013263c36d7da4604b0c77ed4d1ad42fae70c/aiokafka-0.13.0-cp313-cp313-win_amd64.whl", hash = "sha256:fec1a7e3458365a72809edaa2b990f65ca39b01a2a579f879ac4da6c9b2dbc5c" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/3c/cc/45b04c3a5fd3d2d5f444889ecceb80b2f78d6d66aa45e3042767e55579e2/aiokafka-0.13.0-cp314-cp314-macosx_10_15_x86_64.whl", hash = "sha256:9a403785f7092c72906c37f7618f7b16a4219eba8ed0bdda90fba410a7dd50b5" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/76/df/0b76fe3b93558ae71b856940e384909c4c2c7a1c330423003191e4ba7782/aiokafka-0.13.0-cp314-cp314-macosx_11_0_arm64.whl", hash = "sha256:256807326831b7eee253ea1017bd2b19ab1c2298ce6b20a87fde97c253c572bc" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/34/1a/d59932f98fd3c106e2a7c8d4d5ebd8df25403436dfc27b3031918a37385e/aiokafka-0.13.0-cp314-cp314-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:64d90f91291da265d7f25296ba68fc6275684eebd6d1cf05a1b2abe6c2ba3543" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/7e/04/fbf3e34ab3bc21e6e760c3fcd089375052fccc04eb8745459a82a58a647b/aiokafka-0.13.0-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:b5a33cc043c8d199bcf101359d86f2d31fd54f4b157ac12028bdc34e3e1cf74a" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/85/10/509f709fd3b7c3e568a5b8044be0e80a1504f8da6ddc72c128b21e270913/aiokafka-0.13.0-cp314-cp314-win32.whl", hash = "sha256:538950384b539ba2333d35a853f09214c0409e818e5d5f366ef759eea50bae9c" },
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/2b/18/424d6a4eb6f4835a371c1e2cfafce800540b33d957c6638795d911f98973/aiokafka-0.13.0-cp314-cp314-win_amd64.whl", hash = "sha256:c906dd42daadd14b4506a2e6c62dfef3d4919b5953d32ae5e5f0d99efd103c89" },
+]
+
+[[package]]
 name = "alembic"
 version = "1.18.4"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
@@ -104,6 +129,15 @@ wheels = [
     { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/70/5d/dcc25ea7080e52f807ecd11439051c715c170fe883df176af8dc5a09c419/ast_grep_py-0.40.3-cp314-cp314-manylinux_2_28_x86_64.whl", hash = "sha256:aeca5f89c5337397158a4a38e984a7e7252c8a9a4b5fa5f044440d8b0cbc6845" },
     { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/ef/42/252e170903212120a0ca519419e1771f9ad2e7006fa1a452b0c75ff2c153/ast_grep_py-0.40.3-cp314-cp314-win32.whl", hash = "sha256:faeeeb9b657993164c76407c2ad72da8fd018a3f109a7e53707227fb5ec55d40" },
     { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/32/83/16df5509765b525547be20aea1e9183302faac9646a3acc6c8a04984dac5/ast_grep_py-0.40.3-cp314-cp314-win_amd64.whl", hash = "sha256:8c407deb4a8bf1f6fa8df9a63a758f1333924b32f5d08cd4549f917418c0e3eb" },
+]
+
+[[package]]
+name = "async-timeout"
+version = "5.0.1"
+source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/a5/ae/136395dfbfe00dfc94da3f3e136d0b13f394cba8f4841120e34226265780/async_timeout-5.0.1.tar.gz", hash = "sha256:d9321a7a3d5a6a5e187e824d2fa0793ce379a202935782d555d6e9d2735677d3" }
+wheels = [
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/fe/ba/e2081de779ca30d473f21f5b30e0e737c438205440784c7dfc81efc2b029/async_timeout-5.0.1-py3-none-any.whl", hash = "sha256:39e3809566ff85354557ec2398b55e096c8364bacac9405a7a1fa429e77fe76c" },
 ]
 
 [[package]]
@@ -456,6 +490,7 @@ dependencies = [
     { name = "advanced-alchemy" },
     { name = "alembic" },
     { name = "apscheduler" },
+    { name = "faststream", extra = ["kafka"] },
     { name = "grpcio" },
     { name = "grpcio-tools" },
     { name = "httpx" },
@@ -485,6 +520,7 @@ requires-dist = [
     { name = "advanced-alchemy" },
     { name = "alembic" },
     { name = "apscheduler" },
+    { name = "faststream", extras = ["fastapi", "kafka"], specifier = ">=0.6.7" },
     { name = "grpcio", specifier = ">=1.78.0" },
     { name = "grpcio-tools", specifier = ">=1.78.0" },
     { name = "httpx", specifier = ">=0.28.1" },
@@ -528,6 +564,24 @@ wheels = [
 ]
 
 [[package]]
+name = "fast-depends"
+version = "3.0.8"
+source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
+dependencies = [
+    { name = "anyio" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/f8/6d/787a21ca8043a8fdb737cf28f645e94a46fc30b44a31de54573299156bad/fast_depends-3.0.8.tar.gz", hash = "sha256:896b16f79a512b6ea1df721b0aa1708a192a06f964be6597e01fcf5412559101" }
+wheels = [
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/1d/1d/e4843e4eeb65f51447b8c22d200d12d8f94f27c97e77bb7162515cc8d61f/fast_depends-3.0.8-py3-none-any.whl", hash = "sha256:4c52c8a3907bca46d43e70e4364d6d016872d9a3aae4bc0c1c85e72e0a6a21c7" },
+]
+
+[package.optional-dependencies]
+pydantic = [
+    { name = "pydantic" },
+]
+
+[[package]]
 name = "fastapi"
 version = "0.135.1"
 source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
@@ -553,6 +607,25 @@ dependencies = [
 sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/eb/b3/8ccaea776ccb5ab4a887876fbfccf72efa08a4277c0cb9021f31942f818e/fastapi_offline_docs-1.1.0.tar.gz", hash = "sha256:3c6453a2480bada0d3eb165ab396b265ba92ee6650110807293d7d34ccb816df" }
 wheels = [
     { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/52/48/2a47c05bc1e8ba145472ca52d9a0e59c975cbe59cfabead74c66be106a4f/fastapi_offline_docs-1.1.0-py3-none-any.whl", hash = "sha256:fee49e387b46b365e8bb70212b57306676517225b6c0ef9f92d63914f167e607" },
+]
+
+[[package]]
+name = "faststream"
+version = "0.6.7"
+source = { registry = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/simple" }
+dependencies = [
+    { name = "anyio" },
+    { name = "fast-depends", extra = ["pydantic"] },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/19/7b/d02c069be0bc671b2eb8f805a1f824d2bfbe1852c9c3f4ad719a7ad3710b/faststream-0.6.7.tar.gz", hash = "sha256:c732eaf861c4cbddd9c7f9098608486a9f05dff67a72335686c3044039045346" }
+wheels = [
+    { url = "https://artifactory.raiffeisen.ru/artifactory/api/pypi/remote-pypi/packages/packages/ba/23/9d51f352fbb656f5345030f57e20737b1c88167f0eac354ac548d577808b/faststream-0.6.7-py3-none-any.whl", hash = "sha256:a904a4b1e3babeaa244a9460821f5b05dd71b00c959c816360b2acbbe267cd5c" },
+]
+
+[package.optional-dependencies]
+kafka = [
+    { name = "aiokafka" },
 ]
 
 [[package]]
