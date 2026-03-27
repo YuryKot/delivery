@@ -69,7 +69,7 @@ class IOCContainer(that_depends.BaseContainer):
     )
     get_all_couriers_handler = providers.Factory(
         GetAllCouriersQueryHandlerImpl,
-        courier_repository.cast,
+        main_database_session.cast,
     )
     get_all_incomplete_orders_handler = providers.Factory(
         GetAllIncompleteOrdersQueryHandlerImpl,
