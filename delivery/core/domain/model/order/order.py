@@ -2,6 +2,7 @@ import typing
 from uuid import UUID
 
 from delivery.core.domain.model.kernel import Location, Volume
+from delivery.core.domain.model.order.events import OrderCompletedDomainEvent, OrderCreatedDomainEvent
 from delivery.core.domain.model.order.order_status import OrderStatus
 from delivery.libs.ddd.aggregate import Aggregate
 from delivery.libs.errs.error import Error
@@ -47,6 +48,7 @@ class Order(Aggregate[UUID]):
             status=OrderStatus.CREATED,
             courier_id=None,
         )
+        order.raise_domain_event(OrderCreatedDomainEvent(typing.cast("UUID", order.id)))
         return Result.success(order)
 
     @staticmethod
@@ -116,6 +118,7 @@ class Order(Aggregate[UUID]):
             )
 
         self._status = OrderStatus.COMPLETED
+        self.raise_domain_event(OrderCompletedDomainEvent(typing.cast("UUID", self.id)))
         return UnitResult.success()
 
     def __repr__(self) -> str:

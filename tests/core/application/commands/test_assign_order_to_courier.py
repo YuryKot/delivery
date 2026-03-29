@@ -9,8 +9,8 @@ from delivery.core.application.commands.assign_order_to_courier import (
     AssignOrderToCourierCommandHandlerImpl,
 )
 from delivery.core.domain.service.order_dispatch_service import OrderDispatchDomainService
+from delivery.core.ports.order_events_producer import OrderEventsProducer
 from delivery.core.ports.unit_of_work import DeliveryUnitOfWork
-from delivery.event_publisher import DefaultDomainEventPublisher
 from delivery.libs.errs.result import Result
 from tests.test_fixtures import create_test_courier, create_test_order
 
@@ -21,25 +21,25 @@ class TestAssignOrderToCourierCommandHandler:
         return MagicMock(spec=OrderDispatchDomainService)
 
     @pytest.fixture
-    def mock_domain_event_publisher(self) -> MagicMock:
-        return MagicMock(spec=DefaultDomainEventPublisher)
+    def mock_order_events_producer(self) -> MagicMock:
+        return MagicMock(spec=OrderEventsProducer)
 
     @pytest.fixture
     def handler(
         self,
         mock_order_dispatch_service: MagicMock,
-        mock_domain_event_publisher: MagicMock,
+        mock_order_events_producer: MagicMock,
     ) -> AssignOrderToCourierCommandHandler:
         return AssignOrderToCourierCommandHandlerImpl(
             order_dispatch_service=mock_order_dispatch_service,
-            domain_event_publisher=mock_domain_event_publisher,
+            order_events_producer=mock_order_events_producer,
         )
 
     @pytest.mark.anyio
     async def test_assign_order_should_return_failure_when_no_free_couriers(
         self,
         handler: AssignOrderToCourierCommandHandler,
-        mock_domain_event_publisher: MagicMock,
+        mock_order_events_producer: MagicMock,
         monkeypatch: pytest.MonkeyPatch,
     ) -> None:
         command: typing.Final = AssignOrderToCourierCommand()
@@ -54,7 +54,7 @@ class TestAssignOrderToCourierCommandHandler:
         mock_start_cm.__aexit__ = AsyncMock(return_value=None)
 
         monkeypatch.setattr(DeliveryUnitOfWork, "start", lambda: mock_start_cm)
-        mock_domain_event_publisher.publish = AsyncMock()
+        mock_order_events_producer.publish = AsyncMock()
 
         result: typing.Final = await handler.handle(command)
 
@@ -65,7 +65,7 @@ class TestAssignOrderToCourierCommandHandler:
         self,
         handler: AssignOrderToCourierCommandHandler,
         mock_order_dispatch_service: MagicMock,
-        mock_domain_event_publisher: MagicMock,
+        mock_order_events_producer: MagicMock,
         monkeypatch: pytest.MonkeyPatch,
     ) -> None:
         command: typing.Final = AssignOrderToCourierCommand()
@@ -84,11 +84,11 @@ class TestAssignOrderToCourierCommandHandler:
 
         monkeypatch.setattr(DeliveryUnitOfWork, "start", lambda: mock_start_cm)
         mock_order_dispatch_service.dispatch_order = MagicMock(return_value=Result.success(courier))
-        mock_domain_event_publisher.publish = AsyncMock()
+        mock_order_events_producer.publish = AsyncMock()
 
         await handler.handle(command)
 
         mock_order_dispatch_service.dispatch_order.assert_called_once_with(order, [courier])
         mock_uow.order.update.assert_called_once()
         mock_uow.courier.update.assert_called_once()
-        mock_domain_event_publisher.publish.assert_called_once()
+        mock_order_events_producer.publish.assert_called_once()

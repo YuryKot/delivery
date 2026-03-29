@@ -2,8 +2,8 @@ import typing
 
 from delivery.core.domain.model.courier.courier import Courier
 from delivery.core.domain.model.order.order import Order
+from delivery.core.ports.order_events_producer import OrderEventsProducer
 from delivery.core.ports.unit_of_work import DeliveryUnitOfWork
-from delivery.event_publisher import DefaultDomainEventPublisher
 from delivery.libs.errs.error import Error
 from delivery.libs.errs.result import UnitResult
 from .command import MoveCouriersCommand
@@ -13,13 +13,15 @@ from .handler import MoveCouriersCommandHandler
 if typing.TYPE_CHECKING:
     from uuid import UUID
 
+    from delivery.libs.ddd.events import DomainEvent
+
 
 class MoveCouriersCommandHandlerImpl(MoveCouriersCommandHandler):
     def __init__(
         self,
-        domain_event_publisher: DefaultDomainEventPublisher,
+        order_events_producer: OrderEventsProducer,
     ) -> None:
-        self._domain_event_publisher = domain_event_publisher
+        self._order_events_producer = order_events_producer
 
     async def handle(self, command: MoveCouriersCommand) -> UnitResult[Error]:  # noqa: C901, ARG002
         async with DeliveryUnitOfWork.start() as uow:
@@ -59,6 +61,12 @@ class MoveCouriersCommandHandlerImpl(MoveCouriersCommandHandler):
                 elif isinstance(aggregate, Courier):
                     await uow.courier.update(aggregate)
 
-        await self._domain_event_publisher.publish(modified_aggregates)
+        all_events: typing.Final[list[DomainEvent]] = []
+        for aggregate in modified_aggregates:
+            if isinstance(aggregate, Order):
+                all_events.extend(aggregate.get_domain_events())
+
+        if all_events:
+            await self._order_events_producer.publish(all_events)
 
         return UnitResult.success()
