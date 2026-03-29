@@ -22,7 +22,7 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 
 
 DESCRIPTOR: typing.Final = _descriptor_pool.Default().AddSerializedFile(
-    b'\n\x14\x62\x61skets_events.proto\x12\x0c\x62\x61sket_event\x1a\x1fgoogle/protobuf/timestamp.proto"\x9d\x02\n\x1f\x42\x61sketConfirmedIntegrationEvent\x12\x10\n\x08\x65vent_id\x18\x01 \x01(\t\x12\x12\n\nevent_type\x18\x02 \x01(\t\x12/\n\x0boccurred_at\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x11\n\tbasket_id\x18\x04 \x01(\t\x12&\n\x07\x61\x64\x64ress\x18\x05 \x01(\x0b\x32\x15.basket_event.Address\x12!\n\x05items\x18\x06 \x03(\x0b\x32\x12.basket_event.Item\x12\x35\n\x0f\x64\x65livery_period\x18\x07 \x01(\x0b\x32\x1c.basket_event.DeliveryPeriod\x12\x0e\n\x06volume\x18\x08 \x01(\x05"\x9b\x01\n\x1f\x42\x61sketCancelledIntegrationEvent\x12\x10\n\x08\x65vent_id\x18\x01 \x01(\t\x12\x12\n\nevent_type\x18\x02 \x01(\t\x12/\n\x0boccurred_at\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x11\n\tbasket_id\x18\x04 \x01(\t\x12\x0e\n\x06reason\x18\x05 \x01(\t"Z\n\x07\x41\x64\x64ress\x12\x0f\n\x07\x63ountry\x18\x01 \x01(\t\x12\x0c\n\x04\x63ity\x18\x02 \x01(\t\x12\x0e\n\x06street\x18\x03 \x01(\t\x12\r\n\x05house\x18\x04 \x01(\t\x12\x11\n\tapartment\x18\x05 \x01(\t"S\n\x04Item\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0f\n\x07good_id\x18\x02 \x01(\t\x12\r\n\x05title\x18\x03 \x01(\t\x12\r\n\x05price\x18\x04 \x01(\x01\x12\x10\n\x08quantity\x18\x05 \x01(\x05"*\n\x0e\x44\x65liveryPeriod\x12\x0c\n\x04\x66rom\x18\x01 \x01(\x05\x12\n\n\x02to\x18\x02 \x01(\x05\x42\x43\n\rqueues.basketB\x11\x42\x61sketEventsProtoZ\x0fqueues/basketpb\xaa\x02\rQueues.Basketb\x06proto3'
+    b'\n\x14\x62\x61skets_events.proto\x12\rbasket.events\x1a\x1fgoogle/protobuf/timestamp.proto"\xc9\x01\n\x1f\x42\x61sketConfirmedIntegrationEvent\x12\x11\n\tbasket_id\x18\x01 \x01(\t\x12\'\n\x07\x61\x64\x64ress\x18\x02 \x01(\x0b\x32\x16.basket.events.Address\x12"\n\x05items\x18\x03 \x03(\x0b\x32\x13.basket.events.Item\x12\x36\n\x0f\x64\x65livery_period\x18\x04 \x01(\x0b\x32\x1d.basket.events.DeliveryPeriod\x12\x0e\n\x06volume\x18\x05 \x01(\x05"Z\n\x07\x41\x64\x64ress\x12\x0f\n\x07\x63ountry\x18\x01 \x01(\t\x12\x0c\n\x04\x63ity\x18\x02 \x01(\t\x12\x0e\n\x06street\x18\x03 \x01(\t\x12\r\n\x05house\x18\x04 \x01(\t\x12\x11\n\tapartment\x18\x05 \x01(\t"S\n\x04Item\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0f\n\x07good_id\x18\x02 \x01(\t\x12\r\n\x05title\x18\x03 \x01(\t\x12\r\n\x05price\x18\x04 \x01(\x01\x12\x10\n\x08quantity\x18\x05 \x01(\x05"*\n\x0e\x44\x65liveryPeriod\x12\x0c\n\x04\x66rom\x18\x01 \x01(\x05\x12\n\n\x02to\x18\x02 \x01(\x05\x42W\n\x14queues.basket.eventsB\x11\x42\x61sketEventsProtoZ\x15queues/basketeventspb\xaa\x02\x14Queues.Basket.Eventsb\x06proto3'
 )
 
 _globals = globals()
@@ -32,15 +32,15 @@ if not _descriptor._USE_C_DESCRIPTORS:
     _globals["DESCRIPTOR"]._loaded_options = None
     _globals[
         "DESCRIPTOR"
-    ]._serialized_options = b"\n\rqueues.basketB\021BasketEventsProtoZ\017queues/basketpb\252\002\rQueues.Basket"
-    _globals["_BASKETCONFIRMEDINTEGRATIONEVENT"]._serialized_start = 72
-    _globals["_BASKETCONFIRMEDINTEGRATIONEVENT"]._serialized_end = 357
-    _globals["_BASKETCANCELLEDINTEGRATIONEVENT"]._serialized_start = 360
-    _globals["_BASKETCANCELLEDINTEGRATIONEVENT"]._serialized_end = 515
-    _globals["_ADDRESS"]._serialized_start = 517
-    _globals["_ADDRESS"]._serialized_end = 607
-    _globals["_ITEM"]._serialized_start = 609
-    _globals["_ITEM"]._serialized_end = 692
-    _globals["_DELIVERYPERIOD"]._serialized_start = 694
-    _globals["_DELIVERYPERIOD"]._serialized_end = 736
+    ]._serialized_options = (
+        b"\n\024queues.basket.eventsB\021BasketEventsProtoZ\025queues/basketeventspb\252\002\024Queues.Basket.Events"
+    )
+    _globals["_BASKETCONFIRMEDINTEGRATIONEVENT"]._serialized_start = 73
+    _globals["_BASKETCONFIRMEDINTEGRATIONEVENT"]._serialized_end = 274
+    _globals["_ADDRESS"]._serialized_start = 276
+    _globals["_ADDRESS"]._serialized_end = 366
+    _globals["_ITEM"]._serialized_start = 368
+    _globals["_ITEM"]._serialized_end = 451
+    _globals["_DELIVERYPERIOD"]._serialized_start = 453
+    _globals["_DELIVERYPERIOD"]._serialized_end = 495
 # @@protoc_insertion_point(module_scope)

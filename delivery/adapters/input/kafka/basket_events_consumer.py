@@ -34,14 +34,6 @@ class BasketEventsConsumer(KafkaConsumer):
         try:
             confirmed_event: typing.Final = pb2.BasketConfirmedIntegrationEvent.FromString(message)
             await self.handle_basket_confirmed(confirmed_event)
-            return
-
-        except Exception as e:
-            logger.debug("Not a BasketConfirmedIntegrationEvent, trying BasketCancelledIntegrationEvent", error=str(e))
-
-        try:
-            cancelled_event: typing.Final = pb2.BasketCancelledIntegrationEvent.FromString(message)
-            await self.handle_basket_cancelled(cancelled_event)
 
         except Exception as e:
             logger.exception(
@@ -56,7 +48,6 @@ class BasketEventsConsumer(KafkaConsumer):
         logger.info(
             "Received basket confirmed event",
             basket_id=message.basket_id,
-            event_id=message.event_id,
         )
 
         command_result: typing.Final = map_basket_confirmed_to_create_order_command(message)
@@ -88,14 +79,3 @@ class BasketEventsConsumer(KafkaConsumer):
                 basket_id=message.basket_id,
                 order_id=command.order_id,
             )
-
-    async def handle_basket_cancelled(
-        self,
-        message: pb2.BasketCancelledIntegrationEvent,
-    ) -> None:
-        logger.info(
-            "Received basket cancelled event",
-            basket_id=message.basket_id,
-            event_id=message.event_id,
-            reason=message.reason,
-        )
