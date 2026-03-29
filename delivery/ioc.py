@@ -6,6 +6,7 @@ import that_depends
 from db_utils.retries import make_async_retry_session_class
 from that_depends import ContextScopes, providers
 
+from delivery.adapters.out.grps.geo_client_impl import GeoClientImpl
 from delivery.adapters.out.postgres.courier_repository import CourierRepositoryImpl
 from delivery.adapters.out.postgres.order_repository import OrderRepositoryImpl
 from delivery.core.application.commands.assign_order_to_courier import AssignOrderToCourierCommandHandlerImpl
@@ -45,6 +46,11 @@ class IOCContainer(that_depends.BaseContainer):
 
     order_dispatch_service = providers.Factory(OrderDispatchDomainService)
 
+    geo_location_client = providers.Factory(
+        GeoClientImpl,
+        settings.geo_service_grpc_host,
+        settings.geo_service_grpc_port,
+    )
     order_repository = providers.Factory(OrderRepositoryImpl, main_database_session.cast)
     courier_repository = providers.Factory(CourierRepositoryImpl, main_database_session.cast)
 
@@ -56,6 +62,7 @@ class IOCContainer(that_depends.BaseContainer):
         CreateOrderCommandHandlerImpl,
         order_repository.cast,
         courier_repository.cast,
+        geo_location_client.cast,
         domain_event_publisher.cast,
     )
     move_couriers_handler = providers.Factory(

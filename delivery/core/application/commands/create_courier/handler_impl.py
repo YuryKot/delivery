@@ -35,4 +35,5 @@ class CreateCourierCommandHandlerImpl(CreateCourierCommandHandler):
 
         await self._domain_event_publisher.publish([courier])
 
-        return Result.success(courier.id)
+        courier_id: typing.Final = typing.cast("UUID", courier.id)
+        return Result.success(courier_id)

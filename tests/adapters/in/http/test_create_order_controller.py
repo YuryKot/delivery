@@ -39,7 +39,7 @@ class TestCreateOrderController:
             handler=mock_handler,
         )
 
-        assert response.status_code == 201  # type: ignore[attr-defined]
+        assert response.status_code == 201
         mock_handler.handle.assert_called_once()
 
     @pytest.mark.anyio
@@ -65,5 +65,5 @@ class TestCreateOrderController:
             handler=mock_handler,
         )
 
-        assert response.status_code == 409  # type: ignore[attr-defined]
+        assert response.status_code == 409
         mock_handler.handle.assert_called_once()
