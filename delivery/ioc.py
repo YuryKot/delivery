@@ -6,6 +6,7 @@ import that_depends
 from db_utils.retries import make_async_retry_session_class
 from that_depends import ContextScopes, providers
 
+from delivery.adapters.input.kafka.basket_events_consumer import BasketEventsConsumer
 from delivery.adapters.out.grps.geo_client_impl import GeoClientImpl
 from delivery.adapters.out.postgres.courier_repository import CourierRepositoryImpl
 from delivery.adapters.out.postgres.order_repository import OrderRepositoryImpl
@@ -15,6 +16,7 @@ from delivery.core.application.commands.create_order import CreateOrderCommandHa
 from delivery.core.application.commands.move_couriers import MoveCouriersCommandHandlerImpl
 from delivery.core.application.queries.get_all_couriers import GetAllCouriersQueryHandlerImpl
 from delivery.core.application.queries.get_all_incomplete_orders import GetAllIncompleteOrdersQueryHandlerImpl
+from delivery.core.application.services.kafka_consumer_resolver import KafkaConsumerResolver
 from delivery.core.domain.service.order_dispatch_service import OrderDispatchDomainService
 from delivery.event_publisher import DefaultDomainEventPublisher
 from delivery.settings import settings
@@ -97,4 +99,14 @@ class IOCContainer(that_depends.BaseContainer):
     app_move_couriers_handler = providers.Factory(
         MoveCouriersCommandHandlerImpl,
         app_domain_event_publisher.cast,
+    )
+
+    # Kafka consumers
+    basket_events_consumer = providers.Factory(
+        BasketEventsConsumer,
+        create_order_handler.cast,
+    )
+    kafka_consumer_resolver = providers.Factory(
+        KafkaConsumerResolver,
+        basket_events_consumer.cast,
     )
