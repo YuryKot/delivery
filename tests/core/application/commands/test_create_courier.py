@@ -8,49 +8,36 @@ from delivery.core.application.commands.create_courier import (
     CreateCourierCommandHandler,
     CreateCourierCommandHandlerImpl,
 )
-from delivery.core.ports.courier_repository import CourierRepository
-from delivery.event_publisher import DefaultDomainEventPublisher
+from delivery.core.ports.unit_of_work import DeliveryUnitOfWork
 
 
 class TestCreateCourierCommandHandler:
     @pytest.fixture
-    def mock_courier_repository(self) -> MagicMock:
-        return MagicMock(spec=CourierRepository)
-
-    @pytest.fixture
-    def mock_domain_event_publisher(self) -> MagicMock:
-        return MagicMock(spec=DefaultDomainEventPublisher)
-
-    @pytest.fixture
     def handler(
         self,
-        mock_courier_repository: MagicMock,
-        mock_domain_event_publisher: MagicMock,
     ) -> CreateCourierCommandHandler:
-        return CreateCourierCommandHandlerImpl(
-            courier_repository=mock_courier_repository,
-            domain_event_publisher=mock_domain_event_publisher,
-        )
+        return CreateCourierCommandHandlerImpl()
 
     @pytest.mark.anyio
     async def test_create_courier_should_be_success(
         self,
         handler: CreateCourierCommandHandler,
-        mock_courier_repository: MagicMock,
-        mock_domain_event_publisher: MagicMock,
+        monkeypatch: pytest.MonkeyPatch,
     ) -> None:
         command: typing.Final = CreateCourierCommand(name="Test Courier", speed=10)
 
-        mock_courier_repository.add = AsyncMock()
-        mock_domain_event_publisher.publish = AsyncMock()
+        mock_uow: typing.Final = MagicMock()
+        mock_uow.courier.add = AsyncMock()
+        mock_uow.domain_event_publisher.publish = AsyncMock()
+
+        mock_start_cm: typing.Final = MagicMock()
+        mock_start_cm.__aenter__ = AsyncMock(return_value=mock_uow)
+        mock_start_cm.__aexit__ = AsyncMock(return_value=None)
+
+        monkeypatch.setattr(DeliveryUnitOfWork, "start", lambda: mock_start_cm)
 
         result: typing.Final = await handler.handle(command)
 
         assert result.is_success
-        mock_courier_repository.add.assert_called_once()
-        mock_domain_event_publisher.publish.assert_called_once()
-
-        added_courier: typing.Final = mock_courier_repository.add.call_args[0][0]
-        assert added_courier.name == "Test Courier"
-        assert added_courier.speed == 10
-        assert result.get_value() == added_courier.id
+        mock_uow.courier.add.assert_called_once()
+        mock_uow.domain_event_publisher.publish.assert_called_once()

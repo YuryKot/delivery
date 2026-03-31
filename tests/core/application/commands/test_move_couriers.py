@@ -11,30 +11,21 @@ from delivery.core.application.commands.move_couriers import (
 )
 from delivery.core.domain.model.courier.courier import Courier
 from delivery.core.domain.model.kernel import Location, Volume
-from delivery.core.ports.order_events_producer import OrderEventsProducer
 from delivery.core.ports.unit_of_work import DeliveryUnitOfWork
 from tests.test_fixtures import create_test_order
 
 
 class TestMoveCouriersCommandHandler:
     @pytest.fixture
-    def mock_order_events_producer(self) -> MagicMock:
-        return MagicMock(spec=OrderEventsProducer)
-
-    @pytest.fixture
     def handler(
         self,
-        mock_order_events_producer: MagicMock,
     ) -> MoveCouriersCommandHandler:
-        return MoveCouriersCommandHandlerImpl(
-            order_events_producer=mock_order_events_producer,
-        )
+        return MoveCouriersCommandHandlerImpl()
 
     @pytest.mark.anyio
     async def test_move_couriers_should_move_couriers_when_not_reached(
         self,
         handler: MoveCouriersCommandHandler,
-        mock_order_events_producer: MagicMock,
         monkeypatch: pytest.MonkeyPatch,
     ) -> None:
         command: typing.Final = MoveCouriersCommand()
@@ -50,13 +41,13 @@ class TestMoveCouriersCommandHandler:
         mock_uow.courier.get_by_id = AsyncMock(return_value=courier)
         mock_uow.courier.update = AsyncMock()
         mock_uow.order.update = AsyncMock()
+        mock_uow.domain_event_publisher.publish = AsyncMock()
 
         mock_start_cm: typing.Final = MagicMock()
         mock_start_cm.__aenter__ = AsyncMock(return_value=mock_uow)
         mock_start_cm.__aexit__ = AsyncMock(return_value=None)
 
         monkeypatch.setattr(DeliveryUnitOfWork, "start", lambda: mock_start_cm)
-        mock_order_events_producer.publish = AsyncMock()
 
         await handler.handle(command)
 
@@ -64,13 +55,12 @@ class TestMoveCouriersCommandHandler:
         mock_uow.courier.get_by_id.assert_called_once_with(courier_id)
         mock_uow.courier.update.assert_called_once()
         mock_uow.order.update.assert_not_called()
-        mock_order_events_producer.publish.assert_not_called()
+        mock_uow.domain_event_publisher.publish.assert_not_called()
 
     @pytest.mark.anyio
     async def test_move_couriers_should_complete_orders_when_reached(
         self,
         handler: MoveCouriersCommandHandler,
-        mock_order_events_producer: MagicMock,
         monkeypatch: pytest.MonkeyPatch,
     ) -> None:
         command: typing.Final = MoveCouriersCommand()
@@ -92,13 +82,13 @@ class TestMoveCouriersCommandHandler:
         mock_uow.courier.get_by_id = AsyncMock(return_value=courier)
         mock_uow.courier.update = AsyncMock()
         mock_uow.order.update = AsyncMock()
+        mock_uow.domain_event_publisher.publish = AsyncMock()
 
         mock_start_cm: typing.Final = MagicMock()
         mock_start_cm.__aenter__ = AsyncMock(return_value=mock_uow)
         mock_start_cm.__aexit__ = AsyncMock(return_value=None)
 
         monkeypatch.setattr(DeliveryUnitOfWork, "start", lambda: mock_start_cm)
-        mock_order_events_producer.publish = AsyncMock()
 
         await handler.handle(command)
 
@@ -106,4 +96,4 @@ class TestMoveCouriersCommandHandler:
         mock_uow.courier.get_by_id.assert_called_once_with(courier_id)
         mock_uow.courier.update.assert_called_once()
         mock_uow.order.update.assert_called_once()
-        mock_order_events_producer.publish.assert_called_once()
+        mock_uow.domain_event_publisher.publish.assert_called_once()

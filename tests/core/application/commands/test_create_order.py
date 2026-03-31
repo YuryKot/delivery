@@ -10,57 +10,31 @@ from delivery.core.application.commands.create_order import (
     CreateOrderCommandHandlerImpl,
 )
 from delivery.core.domain.model.kernel import Address, Location, Volume
-from delivery.core.ports.courier_repository import CourierRepository
 from delivery.core.ports.geo_location_client import GeoLocationClient
-from delivery.core.ports.order_events_producer import OrderEventsProducer
-from delivery.core.ports.order_repository import OrderRepository
-from delivery.event_publisher import DefaultDomainEventPublisher
+from delivery.core.ports.unit_of_work import DeliveryUnitOfWork
 from delivery.libs.errs.result import Result
 
 
 class TestCreateOrderCommandHandler:
     @pytest.fixture
-    def mock_order_repository(self) -> MagicMock:
-        return MagicMock(spec=OrderRepository)
-
-    @pytest.fixture
-    def mock_courier_repository(self) -> MagicMock:
-        return MagicMock(spec=CourierRepository)
-
-    @pytest.fixture
-    def mock_domain_event_publisher(self) -> MagicMock:
-        return MagicMock(spec=DefaultDomainEventPublisher)
-
-    @pytest.fixture
     def mock_geo_location_client(self) -> MagicMock:
         return MagicMock(spec=GeoLocationClient)
 
     @pytest.fixture
-    def mock_order_events_producer(self) -> MagicMock:
-        return MagicMock(spec=OrderEventsProducer)
-
-    @pytest.fixture
     def handler(
         self,
-        mock_order_repository: MagicMock,
-        mock_courier_repository: MagicMock,
         mock_geo_location_client: MagicMock,
-        mock_order_events_producer: MagicMock,
     ) -> CreateOrderCommandHandler:
         return CreateOrderCommandHandlerImpl(
-            order_repository=mock_order_repository,
-            courier_repository=mock_courier_repository,
             geo_location_client=mock_geo_location_client,
-            order_events_producer=mock_order_events_producer,
         )
 
     @pytest.mark.anyio
     async def test_create_order_should_be_success(
         self,
         handler: CreateOrderCommandHandler,
-        mock_order_repository: MagicMock,
         mock_geo_location_client: MagicMock,
-        mock_order_events_producer: MagicMock,
+        monkeypatch: pytest.MonkeyPatch,
     ) -> None:
         order_id: typing.Final = uuid4()
         address: typing.Final = Address.must_create(
@@ -77,15 +51,22 @@ class TestCreateOrderCommandHandler:
             volume=volume,
         )
 
-        mock_order_repository.add = AsyncMock()
+        mock_uow: typing.Final = MagicMock()
+        mock_uow.order.add = AsyncMock()
+        mock_uow.domain_event_publisher.publish = AsyncMock()
+
+        mock_start_cm: typing.Final = MagicMock()
+        mock_start_cm.__aenter__ = AsyncMock(return_value=mock_uow)
+        mock_start_cm.__aexit__ = AsyncMock(return_value=None)
+
+        monkeypatch.setattr(DeliveryUnitOfWork, "start", lambda: mock_start_cm)
         mock_geo_location_client.get_location = AsyncMock(return_value=Result.success(Location.must_create(5, 5)))
-        mock_order_events_producer.publish = AsyncMock()
 
         await handler.handle(command)
 
-        mock_order_repository.add.assert_called_once()
-        mock_order_events_producer.publish.assert_called_once()
+        mock_uow.order.add.assert_called_once()
+        mock_uow.domain_event_publisher.publish.assert_called_once()
 
-        added_order: typing.Final = mock_order_repository.add.call_args[0][0]
+        added_order: typing.Final = mock_uow.order.add.call_args[0][0]
         assert added_order.id == order_id
         assert added_order.volume == volume

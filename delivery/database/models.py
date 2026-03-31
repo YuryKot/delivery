@@ -65,3 +65,17 @@ class CourierModel(BaseServiceModel):
         cascade="all, delete-orphan",
         foreign_keys=[StoragePlaceModel.courier_id],
     )
+
+
+class OutboxMessageModel(BaseServiceModel):
+    __tablename__ = "outbox"
+
+    id: Mapped[uuid.UUID] = mapped_column(sqlalchemy.types.Uuid, primary_key=True)
+    event_type: Mapped[str] = mapped_column(sqlalchemy.types.String, nullable=False)
+    aggregate_id: Mapped[uuid.UUID] = mapped_column(sqlalchemy.types.Uuid, nullable=False)
+    aggregate_type: Mapped[str] = mapped_column(sqlalchemy.types.String, nullable=False)
+    payload: Mapped[str] = mapped_column(sqlalchemy.types.Text, nullable=False)
+    occurred_on_utc: Mapped[datetime.datetime] = mapped_column(sqlalchemy.types.DateTime(timezone=True), nullable=False)
+    processed_on_utc: Mapped[datetime.datetime | None] = mapped_column(
+        sqlalchemy.types.DateTime(timezone=True), nullable=True
+    )

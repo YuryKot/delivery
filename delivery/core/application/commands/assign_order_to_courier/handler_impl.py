@@ -1,7 +1,6 @@
 import typing
 
 from delivery.core.domain.service.order_dispatch_service import OrderDispatchDomainService
-from delivery.core.ports.order_events_producer import OrderEventsProducer
 from delivery.core.ports.unit_of_work import DeliveryUnitOfWork
 from delivery.libs.errs.error import Error
 from delivery.libs.errs.result import UnitResult
@@ -17,10 +16,8 @@ class AssignOrderToCourierCommandHandlerImpl(AssignOrderToCourierCommandHandler)
     def __init__(
         self,
         order_dispatch_service: OrderDispatchDomainService,
-        order_events_producer: OrderEventsProducer,
     ) -> None:
         self._order_dispatch_service = order_dispatch_service
-        self._order_events_producer = order_events_producer
 
     async def handle(self, command: AssignOrderToCourierCommand) -> UnitResult[Error]:  # noqa: ARG002
         async with DeliveryUnitOfWork.start() as uow:
@@ -54,6 +51,6 @@ class AssignOrderToCourierCommandHandlerImpl(AssignOrderToCourierCommandHandler)
             await uow.order.update(order)
             await uow.courier.update(best_courier)
 
-        await self._order_events_producer.publish(order.get_domain_events())
+            await uow.domain_event_publisher.publish([order])
 
         return UnitResult.success()

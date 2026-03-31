@@ -6,8 +6,11 @@ from apscheduler.triggers.interval import IntervalTrigger  # type: ignore[import
 
 from delivery.adapters.input.scheduler.jobs.assign_orders_job import AssignOrdersJob
 from delivery.adapters.input.scheduler.jobs.move_couriers_job import MoveCouriersJob
+from delivery.adapters.input.scheduler.jobs.outbox_job import OutboxJob
 from delivery.core.application.commands.assign_order_to_courier import AssignOrderToCourierCommandHandler
 from delivery.core.application.commands.move_couriers import MoveCouriersCommandHandler
+from delivery.core.ports.order_events_producer import OrderEventsProducer
+from delivery.core.ports.outbox_repository import OutboxRepository
 
 
 logger = logging.getLogger(__name__)
@@ -16,11 +19,14 @@ logger = logging.getLogger(__name__)
 def create_scheduler(
     assign_orders_handler: AssignOrderToCourierCommandHandler,
     move_couriers_handler: MoveCouriersCommandHandler,
+    outbox_repository: OutboxRepository,
+    order_events_producer: OrderEventsProducer,
 ) -> AsyncIOScheduler:
     scheduler: typing.Final = AsyncIOScheduler()
 
     assign_orders_job: typing.Final = AssignOrdersJob(assign_orders_handler)
     move_couriers_job: typing.Final = MoveCouriersJob(move_couriers_handler)
+    outbox_job: typing.Final = OutboxJob(outbox_repository, order_events_producer)  # type: ignore[arg-type]
 
     scheduler.add_job(
         assign_orders_job.run,
@@ -35,6 +41,14 @@ def create_scheduler(
         trigger=IntervalTrigger(seconds=1),
         id="move_couriers_job",
         name="Move Couriers",
+        replace_existing=True,
+    )
+
+    scheduler.add_job(
+        outbox_job.run,
+        trigger=IntervalTrigger(seconds=1),
+        id="outbox_job",
+        name="Send Outbox Messages",
         replace_existing=True,
     )
 

@@ -1,10 +1,8 @@
 import typing
 
 from delivery.core.domain.model.order.order import Order
-from delivery.core.ports.courier_repository import CourierRepository
 from delivery.core.ports.geo_location_client import GeoLocationClient
-from delivery.core.ports.order_events_producer import OrderEventsProducer
-from delivery.core.ports.order_repository import OrderRepository
+from delivery.core.ports.unit_of_work import DeliveryUnitOfWork
 from delivery.libs.errs.error import Error
 from delivery.libs.errs.result import UnitResult
 from .command import CreateOrderCommand
@@ -14,15 +12,9 @@ from .handler import CreateOrderCommandHandler
 class CreateOrderCommandHandlerImpl(CreateOrderCommandHandler):
     def __init__(
         self,
-        order_repository: OrderRepository,
-        courier_repository: CourierRepository,
         geo_location_client: GeoLocationClient,
-        order_events_producer: OrderEventsProducer,
     ) -> None:
-        self._order_repository = order_repository
-        self._courier_repository = courier_repository
         self._geo_location_client = geo_location_client
-        self._order_events_producer = order_events_producer
 
     async def handle(self, command: CreateOrderCommand) -> UnitResult[Error]:
         location_result: typing.Final = await self._geo_location_client.get_location(command.address.street)
@@ -35,8 +27,8 @@ class CreateOrderCommandHandlerImpl(CreateOrderCommandHandler):
 
         order: typing.Final = order_result.get_value()
 
-        await self._order_repository.add(order)
-
-        await self._order_events_producer.publish(order.get_domain_events())
+        async with DeliveryUnitOfWork.start() as uow:
+            await uow.order.add(order)
+            await uow.domain_event_publisher.publish([order])
 
         return UnitResult.success()
