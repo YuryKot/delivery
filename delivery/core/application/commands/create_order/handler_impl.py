@@ -3,8 +3,8 @@ import typing
 from delivery.core.domain.model.order.order import Order
 from delivery.core.ports.courier_repository import CourierRepository
 from delivery.core.ports.geo_location_client import GeoLocationClient
+from delivery.core.ports.order_events_producer import OrderEventsProducer
 from delivery.core.ports.order_repository import OrderRepository
-from delivery.event_publisher import DefaultDomainEventPublisher
 from delivery.libs.errs.error import Error
 from delivery.libs.errs.result import UnitResult
 from .command import CreateOrderCommand
@@ -17,12 +17,12 @@ class CreateOrderCommandHandlerImpl(CreateOrderCommandHandler):
         order_repository: OrderRepository,
         courier_repository: CourierRepository,
         geo_location_client: GeoLocationClient,
-        domain_event_publisher: DefaultDomainEventPublisher,
+        order_events_producer: OrderEventsProducer,
     ) -> None:
         self._order_repository = order_repository
         self._courier_repository = courier_repository
         self._geo_location_client = geo_location_client
-        self._domain_event_publisher = domain_event_publisher
+        self._order_events_producer = order_events_producer
 
     async def handle(self, command: CreateOrderCommand) -> UnitResult[Error]:
         location_result: typing.Final = await self._geo_location_client.get_location(command.address.street)
@@ -37,6 +37,6 @@ class CreateOrderCommandHandlerImpl(CreateOrderCommandHandler):
 
         await self._order_repository.add(order)
 
-        await self._domain_event_publisher.publish([order])
+        await self._order_events_producer.publish(order.get_domain_events())
 
         return UnitResult.success()

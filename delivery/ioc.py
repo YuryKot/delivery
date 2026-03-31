@@ -4,10 +4,12 @@ import psycopg
 import sqlalchemy.ext.asyncio as sa_async
 import that_depends
 from db_utils.retries import make_async_retry_session_class
+from faststream.kafka import KafkaBroker
 from that_depends import ContextScopes, providers
 
 from delivery.adapters.input.kafka.basket_events_consumer import BasketEventsConsumer
 from delivery.adapters.out.grps.geo_client_impl import GeoClientImpl
+from delivery.adapters.out.kafka.order_events_producer import OrderEventsProducerImpl
 from delivery.adapters.out.postgres.courier_repository import CourierRepositoryImpl
 from delivery.adapters.out.postgres.order_repository import OrderRepositoryImpl
 from delivery.core.application.commands.assign_order_to_courier import AssignOrderToCourierCommandHandlerImpl
@@ -38,6 +40,13 @@ async def create_database_session(database_engine: sa_async.AsyncEngine) -> typi
         yield session
 
 
+def create_kafka_broker() -> KafkaBroker:
+    broker: typing.Final = KafkaBroker(
+        bootstrap_servers=settings.kafka_bootstrap_servers,
+    )
+    return broker
+
+
 class IOCContainer(that_depends.BaseContainer):
     default_scope = ContextScopes.REQUEST
 
@@ -56,6 +65,9 @@ class IOCContainer(that_depends.BaseContainer):
     order_repository = providers.Factory(OrderRepositoryImpl, main_database_session.cast)
     courier_repository = providers.Factory(CourierRepositoryImpl, main_database_session.cast)
 
+    kafka_broker = providers.Singleton(create_kafka_broker)
+    order_events_producer = providers.Factory(OrderEventsProducerImpl, kafka_broker.cast)
+
     domain_event_publisher = providers.Singleton(DefaultDomainEventPublisher)
     create_courier_handler = providers.Factory(
         CreateCourierCommandHandlerImpl, courier_repository.cast, domain_event_publisher.cast
@@ -65,16 +77,16 @@ class IOCContainer(that_depends.BaseContainer):
         order_repository.cast,
         courier_repository.cast,
         geo_location_client.cast,
-        domain_event_publisher.cast,
+        order_events_producer.cast,
     )
     move_couriers_handler = providers.Factory(
         MoveCouriersCommandHandlerImpl,
-        domain_event_publisher.cast,
+        order_events_producer.cast,
     )
     assign_order_to_courier_handler = providers.Factory(
         AssignOrderToCourierCommandHandlerImpl,
         order_dispatch_service.cast,
-        domain_event_publisher.cast,
+        order_events_producer.cast,
     )
     get_all_couriers_handler = providers.Factory(
         GetAllCouriersQueryHandlerImpl,
@@ -94,11 +106,11 @@ class IOCContainer(that_depends.BaseContainer):
     app_assign_order_to_courier_handler = providers.Factory(
         AssignOrderToCourierCommandHandlerImpl,
         app_order_dispatch_service.cast,
-        app_domain_event_publisher.cast,
+        order_events_producer.cast,
     )
     app_move_couriers_handler = providers.Factory(
         MoveCouriersCommandHandlerImpl,
-        app_domain_event_publisher.cast,
+        order_events_producer.cast,
     )
 
     # Kafka consumers

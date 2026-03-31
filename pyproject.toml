@@ -86,6 +86,7 @@ lines-after-imports = 2
 "delivery/adapters/input/kafka/baskets_events_pb2.py" = ["ALL"]
 "delivery/adapters/input/kafka/mappers/basket_event_mapper.py" = ["ALL"]
 "delivery/adapters/input/kafka/basket_events_consumer.py" = ["ALL"]
+"delivery/adapters/out/kafka/proto/orders_events_pb2.py" = ["ALL"]
 "delivery/kafka.py" = ["ALL"]
 "delivery/core/ports/kafka_consumer.py" = ["ALL"]
 "delivery/core/ports/kafka_consumer_registry.py" = ["ALL"]
