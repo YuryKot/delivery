@@ -8,10 +8,13 @@ from faststream.kafka import KafkaBroker
 from that_depends import ContextScopes, providers
 
 from delivery.adapters.input.kafka.basket_events_consumer import BasketEventsConsumer
+from delivery.adapters.input.scheduler.jobs.outbox_job import OutboxJob
 from delivery.adapters.out.grps.geo_client_impl import GeoClientImpl
 from delivery.adapters.out.kafka.order_events_producer import OrderEventsProducerImpl
 from delivery.adapters.out.postgres.courier_repository import CourierRepositoryImpl
 from delivery.adapters.out.postgres.order_repository import OrderRepositoryImpl
+from delivery.adapters.out.postgres.outbox_domain_event_publisher import OutboxDomainEventPublisher
+from delivery.adapters.out.postgres.outbox_repository import OutboxRepositoryImpl
 from delivery.core.application.commands.assign_order_to_courier import AssignOrderToCourierCommandHandlerImpl
 from delivery.core.application.commands.create_courier import CreateCourierCommandHandlerImpl
 from delivery.core.application.commands.create_order import CreateOrderCommandHandlerImpl
@@ -68,25 +71,22 @@ class IOCContainer(that_depends.BaseContainer):
     kafka_broker = providers.Singleton(create_kafka_broker)
     order_events_producer = providers.Factory(OrderEventsProducerImpl, kafka_broker.cast)
 
+    outbox_repository = providers.Factory(OutboxRepositoryImpl, main_database_session.cast)
+    outbox_domain_event_publisher = providers.Factory(OutboxDomainEventPublisher, outbox_repository.cast)
     domain_event_publisher = providers.Singleton(DefaultDomainEventPublisher)
     create_courier_handler = providers.Factory(
-        CreateCourierCommandHandlerImpl, courier_repository.cast, domain_event_publisher.cast
+        CreateCourierCommandHandlerImpl,
     )
     create_order_handler = providers.Factory(
         CreateOrderCommandHandlerImpl,
-        order_repository.cast,
-        courier_repository.cast,
         geo_location_client.cast,
-        order_events_producer.cast,
     )
     move_couriers_handler = providers.Factory(
         MoveCouriersCommandHandlerImpl,
-        order_events_producer.cast,
     )
     assign_order_to_courier_handler = providers.Factory(
         AssignOrderToCourierCommandHandlerImpl,
         order_dispatch_service.cast,
-        order_events_producer.cast,
     )
     get_all_couriers_handler = providers.Factory(
         GetAllCouriersQueryHandlerImpl,
@@ -101,15 +101,21 @@ class IOCContainer(that_depends.BaseContainer):
     app_order_repository = providers.Factory(OrderRepositoryImpl, app_main_database_session.cast)
     app_courier_repository = providers.Factory(CourierRepositoryImpl, app_main_database_session.cast)
     app_order_dispatch_service = providers.Factory(OrderDispatchDomainService)
+    app_outbox_repository = providers.Factory(OutboxRepositoryImpl, app_main_database_session.cast)
+    app_outbox_domain_event_publisher = providers.Factory(OutboxDomainEventPublisher, app_outbox_repository.cast)
     app_domain_event_publisher = providers.Singleton(DefaultDomainEventPublisher)
 
     app_assign_order_to_courier_handler = providers.Factory(
         AssignOrderToCourierCommandHandlerImpl,
         app_order_dispatch_service.cast,
-        order_events_producer.cast,
     )
     app_move_couriers_handler = providers.Factory(
         MoveCouriersCommandHandlerImpl,
+    )
+
+    outbox_job = providers.Factory(
+        OutboxJob,
+        outbox_repository.cast,
         order_events_producer.cast,
     )
 

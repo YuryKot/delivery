@@ -7,6 +7,8 @@ from db_utils.retries import make_async_retry_session_class
 
 from delivery.core.ports.courier_repository import CourierRepository
 from delivery.core.ports.order_repository import OrderRepository
+from delivery.core.ports.outbox_repository import OutboxRepository
+from delivery.libs.ddd import DomainEventPublisher
 from delivery.settings import settings
 
 
@@ -14,6 +16,8 @@ from delivery.settings import settings
 class DeliveryUnitOfWork:
     order: OrderRepository
     courier: CourierRepository
+    outbox: OutboxRepository
+    domain_event_publisher: DomainEventPublisher
 
     @classmethod
     @contextlib.asynccontextmanager
@@ -21,6 +25,10 @@ class DeliveryUnitOfWork:
 
         from delivery.adapters.out.postgres.courier_repository import CourierRepositoryImpl  # noqa: PLC0415
         from delivery.adapters.out.postgres.order_repository import OrderRepositoryImpl  # noqa: PLC0415
+        from delivery.adapters.out.postgres.outbox_domain_event_publisher import (  # noqa: PLC0415
+            OutboxDomainEventPublisher,
+        )
+        from delivery.adapters.out.postgres.outbox_repository import OutboxRepositoryImpl  # noqa: PLC0415
         from delivery.ioc import IOCContainer  # noqa: PLC0415
 
         engine: typing.Final = await IOCContainer.main_database_engine()
@@ -32,9 +40,16 @@ class DeliveryUnitOfWork:
 
         async with retry_class(engine, expire_on_commit=False) as session:
             try:
+                order_repo: typing.Final = OrderRepositoryImpl(session=session)
+                courier_repo: typing.Final = CourierRepositoryImpl(session=session)
+                outbox_repo: typing.Final = OutboxRepositoryImpl(session=session)
+                publisher: typing.Final = OutboxDomainEventPublisher(outbox_repo)
+
                 yield cls(
-                    order=OrderRepositoryImpl(session=session),
-                    courier=CourierRepositoryImpl(session=session),
+                    order=order_repo,
+                    courier=courier_repo,
+                    outbox=outbox_repo,
+                    domain_event_publisher=publisher,
                 )
             except Exception:
                 await session.rollback()
